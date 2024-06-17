@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import { useMemo, useContext, createContext, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, Merged, RenderTexture, PerspectiveCamera, Text } from '@react-three/drei'
-import { SpinningBox } from './SpinningBox'
+import { useGLTF, Merged, RenderTexture, PerspectiveCamera, Text, Icosahedron } from '@react-three/drei'
+import { SectionContext } from '../App'
 THREE.ColorManagement.legacyMode = false
 
 /*
@@ -15,9 +15,10 @@ Source: https://sketchfab.com/3d-models/old-computers-7bb6e720499a467b8e0427451d
 Title: Old Computers
 */
 
-const context = createContext()
+const Context = createContext()
+
 export function Instances({ children, ...props }) {
-  const { nodes } = useGLTF('/computers_1-transformed.glb')
+  const { nodes } = useGLTF('/computers.glb')
   const instances = useMemo(
     () => ({
       Object: nodes.Object_4,
@@ -39,14 +40,14 @@ export function Instances({ children, ...props }) {
   )
   return (
     <Merged castShadow receiveShadow meshes={instances} {...props}>
-      {(instances) => <context.Provider value={instances} children={children} />}
+      {(instances) => <Context.Provider value={instances} children={children} />}
     </Merged>
   )
 }
 
 export function Computers(props) {
-  const { nodes: n, materials: m } = useGLTF('/computers_1-transformed.glb')
-  const instances = useContext(context)
+  const { nodes: n, materials: m } = useGLTF('/computers.glb')
+  const instances = useContext(Context)
   return (
     <group {...props} dispose={null}>
       <instances.Object position={[0.16, 0.79, -1.97]} rotation={[-0.54, 0.93, -1.12]} scale={0.5} />
@@ -166,7 +167,7 @@ export function Computers(props) {
 /* This component renders a monitor (taken out of the gltf model)
    It renders a custom scene into a texture and projects it onto monitors screen */
 function Screen({ frame, panel, children, ...props }) {
-  const { nodes, materials } = useGLTF('/computers_1-transformed.glb')
+  const { nodes, materials } = useGLTF('/computers.glb')
   return (
     <group {...props}>
       <mesh castShadow receiveShadow geometry={nodes[frame].geometry} material={materials.Texture} />
@@ -182,33 +183,94 @@ function Screen({ frame, panel, children, ...props }) {
 }
 
 /* Renders a monitor with some text */
-function ScreenText({ invert, x = 0, y = 1.2, ...props }) {
+function ScreenText({ invert, x = 0, y = 1, ...props }) {
+  const section = useContext(SectionContext)
   const textRef = useRef()
-  const rand = Math.random() * 10000
-  useFrame((state) => (textRef.current.position.x = x + Math.sin(rand + state.clock.elapsedTime / 4) * 8))
+  let color
+  let text
+  let speed
+  switch(section) {
+    case 0:
+      color = 'red'
+      text = 'About Me'
+      speed = 5
+      break;
+    case 1:
+      color = 'orange'
+      text = 'Certifications'
+      speed = 7.5
+      break;
+    case 2:
+      color='yellow'
+      text='Works'
+      speed = 5
+      break;
+    case 3:
+      color='lime'
+      text='References'
+      speed = 7.5
+      break;
+    case 4:
+      color='violet'
+      text='Contacts'
+      speed = 5
+      break;
+  }
+  useFrame((state) => {
+    invert === true ? (
+      textRef.current.position.x = x + Math.sin(state.clock.elapsedTime) * speed
+    ) : (
+      textRef.current.position.x = x - Math.sin(state.clock.elapsedTime) * speed
+    )
+  })
   return (
     <Screen {...props}>
       <PerspectiveCamera makeDefault manual aspect={1 / 1} position={[0, 0, 15]} />
       <color attach="background" args={['black']} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} />
-      <Text position={[x, y, 0]} ref={textRef} fontSize={1} letterSpacing={-0.1} color={'lime'} fontWeight={'bold'}>
-        BRAINSTORM  CREATE  INNOVATE
+      <Text position={[x, y, 0]} ref={textRef} fontSize={1.5} color={color} font='/pixel.ttf'>
+        {text}
       </Text>
     </Screen>
   )
 }
 
-/* Renders a monitor with a spinning box */
+/* Renders a monitor with a spinning icosahedron */
 function ScreenInteractive(props) {
+  const section = useContext(SectionContext)
+  const ref = useRef()
+  let i = 20
+  useFrame((state, delta) => {
+    if (i > 1) {
+      i-=.05
+      ref.current.rotation.y += i*delta;
+    } else {
+      ref.current.rotation.x += delta; 
+      ref.current.rotation.y += delta;
+    }
+  })
+
+  const iso = (color) => {
+    return (
+      <Icosahedron ref={ref} position={[-3.15, 0.75, 0]} scale={.5}>
+        <meshStandardMaterial wireframe color={color}/>
+      </Icosahedron>
+    )
+  }
+
   return (
     <Screen {...props}>
       <PerspectiveCamera makeDefault manual aspect={1 / 1} position={[0, 0, 10]} />
-      <color attach="background" args={['orange']} />
+      <color attach="background" args={['black']} />
       <ambientLight intensity={Math.PI / 2} />
       <pointLight decay={0} position={[10, 10, 10]} intensity={Math.PI} />
       <pointLight decay={0} position={[-10, -10, -10]} />
-      <SpinningBox position={[-3.15, 0.75, 0]} scale={0.5} />
+      {section == 0 && iso('red')}
+      {section == 1 && iso('orange')}
+      {section == 2 && iso('yellow')}
+      {section == 3 && iso('lime')}
+      {section == 4 && iso('violet')}
     </Screen>
   )
 }
@@ -216,7 +278,7 @@ function ScreenInteractive(props) {
 // Renders flashing LED's
 function Leds({ instances }) {
   const ref = useRef()
-  const { nodes } = useGLTF('/computers_1-transformed.glb')
+  const { nodes } = useGLTF('/computers.glb')
   useMemo(() => {
     nodes.Sphere.material = new THREE.MeshBasicMaterial()
     nodes.Sphere.material.toneMapped = false
