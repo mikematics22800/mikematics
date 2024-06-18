@@ -17,8 +17,10 @@ Title: Old Computers
 
 const Context = createContext()
 
+const modelPath = `${process.env.PUBLIC_URL}/arrow.glb`;
+
 export function Instances({ children, ...props }) {
-  const { nodes } = useGLTF('/computers.glb')
+  const { nodes } = useGLTF(modelPath)
   const instances = useMemo(
     () => ({
       Object: nodes.Object_4,
@@ -46,7 +48,7 @@ export function Instances({ children, ...props }) {
 }
 
 export function Computers(props) {
-  const { nodes: n, materials: m } = useGLTF('/computers.glb')
+  const { nodes: n, materials: m } = useGLTF(modelPath)
   const instances = useContext(Context)
   return (
     <group {...props} dispose={null}>
@@ -167,7 +169,7 @@ export function Computers(props) {
 /* This component renders a monitor (taken out of the gltf model)
    It renders a custom scene into a texture and projects it onto monitors screen */
 function Screen({ frame, panel, children, ...props }) {
-  const { nodes, materials } = useGLTF('/computers.glb')
+  const { nodes, materials } = useGLTF(modelPath)
   return (
     <group {...props}>
       <mesh castShadow receiveShadow geometry={nodes[frame].geometry} material={materials.Texture} />
@@ -278,7 +280,7 @@ function ScreenInteractive(props) {
 // Renders flashing LED's
 function Leds({ instances }) {
   const ref = useRef()
-  const { nodes } = useGLTF('/computers.glb')
+  const { nodes } = useGLTF(modelPath)
   useMemo(() => {
     nodes.Sphere.material = new THREE.MeshBasicMaterial()
     nodes.Sphere.material.toneMapped = false

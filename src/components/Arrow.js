@@ -4,7 +4,8 @@ import { useFrame } from '@react-three/fiber'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 
 const Arrow = ({scroll, rotation}) => {
-  const { nodes, materials } = useGLTF('/arrow.glb')
+  const modelPath = `${process.env.PUBLIC_URL}/arrow.glb`;
+  const { nodes, materials } = useGLTF(modelPath)
   materials.arrow.metalness = 0
 
   const [hovered, setHovered] = useState(false)
