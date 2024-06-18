@@ -17,7 +17,7 @@ Title: Old Computers
 
 const Context = createContext()
 
-const modelPath = `${process.env.PUBLIC_URL}/arrow.glb`;
+const modelPath = `${process.env.PUBLIC_URL}/computers.glb`;
 
 export function Instances({ children, ...props }) {
   const { nodes } = useGLTF(modelPath)
