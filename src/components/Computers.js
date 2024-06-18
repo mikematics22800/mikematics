@@ -231,7 +231,7 @@ function ScreenText({ invert, x = 0, y = 1, ...props }) {
       <color attach="background" args={['black']} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} />
-      <Text position={[x, y, 0]} ref={textRef} fontSize={1.5} color={color} font='/pixel.ttf'>
+      <Text position={[x, y, 0]} ref={textRef} fontSize={1.5} color={color} font={`${process.env.PUBLIC_URL}/pixel.ttf`}>
         {text}
       </Text>
     </Screen>
