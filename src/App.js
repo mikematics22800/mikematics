@@ -16,10 +16,7 @@ const App = () => {
   const sections = [<About/>, <Certs/>, <Works/>, <Refs/>, <Contacts/>]
   
   const scrollDown = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
+    document.getElementById('section-container').scrollIntoView({behavior: 'smooth'})
   }
   
   const scrollUp = () => {
@@ -32,15 +29,15 @@ const App = () => {
   return (
     <SectionContext.Provider value={section}>
       <Nav setSection={setSection}/>
-      <div className='hero'>
-        <div className='arrow'>
+      <div id='hero'>
+        <div className='arrow mt-12'>
           <Canvas>
             <Arrow scroll={scrollDown} rotation={0}/>
           </Canvas>
         </div>
       </div>
       <Models/>
-      <div className='section-container'>
+      <div id='section-container'>
         <div className='arrow'>
           <Canvas>
             <Arrow scroll={scrollUp} rotation={Math.PI}/>

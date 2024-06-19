@@ -5,7 +5,7 @@ import { Instances, Computers } from './Computers'
 
 export default function Models() {
   return (
-    <div className='models'>
+    <div id='models'>
       <Canvas shadows dpr={[1, 1.5]} camera={{position: [0, 0, 3.5]}} eventSource={document.getElementById('root')} eventPrefix="client">
         {/* Lights */}
         <hemisphereLight intensity={0.15} groundColor="black" />
