@@ -30,7 +30,7 @@ const App = () => {
     <SectionContext.Provider value={section}>
       <Nav setSection={setSection}/>
       <div id='hero'>
-        <div className='arrow mt-12'>
+        <div className='arrow'>
           <Canvas>
             <Arrow scroll={scrollDown} rotation={0}/>
           </Canvas>
@@ -38,11 +38,6 @@ const App = () => {
       </div>
       <Models/>
       <div id='section-container'>
-        <div className='arrow'>
-          <Canvas>
-            <Arrow scroll={scrollUp} rotation={Math.PI}/>
-          </Canvas>
-        </div>
         {sections[section]}
       </div>
     </SectionContext.Provider>

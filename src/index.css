@@ -9,7 +9,7 @@
 }
 
 body {
- @apply bg-black overflow-hidden
+ @apply bg-black
 }
 
 ::-webkit-scrollbar {
@@ -86,11 +86,11 @@ nav .title:hover {
 }
 
 .arrow {
-  @apply h-96
+  @apply h-96 mt-12
 }
 
 #section-container {
-  @apply w-screen flex flex-col items-center h-[1000px] bg-black bg-opacity-80 !overflow-auto px-[10%]
+  @apply w-screen flex flex-col items-center h-[1000px] bg-black bg-opacity-80 !overflow-auto px-[10%] justify-center
 }
 
 section .title {
@@ -102,7 +102,7 @@ section p {
 }
 
 #about {
-  @apply w-full items-center flex xl:flex-row xl:pb-0 pb-[10%] flex-col gap-24 justify-between
+  @apply w-full items-center flex xl:flex-row xl:pb-0 flex-col gap-24 justify-between
 }
 
 #about #content {
