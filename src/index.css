@@ -22,59 +22,68 @@
 }
 
 nav {
-  @apply w-full px-[5%] h-24 fixed top-0 text-2xl z-50 bg-gray-800 flex justify-end
+  @apply w-full px-[5%] h-24 fixed top-0 text-2xl z-50 bg-gray-800 flex items-center justify-between
+}
+
+nav h1 {
+  text-shadow: 0 0 10px aqua;
+  @apply font-[airstrike] text-4xl !text-[aqua]
 }
 
 #links {
-  @apply w-full hidden lg:flex justify-between items-center
+  @apply w-2/3 hidden xl:flex justify-between 
 }
 
-#drop-down-links {
-  @apply p-12 bg-gray-800 fixed top-24 right-0 flex flex-col gap-4 lg:hidden border-t-white border-t-2
+
+#menu-links {
+  @apply p-12 bg-gray-800 fixed top-24 right-0 flex flex-col gap-4 xl:hidden border-t-white border-t-2
 }
 
-#drop-down-button {
-  @apply block lg:!hidden
+#menu-button {
+  @apply block xl:!hidden
 }
 
-#drop-down-icon {
-  @apply !text-white !text-6xl
+#menu-icon {
+  @apply !text-white !text-6xl duration-200
+}
+
+#menu-icon:hover {
+  @apply !text-[aqua]
 }
 
 .title {
-  font-family: airstrike;
-  transition-duration: .2s;
+  @apply font-[airstrike] duration-200
 }
 
 nav .title:hover {
   color: aqua !important;
-  text-shadow: 0 0 20px aqua !important;
+  text-shadow: 0 0 10px aqua !important;
   cursor: pointer;
 }
 
-#about-title {
+.about-title, #about p {
   color: red;
-  text-shadow: 0 0 20px red
+  text-shadow: 0 0 10px red
 }
 
-#certs-title {
+.certs-title, #certs p {
   color: orange;
-  text-shadow: 0 0 20px orange
+  text-shadow: 0 0 10px orange
 }
 
-#works-title {
+.works-title, #works p {
   color: yellow;
-  text-shadow: 0 0 20px yellow
+  text-shadow: 0 0 10px yellow
 }
 
-#refs-title {
+.refs-title, #refs p{
   color: lime;
-  text-shadow: 0 0 20px lime
+  text-shadow: 0 0 10px lime
 }
 
-#contacts-title {
+.contacts-title, #contacts p{
   color: violet;
-  text-shadow: 0 0 20px violet
+  text-shadow: 0 0 10px violet
 }
 
 #computers {
@@ -113,28 +122,39 @@ section p {
   @apply w-96 rounded-xl
 }
 
-#about p {
-  color: red;
-  text-shadow: 0 0 10px red;
+#works {
+  @apply w-full flex flex-col items-center gap-8
 }
 
-#certs p {
-  color: orange;
-  text-shadow: 0 0 10px orange
-}
-
-#works p {
+#works h1 {
   color: yellow;
-  text-shadow: 0 0 10px yellow
+  text-shadow: 0 0 10px yellow;
+  @apply font-[airstrike] text-5xl
 }
 
-#refs p {
-  color: lime;
-  text-shadow: 0 0 10px lime
+.work {
+  @apply flex sm:flex-row flex-col items-center gap-4 sm:gap-12
 }
 
-#contacts p {
-  color: violet;
-  text-shadow: 0 0 10px violet
+.work-desc {
+  @apply flex flex-col gap-2 w-[48rem]
 }
+
+.work img {
+  @apply w-[48rem] h-auto rounded-xl
+}
+
+.arrow-circle {
+  box-shadow: 0 0 10px yellow;
+  @apply text-[yellow] !text-8xl rounded-full border-8 border-[yellow]
+}
+
+.arrow-circle:hover {
+  box-shadow: 0 0 10px aqua;
+  @apply !text-[aqua] cursor-pointer  border-[aqua]
+}
+
+
+
+
 

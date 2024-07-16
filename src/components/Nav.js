@@ -15,25 +15,26 @@ const Nav = ({setSection}) => {
 
   const links = (
     <>
-      <li className="title" id="about-title" onClick={() => {setSection(0)}}>ABOUT ME</li>
-      <li className="title" id="certs-title" onClick={() => {setSection(1)}}>CERTIFICATIONS</li>
-      <li className="title" id="works-title" onClick={() => {setSection(2)}}>WORKS</li>
-      <li className="title" id="refs-title" onClick={() => {setSection(3)}}>REFERENCES</li>
-      <li className="title" id="contacts-title" onClick={() => {setSection(4)}}>CONTACTS</li>
+      <li className="title about-title" onClick={() => {setSection(0)}}>ABOUT ME</li>
+      <li className="title certs-title" onClick={() => {setSection(1)}}>CERTIFICATIONS</li>
+      <li className="title works-title" onClick={() => {setSection(2)}}>WORKS</li>
+      <li className="title refs-title" onClick={() => {setSection(3)}}>REFERENCES</li>
+      <li className="title contacts-title" onClick={() => {setSection(4)}}>CONTACTS</li>
     </>
   )
 
   
   return (
     <nav>
+      <h1>Michael Medina</h1>
       <ul id='links'>
         {links}
       </ul>
-      <IconButton id="drop-down-button" onClick={toggleDropDown}>
-        <Menu id='drop-down-icon'/>
+      <IconButton id="menu-button" onClick={toggleDropDown}>
+        <Menu id='menu-icon'/>
       </IconButton>
       {dropDown == true && 
-        <ul id='drop-down-links'>
+        <ul id='menu-links'>
           {links}
         </ul>
       }
