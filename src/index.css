@@ -103,7 +103,7 @@ nav .title:hover {
 }
 
 section .title {
-  @apply xl:text-5xl lg:text-4xl text-3xl
+  @apply sm:text-5xl text-4xl
 }
 
 section p {
@@ -123,35 +123,61 @@ section p {
 }
 
 #works {
-  @apply w-full flex flex-col items-center gap-8
-}
-
-#works h1 {
-  color: yellow;
-  text-shadow: 0 0 10px yellow;
-  @apply font-[airstrike] text-5xl
+  @apply w-full flex flex-col items-center sm:gap-16 gap-8
 }
 
 .work {
-  @apply flex sm:flex-row flex-col items-center gap-4 sm:gap-12
+  @apply flex lg:flex-row flex-col items-center gap-4 lg:gap-16
 }
 
 .work-desc {
-  @apply flex flex-col gap-2 w-[48rem]
+  @apply flex flex-col gap-2 sm:w-[48rem] w-96
 }
 
 .work img {
-  @apply w-[48rem] h-auto rounded-xl
+  @apply sm:w-[48rem] w-96 h-auto rounded-xl
 }
 
 .arrow-circle {
   box-shadow: 0 0 10px yellow;
-  @apply text-[yellow] !text-8xl rounded-full border-8 border-[yellow]
+  @apply text-[yellow] sm:!text-8xl !text-6xl rounded-full sm:border-8 border-[6px] border-[yellow]
 }
 
 .arrow-circle:hover {
   box-shadow: 0 0 10px aqua;
   @apply !text-[aqua] cursor-pointer  border-[aqua]
+}
+
+#contacts {
+  @apply flex flex-col gap-8 items-center
+}
+
+#contacts form {
+  @apply bg-gray-800 w-[32rem] lg:w-[64rem] h-[32rem] rounded-xl p-8 flex flex-col justify-between items-center gap-4
+}
+
+#contacts input {
+  @apply w-full h-12 outline-none text-xl text-gray-800 rounded-sm p-4
+}
+
+#contacts button {
+  @apply flex w-32 rounded-2xl items-center justify-between p-4 bg-blue-600
+}
+
+#contacts button h1 {
+  @apply text-white font-bold text-xl
+}
+
+#contacts textarea {
+  @apply resize-none w-full h-5/6 outline-none text-xl text-gray-800  rounded-sm p-4
+}
+
+#social {
+  @apply flex justify-between w-full items-center
+}
+
+#social img {
+  @apply w-16
 }
 
 

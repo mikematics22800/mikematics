@@ -22,11 +22,10 @@ const Nav = ({setSection}) => {
       <li className="title contacts-title" onClick={() => {setSection(4)}}>CONTACTS</li>
     </>
   )
-
   
   return (
     <nav>
-      <h1>Michael Medina</h1>
+      <h1>MIKEMATICS</h1>
       <ul id='links'>
         {links}
       </ul>
