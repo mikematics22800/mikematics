@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { sendEmail } from '../libs/email'
 import insta from '../images/insta.png'
 import facebook from '../images/facebook.png'
 import x from '../images/x.png'
@@ -12,6 +13,12 @@ const Contacts = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    sendEmail({email, message}).then(() => {
+      alert('Email sent successfully')
+    }).catch((err) => {
+      console.error(err)
+      alert('Failed to send email')
+    })
   }
 
   return (

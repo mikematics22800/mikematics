@@ -6,6 +6,7 @@ import { ArrowCircleLeft, ArrowCircleRight } from "@mui/icons-material"
 
 const Works = () => {
   const [work, setWork] = useState(1)
+
   useEffect(() => {
     if (work < 1) {
       setWork(3)
@@ -14,6 +15,9 @@ const Works = () => {
       setWork(1)
     }
   }, [work])
+
+  const baseUrl = "https://mikemedina22800.github.io/"
+
   return (
     <section id="works">
       {work == 1 && 
@@ -25,7 +29,7 @@ const Works = () => {
               Data is fetched in JSON format from Coinranking API, and UI is designed with Tailwind CSS, Material UI, and Chart.js.
             </p>
           </div>      
-          <a href="https://mikemedina22800.github.io/Cryptomatics/">
+          <a href={`${baseUrl}/Cryptomatics`}>
             <img src={cryptomatics}/>
           </a>  
         </div>
@@ -41,7 +45,7 @@ const Works = () => {
               Additonally, the app includes an interactive map designed with React Leaflet which displays satellite derived weather data across the globe.
             </p>
           </div>   
-          <a href="https://mikemedina22800.github.io/Cryptomatics/">
+          <a href={`${baseUrl}/Weatherboy`}>
             <img src={weatherboy}/>
           </a>
         </div>
@@ -56,7 +60,7 @@ const Works = () => {
               In addition, charts designed with Chart.js display various statistics for each storm, as well as the commulative activity and impacts of each season.
             </p>
           </div>   
-          <a href="https://mikemedina22800.github.io/Cyclopedia/">
+          <a href={`${baseUrl}/Cyclopedia`}>
             <img src={cyclopedia}/>
           </a>
         </div>
