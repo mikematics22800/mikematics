@@ -1,4 +1,4 @@
-# Mikematics Portfolio
+# Portfolio
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
