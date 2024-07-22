@@ -1,5 +1,5 @@
 {
-  "name": "mikematics",
+  "name": "mikematics-portfolio",
   "version": "1.0.0",
   "description": "",
   "keywords": [
@@ -42,5 +42,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://mikematics22800.github.io/mikematics"
+  "homepage": "https://mikematics22800.github.io/Mikematics-Portfolio"
 }

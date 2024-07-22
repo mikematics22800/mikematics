@@ -25,7 +25,7 @@ const Works = () => {
           <div className="work-desc">
             <h1 className="title works-title">Cryptomatics</h1>
             <p>
-              A React application that displays real time information on the cryptocurrency exchange, including with detailed information on the top 100 ranking coins with interactive and stylized visuals. 
+              A React application that displays real time information on the cryptocurrency exchange, including detailed information on the top 100 ranking coins with interactive and stylized visuals. 
               Data is fetched in JSON format from Coinranking API, and UI is designed with Tailwind CSS, Material UI, and Chart.js.
             </p>
           </div>      
@@ -40,9 +40,9 @@ const Works = () => {
             <h1 className="title works-title">Weatherboy</h1>
             <p>
               A React application that displays current weather conditions and forecasts for the user's current location and cities across the world. 
-              The user can search for cities with ease and precision using a searchbar enhanced by Google Places Autocomplete API.
+              The user can search for cities with ease and precision using a search bar enhanced by Google Places Autocomplete API.
               Data is fetched in JSON format from OpenWeatherMap API, and UI is designed with Tailwind CSS, Material UI, and Chart.js.
-              Additonally, the app includes an interactive map designed with React Leaflet which displays satellite derived weather data across the globe.
+              Additionally, the app includes an interactive map designed with React Leaflet which displays satellite derived weather data across the globe.
             </p>
           </div>   
           <a href={`${baseUrl}/Weatherboy`}>
@@ -57,7 +57,7 @@ const Works = () => {
             <p>
               A React application that displays official data from the National Hurricane Center on all tropical cyclones recorded in the Atlantic basin since 1851.
               Provided is an interactive map designed with React Leaflet, which displays detailed track information for all storms of a selected season. 
-              In addition, charts designed with Chart.js display various statistics for each storm, as well as the commulative activity and impacts of each season.
+              In addition, charts designed with Chart.js display various statistics for each storm, as well as the cumulative activity and impacts of each season.
             </p>
           </div>   
           <a href={`${baseUrl}/Cyclopedia`}>
