@@ -16,7 +16,7 @@ const Works = () => {
     }
   }, [work])
 
-  const baseUrl = "https://mikemedina22800.github.io/"
+  const baseUrl = "https://mikematics22800.github.io/"
 
   return (
     <section id="works">
