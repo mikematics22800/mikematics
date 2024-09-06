@@ -91,7 +91,7 @@ nav .title:hover {
 }
 
 #hero {
-  @apply w-full h-[1000px]
+  @apply w-full h-screen
 }
 
 .arrow {
@@ -99,7 +99,7 @@ nav .title:hover {
 }
 
 #section-container {
-  @apply w-screen flex flex-col items-center h-[1000px] bg-black bg-opacity-80 !overflow-auto px-[10%] justify-center
+  @apply w-screen flex flex-col items-center bg-black bg-opacity-80 p-[10%] justify-center
 }
 
 section .title {
@@ -111,7 +111,7 @@ section p {
 }
 
 #about {
-  @apply w-full items-center flex xl:flex-row xl:pb-0 flex-col gap-24 justify-between
+  @apply w-full items-center flex xl:flex-row flex-col gap-20 justify-between
 }
 
 #about #content {
@@ -123,11 +123,11 @@ section p {
 }
 
 #works {
-  @apply w-full flex flex-col items-center sm:gap-16 gap-8
+  @apply w-full flex flex-col items-center gap-10 lg:gap-20
 }
 
 .work {
-  @apply flex lg:flex-row flex-col items-center gap-4 lg:gap-16
+  @apply flex lg:flex-row flex-col items-center lg:gap-40 gap-10 justify-between
 }
 
 .work-desc {
@@ -149,7 +149,7 @@ section p {
 }
 
 #contacts {
-  @apply flex flex-col gap-8 items-center
+  @apply flex flex-col gap-5 items-center
 }
 
 #contacts form {
@@ -188,8 +188,20 @@ section p {
   @apply text-2xl font-bold
 }
 
+#certs li {
+  @apply text-lg
+}
+
 #certs ul {
   @apply list-disc
+}
+
+#works header {
+  @apply w-full flex items-center justify-between
+}
+
+#works header img {
+  @apply h-12 w-12
 }
 
 

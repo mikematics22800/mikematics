@@ -23,9 +23,9 @@ const Contacts = () => {
 
   return (
     <section id="contacts">
-      <h1 className="title contacts-title" id="contacts-title">CONTACTS</h1>
+      <h1 className="title contacts-title" id="contacts-title">EMAIL ME HERE!</h1>
       <form onSubmit={handleSubmit}>
-        <input type="email" required placeholder='Your Email Address' onChange={(e) => {setEmail(e.target.value)}}/>
+        <input type="email" required placeholder='Your email address' onChange={(e) => {setEmail(e.target.value)}}/>
         <textarea required placeholder='Message' onChange={(e) => {setMessage(e.target.value)}}/>
         <button>
           <img className='w-8' src={send}/>
