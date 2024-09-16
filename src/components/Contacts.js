@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import { sendEmail } from '../libs/email'
-import insta from '../images/insta.png'
-import facebook from '../images/facebook.png'
-import x from '../images/x.png'
 import linkedin from '../images/linkedin.png'
 import github from '../images/github.png'
 import send from '../images/send.png'
@@ -33,20 +30,11 @@ const Contacts = () => {
         </button>
       </form>
       <div id='social'>
-        <a href='#'>
+        <a href='https://github.com/mikematics22800'>
           <img src={github}/>
         </a>
-        <a href='#'>
+        <a href='https://www.linkedin.com/in/michael-medina-928828207/'>
           <img src={linkedin}/>
-        </a>
-        <a href='#'>
-          <img src={insta}/>
-        </a>
-        <a href='#'>
-          <img src={facebook}/>
-        </a>
-        <a href='#'>
-          <img src={x}/>
         </a>
       </div>
     </section>

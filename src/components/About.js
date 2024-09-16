@@ -1,4 +1,5 @@
 import me from "../images/me.jpg"
+import DownloadIcon from '@mui/icons-material/Download';
 
 const About = () => {
   return (
@@ -14,7 +15,13 @@ const About = () => {
           My goal is to maximize my skillset through experience and collaboration, and build my clients the app of their dreams.
         </p>
       </div>
-      <img src={me}/>
+      <div className="flex flex-col gap-4">
+        <img src={me}/>
+        <a href="/resume.pdf" download className="resume">
+          <h1>Resume</h1>
+          <DownloadIcon/>
+        </a>
+      </div>
     </section>
   )
 }
