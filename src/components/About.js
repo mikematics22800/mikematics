@@ -16,7 +16,9 @@ const About = () => {
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <img src={me}/>
+        <a href="https://github.com/mikematics22800">
+          <img src={me}/>
+        </a>
         <a href="/resume.pdf" download className="resume">
           <h1>Resume</h1>
           <DownloadIcon/>
