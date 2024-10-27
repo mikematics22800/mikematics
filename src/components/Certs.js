@@ -1,8 +1,8 @@
 const Certs = () => {
   return (
     <section id="certs">
-      <h1 className="title certs-title" id="certs-title">UCF Coding Boot Camp</h1>
-      <h2>Skills Gained:</h2>
+      <h1 className="title certs-title" id="certs-title">edX Coding Boot Camp</h1>
+      <h2>Technical Skills Gained:</h2>
       <ul>
         <li>Create full-stack single-page web applications using RESTful API routes and AJAX methods, and describe how front-end applications communicate with back-end applications and databases.</li>
         <li>Implement structured and unstructured databases to convert static websites into dynamic websites that persist data.</li>

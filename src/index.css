@@ -75,9 +75,9 @@ nav .title:hover {
   text-shadow: 0 0 10px yellow
 }
 
-.refs-title, #refs p{
+.refs-title, #refs p {
   color: lime;
-  text-shadow: 0 0 10px lime
+  text-shadow: 0 0 10px lime;
 }
 
 .contacts-title, #contacts p{
