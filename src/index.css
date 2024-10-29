@@ -75,9 +75,13 @@ nav .title:hover {
   text-shadow: 0 0 10px yellow
 }
 
-.refs-title, #refs p {
+.refs-title{
   color: lime;
   text-shadow: 0 0 10px lime;
+}
+
+#refs {
+  @apply w-full flex flex-col items-center gap-10
 }
 
 .contacts-title, #contacts p{
@@ -183,12 +187,9 @@ section p {
   @apply flex flex-col gap-4
 }
 
-#certs h2 {
-  @apply text-2xl font-bold
-}
 
 #certs li {
-  @apply text-lg
+  @apply sm:text-2xl text-xl
 }
 
 #certs ul {
