@@ -20,15 +20,7 @@ const Contacts = () => {
 
   return (
     <section id="contacts">
-      <h1 className="title contacts-title" id="contacts-title">EMAIL ME HERE!</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="email" required placeholder='Your email address' onChange={(e) => {setEmail(e.target.value)}}/>
-        <textarea required placeholder='Message' onChange={(e) => {setMessage(e.target.value)}}/>
-        <button>
-          <img className='w-8' src={send}/>
-          <h1>Send</h1>
-        </button>
-      </form>
+      <h1 className="title contacts-title !text-4xl">INQUIRIES AT MIKEMATICS22800@GMAIL.COM</h1>
       <div id='social'>
         <a href='https://github.com/mikematics22800'>
           <img src={github}/>
