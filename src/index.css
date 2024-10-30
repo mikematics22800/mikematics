@@ -84,7 +84,7 @@ nav .title:hover {
   @apply w-full flex flex-col items-center gap-10
 }
 
-.contacts-title, #contacts p{
+.contacts-title {
   color: violet;
   text-shadow: 0 0 10px violet
 }
@@ -152,7 +152,7 @@ section p {
 }
 
 #contacts {
-  @apply flex flex-col gap-5 items-center
+  @apply flex flex-col gap-20 items-center
 }
 
 #contacts form {
