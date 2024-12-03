@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { useMemo, useContext, createContext, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, Merged, RenderTexture, PerspectiveCamera, Text, Icosahedron } from '@react-three/drei'
-import { SectionContext } from '../App'
 THREE.ColorManagement.legacyMode = false
 
 /*
@@ -186,43 +185,12 @@ function Screen({ frame, panel, children, ...props }) {
 
 /* Renders a monitor with some text */
 function ScreenText({ invert, x = 0, y = 1, ...props }) {
-  const section = useContext(SectionContext)
   const textRef = useRef()
-  let color
-  let text
-  let speed
-  switch(section) {
-    case 0:
-      color = 'red'
-      text = 'About Me'
-      speed = 5
-      break;
-    case 1:
-      color = 'orange'
-      text = 'Certifications'
-      speed = 7.5
-      break;
-    case 2:
-      color='yellow'
-      text='Works'
-      speed = 5
-      break;
-    case 3:
-      color='lime'
-      text='References'
-      speed = 7.5
-      break;
-    case 4:
-      color='violet'
-      text='Contacts'
-      speed = 5
-      break;
-  }
   useFrame((state) => {
     invert === true ? (
-      textRef.current.position.x = x + Math.sin(state.clock.elapsedTime) * speed
+      textRef.current.position.x = x + Math.sin(state.clock.elapsedTime) * 5
     ) : (
-      textRef.current.position.x = x - Math.sin(state.clock.elapsedTime) * speed
+      textRef.current.position.x = x - Math.sin(state.clock.elapsedTime) * 5
     )
   })
   return (
@@ -231,35 +199,18 @@ function ScreenText({ invert, x = 0, y = 1, ...props }) {
       <color attach="background" args={['black']} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} />
-      <Text position={[x, y, 0]} ref={textRef} fontSize={1.5} color={color} font={`${process.env.PUBLIC_URL}/pixel.ttf`}>
-        {text}
-      </Text>
+      <Text position={[x, y, 0]} ref={textRef} fontSize={1.5} color={'lime'} font={`${process.env.PUBLIC_URL}/pixel.ttf`}>Welcome!</Text>
     </Screen>
   )
 }
 
 /* Renders a monitor with a spinning icosahedron */
 function ScreenInteractive(props) {
-  const section = useContext(SectionContext)
   const ref = useRef()
-  let i = 20
   useFrame((state, delta) => {
-    if (i > 1) {
-      i-=.05
-      ref.current.rotation.y += i*delta;
-    } else {
-      ref.current.rotation.x += delta; 
-      ref.current.rotation.y += delta;
-    }
+    ref.current.rotation.x += delta; 
+    ref.current.rotation.y += delta;
   })
-
-  const iso = (color) => {
-    return (
-      <Icosahedron ref={ref} position={[-3.15, 0.75, 0]} scale={.5}>
-        <meshStandardMaterial wireframe color={color}/>
-      </Icosahedron>
-    )
-  }
 
   return (
     <Screen {...props}>
@@ -268,11 +219,9 @@ function ScreenInteractive(props) {
       <ambientLight intensity={Math.PI / 2} />
       <pointLight decay={0} position={[10, 10, 10]} intensity={Math.PI} />
       <pointLight decay={0} position={[-10, -10, -10]} />
-      {section == 0 && iso('red')}
-      {section == 1 && iso('orange')}
-      {section == 2 && iso('yellow')}
-      {section == 3 && iso('lime')}
-      {section == 4 && iso('violet')}
+      <Icosahedron ref={ref} position={[-3.15, 0.75, 0]} scale={.5}>
+        <meshStandardMaterial wireframe color={'lime'}/>
+      </Icosahedron>
     </Screen>
   )
 }

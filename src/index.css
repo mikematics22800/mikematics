@@ -16,200 +16,88 @@
   display: none;
 }
 
-@font-face {
-  font-family: airstrike;
-  src: url('../public/airstrike.ttf');
+.hero {
+  @apply w-screen h-screen flex flex-col items-center pt-20 gap-8
 }
 
-nav {
-  @apply w-full px-[5%] h-24 fixed top-0 text-2xl z-50 bg-gray-800 flex items-center justify-between
+.hero span {
+  @apply text-6xl font-bold
 }
 
-nav h1 {
-  text-shadow: 0 0 10px aqua;
-  @apply font-[airstrike] text-4xl !text-[aqua]
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
 }
 
-#links {
-  @apply w-2/3 hidden xl:flex justify-between 
+@keyframes changeColor {
+  0%, 100% {
+    color: red;
+  }
+  50% {
+    color: aqua;
+  }
 }
 
-#menu-links {
-  @apply p-12 bg-gray-800 fixed top-24 right-0 flex flex-col gap-4 xl:hidden border-t-white border-t-2
-}
-
-#menu-button {
-  @apply block xl:!hidden
-}
-
-#menu-icon {
-  @apply !text-white !text-6xl duration-200
-}
-
-#menu-icon:hover {
-  @apply !text-[aqua]
-}
-
-.title {
-  @apply font-[airstrike] duration-200
-}
-
-nav .title:hover {
-  color: aqua !important;
-  text-shadow: 0 0 10px aqua !important;
-  cursor: pointer;
-}
-
-.about-title, #about p {
-  color: red;
-  text-shadow: 0 0 10px red
-}
-
-.certs-title, #certs p, #certs li, #certs h2, #certs h3 {
-  color: orange;
-  text-shadow: 0 0 10px orange
-}
-
-.works-title, #works p {
-  color: yellow;
-  text-shadow: 0 0 10px yellow
-}
-
-.refs-title{
-  color: lime;
-  text-shadow: 0 0 10px lime;
-}
-
-#refs {
-  @apply w-full flex flex-col items-center gap-10
-}
-
-.contacts-title {
-  color: violet;
-  text-shadow: 0 0 10px violet
+.hero .arrow {
+  animation: bounce 1s infinite, changeColor 2s infinite;
 }
 
 #computers {
-  @apply w-full h-[1000px] fixed top-24 -z-50 bg-black
+  @apply w-full h-[1000px] fixed top-0 -z-40 bg-black
 }
 
-#hero {
-  @apply w-full h-screen
+
+#sections {
+  @apply flex flex-col p-20 bg-black bg-opacity-50 gap-40
 }
 
-.arrow {
-  @apply h-96 mt-12
-}
-
-#section-container {
-  @apply w-screen flex flex-col items-center bg-black bg-opacity-50 p-[10%] justify-center
-}
-
-section .title {
-  @apply sm:text-5xl text-4xl
-}
-
-section p {
-  @apply xl:text-xl lg:text-lg duration-200 text-justify
-}
 
 #about {
-  @apply w-full items-center flex xl:flex-row flex-col gap-20 justify-between
-}
-
-#about #content {
-  @apply lg:w-2/3 flex flex-col gap-2 xl:gap-4
-}
-
-#about img {
-  @apply w-96 rounded-xl
+  @apply w-full flex xl:flex-row flex-col gap-10 xl:justify-between
 }
 
 #works {
-  @apply w-full flex flex-col items-center gap-10 lg:gap-20
-}
-
-.work {
-  @apply flex lg:flex-row flex-col items-center lg:gap-40 gap-10 justify-between
-}
-
-.work-desc {
-  @apply flex flex-col gap-2 sm:w-[48rem] w-96
-}
-
-.work img {
-  @apply sm:w-[48rem] w-96 h-auto rounded-xl
-}
-
-.arrow-circle {
-  box-shadow: 0 0 10px yellow;
-  @apply text-[yellow] sm:!text-8xl !text-6xl rounded-full sm:border-8 border-[6px] border-[yellow]
-}
-
-.arrow-circle:hover {
-  box-shadow: 0 0 10px aqua;
-  @apply !text-[aqua] cursor-pointer  border-[aqua]
-}
-
-#contacts {
-  @apply flex flex-col gap-20 items-center
-}
-
-#contacts form {
-  @apply bg-gray-800 w-[32rem] lg:w-[64rem] h-[32rem] rounded-xl p-8 flex flex-col justify-between items-center gap-4
-}
-
-#contacts input {
-  @apply w-full h-12 outline-none text-xl text-gray-800 rounded-sm p-4
-}
-
-#contacts button {
-  @apply flex w-32 rounded-2xl items-center justify-between p-4 bg-blue-600
-}
-
-#contacts button h1 {
-  @apply text-white font-bold text-xl
-}
-
-#contacts textarea {
-  @apply resize-none w-full h-5/6 outline-none text-xl text-gray-800  rounded-sm p-4
-}
-
-#social {
-  @apply flex justify-between gap-20
-}
-
-#social img {
-  @apply w-16
-}
-
-#certs {
-  @apply flex flex-col gap-4
-}
-
-
-#certs li {
-  @apply sm:text-2xl text-xl
-}
-
-#certs ul {
-  @apply list-disc
+  @apply w-full flex flex-col items-center gap-20 text-white
 }
 
 #works header {
-  @apply w-full flex items-center justify-between
+  @apply flex flex-row items-center
+}
+
+#works h1 {
+  @apply text-4xl font-bold mb-2
+}
+
+.work {
+  @apply flex lg:flex-row flex-col lg:gap-40 gap-10 justify-between
+}
+
+.work-desc {
+  @apply flex flex-col gap-2 max-w-[48rem]
+}
+
+#certs {
+  @apply flex xl:flex-row flex-col xl:justify-between gap-10 w-full;
+}
+
+#works header {
+  @apply w-full flex items-center gap-5
 }
 
 #works header img {
-  @apply h-12 w-12
+  @apply h-10 w-10
+}
+
+#works a img {
+  @apply max-w-[36rem] rounded-lg
 }
 
 .resume {
-  @apply p-2 text-white bg-blue-950 rounded-md font-bold text-xl w-full flex justify-center items-center gap-2
+  @apply p-2 text-white bg-blue-950 rounded-md font-bold text-lg flex justify-center items-center gap-2
 }
-
-
-
-
-
-

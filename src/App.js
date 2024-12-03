@@ -1,36 +1,30 @@
-import { createContext, useState } from 'react'
 import Computers from './components/Computers'
 import About from './components/About'
 import Certs from './components/Certs'
 import Works from './components/Works'
-import Refs from './components/Refs'
-import Contacts from './components/Contacts'
-import Nav from './components/Nav'
-import Arrow from './components/Arrow'
-
-export const SectionContext = createContext()
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
 const App = () => {
-  const [section, setSection] = useState(0)
-  const sections = [<About/>, <Certs/>, <Works/>, <Refs/>, <Contacts/>]
-  
   const scrollDown = () => {
-    document.getElementById('section-container').scrollIntoView({behavior: 'smooth'})
-  }
-  
+    document.getElementById('sections').scrollIntoView({behavior: 'smooth'})
+  } 
+
   return (
-    <SectionContext.Provider value={section}>
-      <div className='app'>
-        <Nav setSection={setSection}/>
-        <div id='hero'>
-          <Arrow scroll={scrollDown} rotation={0}/>
+    <div className='app'>
+      <Computers/>
+      <div className="hero">
+        <div>
+          <span className='text-[red]'>Mike</span>
+          <span className='text-[aqua]'>matics</span>
         </div>
-        <Computers/>
-        <div id='section-container'>
-          {sections[section]}
-        </div>
+        <ArrowCircleDownIcon className="arrow text-white !text-7xl cursor-pointer" onClick={scrollDown}/>
       </div>
-    </SectionContext.Provider>
+      <div id="sections">
+        <About/>
+        <Certs/>
+        <Works/>
+      </div>
+    </div>
   )
 }
 
