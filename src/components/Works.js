@@ -10,7 +10,10 @@ const Works = () => {
 
   return (
     <section id="works">
-      <div className="work">
+      <div className="work xl:flex-row-reverse">
+        <a href={`${liveUrl}Cyclopedia`}>
+          <img src={cyclopedia}/>
+        </a>
         <div className="work-desc">
           <header>
             <h1>Cyclopedia</h1>
@@ -24,11 +27,11 @@ const Works = () => {
             Charts are provided which display various statistics for each storm, as well as the cumulative activity and impacts of each season.
           </p>
         </div>   
-        <a href={`${liveUrl}Cyclopedia`}>
-          <img src={cyclopedia}/>
-        </a>
       </div>
       <div className="work">
+        <a href={`${liveUrl}Cryptomatics`}>
+          <img src={cryptomatics}/>
+        </a>  
         <div className="work-desc">
           <header>
             <h1>Cryptomatics</h1>
@@ -43,11 +46,11 @@ const Works = () => {
             Users can track their favorite cryptocurrencies and stay updated with the latest market movements.            
           </p>
         </div>      
-        <a href={`${liveUrl}Cryptomatics`}>
-          <img src={cryptomatics}/>
-        </a>  
       </div>
-      <div className="work">
+      <div className="work xl:flex-row-reverse">
+        <a href={`${liveUrl}Weatherboy`}>
+          <img src={weatherboy}/>
+        </a>
         <div className="work-desc">
           <header>
             <h1>Weatherboy</h1>
@@ -62,9 +65,6 @@ const Works = () => {
             Additionally, the app includes an interactive map which displays satellite derived weather data across the globe.
           </p>
         </div>   
-        <a href={`${liveUrl}Weatherboy`}>
-          <img src={weatherboy}/>
-        </a>
       </div>
     </section>
   )

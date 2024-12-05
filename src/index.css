@@ -9,7 +9,7 @@
 }
 
 .app {
- @apply w-screen
+ @apply w-screen 
 }
 
 ::-webkit-scrollbar {
@@ -17,7 +17,7 @@
 }
 
 .hero {
-  @apply w-screen h-screen flex flex-col items-center pt-20 gap-8
+  @apply w-full h-screen flex flex-col items-center pt-20 gap-8
 }
 
 .hero span {
@@ -48,18 +48,20 @@
   animation: bounce 1s infinite, changeColor 2s infinite;
 }
 
-#computers {
-  @apply w-full h-[1000px] fixed top-0 -z-40 bg-black
+.computers-container {
+  @apply w-full h-screen fixed top-0 flex justify-center items-center -z-50 bg-black
 }
 
+#computers {
+  @apply w-full translate-y-20
+}
 
 #sections {
-  @apply flex flex-col p-20 bg-black bg-opacity-50 gap-40
+  @apply flex flex-col p-[10%] xl:p-[5%] bg-black bg-opacity-50 gap-20
 }
 
-
 #about {
-  @apply w-full flex xl:flex-row flex-col gap-10 xl:justify-between
+  @apply w-full flex xl:flex-row flex-col-reverse gap-10 xl:gap-40 xl:justify-between
 }
 
 #works {
@@ -71,31 +73,35 @@
 }
 
 #works h1 {
-  @apply text-4xl font-bold mb-2
+  @apply text-3xl font-bold mb-2
 }
 
 .work {
-  @apply flex lg:flex-row flex-col lg:gap-40 gap-10 justify-between
+  @apply flex xl:flex-row flex-col xl:gap-20 gap-5 w-full xl:justify-between
 }
 
 .work-desc {
-  @apply flex flex-col gap-2 max-w-[48rem]
+  @apply flex flex-col gap-2
+}
+
+.work-desc p {
+  @apply sm:text-xl max-w-[36rem]
 }
 
 #certs {
-  @apply flex xl:flex-row flex-col xl:justify-between gap-10 w-full;
+  @apply flex xl:flex-row flex-col xl:justify-between gap-10 xl:gap-40;
 }
 
 #works header {
-  @apply w-full flex items-center gap-5
+  @apply w-full flex items-center gap-4
 }
 
 #works header img {
-  @apply h-10 w-10
+  @apply h-8 w-8
 }
 
 #works a img {
-  @apply max-w-[36rem] rounded-lg
+  @apply w-full max-w-[36rem] rounded-lg
 }
 
 .resume {

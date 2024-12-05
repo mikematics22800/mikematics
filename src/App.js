@@ -11,7 +11,9 @@ const App = () => {
 
   return (
     <div className='app'>
-      <Computers/>
+      <div className='computers-container'>
+        <Computers/>
+      </div>
       <div className="hero">
         <div>
           <span className='text-[red]'>Mike</span>
