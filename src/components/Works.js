@@ -11,7 +11,7 @@ const Works = () => {
   return (
     <section id="works">
       <div className="work xl:flex-row-reverse">
-        <a href={`${liveUrl}Cyclopedia`}>
+        <a href='https://storm-cyclopedia'>
           <img src={cyclopedia}/>
         </a>
         <div className="work-desc">
