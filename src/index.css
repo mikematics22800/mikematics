@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://rsms.me/inter/inter.css');
-
 * {
   @apply box-border
 }
 
-.app {
- @apply w-screen 
-}
-
 ::-webkit-scrollbar {
   display: none;
+}
+
+
+.roboto {
+  font-family: "Source Code Pro", serif;
 }
 
 .hero {
@@ -56,54 +55,26 @@
   @apply w-full translate-y-20
 }
 
-#sections {
-  @apply flex flex-col p-[10%] xl:p-[5%] bg-black bg-opacity-50 gap-20
+#content {
+  @apply w-full flex flex-col p-[10%] xl:p-[5%] bg-blue-950 bg-opacity-50 gap-20 min-h-screen
 }
 
-#about {
-  @apply w-full flex xl:flex-row flex-col-reverse gap-10 xl:gap-40 xl:justify-between
+.skills {
+  @apply list-disc rounded-lg text-white gap-2 flex flex-col sm:text-lg w-full
 }
 
-#works {
-  @apply w-full flex flex-col items-center gap-20 text-white
+.skills li {
+  @apply w-full bg-gray-600 rounded-lg p-5 flex items-center gap-5
 }
 
-#works header {
-  @apply flex flex-row items-center
-}
-
-#works h1 {
-  @apply text-3xl font-bold mb-2
-}
-
-.work {
-  @apply flex xl:flex-row flex-col xl:gap-20 gap-5 w-full xl:justify-between
-}
-
-.work-desc {
-  @apply flex flex-col gap-2
-}
-
-.work-desc p {
-  @apply sm:text-xl max-w-[36rem]
-}
-
-#certs {
-  @apply flex xl:flex-row flex-col xl:justify-between gap-10 xl:gap-40;
-}
-
-#works header {
-  @apply w-full flex items-center gap-4
-}
-
-#works header img {
+.skills li img {
   @apply h-8 w-8
 }
 
-#works a img {
-  @apply w-full max-w-[36rem] rounded-lg
+#works .links {
+  @apply w-full flex flex-col items-center gap-12 xl:gap-0 xl:justify-between xl:flex-row
 }
 
-.resume {
-  @apply p-2 text-white bg-blue-950 rounded-md font-bold text-lg flex justify-center items-center gap-2
+#works .links a img {
+  @apply xl:w-96 w-full rounded-lg
 }

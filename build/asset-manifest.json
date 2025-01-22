@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.6f03a411.css",
-    "main.js": "./static/js/main.ee5bd921.js",
-    "static/js/451.9bba55e7.chunk.js": "./static/js/451.9bba55e7.chunk.js",
-    "static/media/cyclopedia.png": "./static/media/cyclopedia.df010a13fac54ffb8cd4.png",
-    "static/media/me.jpg": "./static/media/me.7bcd0e3a4a8b79301e34.jpg",
-    "static/media/cryptomatics.png": "./static/media/cryptomatics.7f5be50f1da8d568acf6.png",
-    "static/media/edXCert.png": "./static/media/edXCert.b9e97d328984e9032815.png",
-    "static/media/weatherboy.png": "./static/media/weatherboy.fc40a5f23f3ec29c7f25.png",
+    "main.css": "./static/css/main.b91c8023.css",
+    "main.js": "./static/js/main.6cb184f1.js",
+    "static/js/451.86ec87ad.chunk.js": "./static/js/451.86ec87ad.chunk.js",
+    "static/media/me.png": "./static/media/me.6cf155ce1987ab5b0ec1.png",
+    "static/media/cyclopedia.png": "./static/media/cyclopedia.d50db8b5accbc977ba1d.png",
+    "static/media/cryptomatics.png": "./static/media/cryptomatics.8754d7703d2e8bbb0ec1.png",
+    "static/media/weatherboy.png": "./static/media/weatherboy.cbdc3a93839d01018f5d.png",
+    "static/media/cyber-security.png": "./static/media/cyber-security.56a6c1b57c467a053cd9.png",
+    "static/media/node.svg": "./static/media/node.a7647021075b20ebcf315dd54793112d.svg",
+    "static/media/github.svg": "./static/media/github.6fa18895f6e6c7772cab7049f7e05f59.svg",
+    "static/media/mongo.svg": "./static/media/mongo.bfa6cdd80f4a99232cadb39ebbb976d2.svg",
     "index.html": "./index.html",
-    "main.6f03a411.css.map": "./static/css/main.6f03a411.css.map",
-    "main.ee5bd921.js.map": "./static/js/main.ee5bd921.js.map",
-    "451.9bba55e7.chunk.js.map": "./static/js/451.9bba55e7.chunk.js.map"
+    "static/media/react.svg": "./static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
+    "main.b91c8023.css.map": "./static/css/main.b91c8023.css.map",
+    "main.6cb184f1.js.map": "./static/js/main.6cb184f1.js.map",
+    "451.86ec87ad.chunk.js.map": "./static/js/451.86ec87ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f03a411.css",
-    "static/js/main.ee5bd921.js"
+    "static/css/main.b91c8023.css",
+    "static/js/main.6cb184f1.js"
   ]
 }
