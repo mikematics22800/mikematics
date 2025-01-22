@@ -35,9 +35,7 @@ const App = () => {
       <div id='content' className='roboto'>
         <div className='w-full flex xl:flex-row flex-col gap-20 items-center'>
           <div className='flex flex-col items-center gap-2'>
-            <a download href="/resume.pdf">
-              <div className="sm:w-96 sm:h-96 w-64 h-64 rounded-full bg-cover" style={{ backgroundImage: `url(${me})` }}/>
-            </a>
+            <div className="sm:w-96 sm:h-96 w-64 h-64 rounded-full bg-cover" style={{ backgroundImage: `url(${me})` }}/>
             <h1 className='font-bold sm:text-4xl text-2xl text-white'>Hello world :)</h1>
           </div>
           <ul className='skills'>
