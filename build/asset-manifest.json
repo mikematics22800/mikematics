@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "./static/css/main.b91c8023.css",
-    "main.js": "./static/js/main.6cb184f1.js",
+    "main.js": "./static/js/main.53720f1b.js",
     "static/js/451.86ec87ad.chunk.js": "./static/js/451.86ec87ad.chunk.js",
     "static/media/me.png": "./static/media/me.6cf155ce1987ab5b0ec1.png",
     "static/media/cyclopedia.png": "./static/media/cyclopedia.d50db8b5accbc977ba1d.png",
-    "static/media/cryptomatics.png": "./static/media/cryptomatics.8754d7703d2e8bbb0ec1.png",
+    "static/media/cryptomatics.png": "./static/media/cryptomatics.a3a24b8331d85af5237b.png",
     "static/media/weatherboy.png": "./static/media/weatherboy.cbdc3a93839d01018f5d.png",
     "static/media/cyber-security.png": "./static/media/cyber-security.56a6c1b57c467a053cd9.png",
     "static/media/node.svg": "./static/media/node.a7647021075b20ebcf315dd54793112d.svg",
@@ -14,11 +14,11 @@
     "index.html": "./index.html",
     "static/media/react.svg": "./static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
     "main.b91c8023.css.map": "./static/css/main.b91c8023.css.map",
-    "main.6cb184f1.js.map": "./static/js/main.6cb184f1.js.map",
+    "main.53720f1b.js.map": "./static/js/main.53720f1b.js.map",
     "451.86ec87ad.chunk.js.map": "./static/js/451.86ec87ad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b91c8023.css",
-    "static/js/main.6cb184f1.js"
+    "static/js/main.53720f1b.js"
   ]
 }
