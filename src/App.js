@@ -62,7 +62,7 @@ const App = () => {
             </li>
             <li>
               <img src={mongo}/>
-              <h1>MongoDB management on cloud platforms like AWS, Azure, or Google Cloud</h1>
+              <h1>MongoDB management using AWS, Azure, and Google Cloud</h1>
             </li>
             <li>
               <img src={cybersecurity}/>
@@ -76,17 +76,17 @@ const App = () => {
           </div>
           <div className='links'>
             <Tooltip title="Cyclopedia" arrow>
-              <a href='https://storm-cyclopedia.com'>
+              <a href='https://storm-cyclopedia.com' target='_blank'>
                 <img src={cyclopedia}/>
               </a>
             </Tooltip>
             <Tooltip title="Cryptomatics" arrow>
-              <a href={`${liveUrl}Cryptomatics`}>
+              <a href={`${liveUrl}Cryptomatics`} target='_blank'>
                 <img src={cryptomatics}/>
               </a>
             </Tooltip>
             <Tooltip title="Weatherboy" arrow>  
-              <a href={`${liveUrl}Weatherboy`}>
+              <a href={`${liveUrl}Weatherboy`} target='_blank'>
                 <img src={weatherboy}/>
               </a>
             </Tooltip>
