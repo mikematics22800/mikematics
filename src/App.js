@@ -30,7 +30,7 @@ const App = () => {
           <span className='text-[red]'>Mike</span>
           <span className='text-[aqua]'>Matics</span>
         </div>
-        <ArrowCircleDownIcon className="arrow text-white !text-7xl cursor-pointer" onClick={scrollDown}/>
+        <ArrowCircleDownIcon className="arrow text-white !text-6xl sm:!text-7xl cursor-pointer" onClick={scrollDown}/>
       </div> 
       <div id='content' className='roboto'>
         <div className='w-full flex xl:flex-row flex-col gap-20 items-center'>
@@ -42,7 +42,7 @@ const App = () => {
           </div>
           <ul className='skills'>
             <div className='flex justify-center mb-4'>
-              <h1 className='sm:text-2xl text-lg font-bold'>Skills to pay the bills 💸 💸 💸</h1>
+              <h1 className='sm:text-2xl font-bold'>Skills to pay the bills 💸 💸 💸</h1>
             </div>
             <li>
               <img src={react}/>
