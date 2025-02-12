@@ -16,35 +16,11 @@
 }
 
 .hero {
-  @apply w-full h-screen flex flex-col items-center pt-20 gap-8
+  @apply w-full h-screen flex flex-col items-center pt-20 gap-10
 }
 
 .hero span {
   @apply text-5xl sm:text-6xl font-bold
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-
-@keyframes changeColor {
-  0%, 100% {
-    color: red;
-  }
-  50% {
-    color: aqua;
-  }
-}
-
-.hero .arrow {
-  animation: bounce 1s infinite, changeColor 2s infinite;
 }
 
 .computers-container {
@@ -56,11 +32,11 @@
 }
 
 #content {
-  @apply w-full flex flex-col p-[10%] xl:p-[5%] bg-blue-950 bg-opacity-50 gap-20 min-h-screen
+  @apply w-full flex flex-col p-[10%] xl:p-[5%] bg-blue-950 bg-opacity-50 gap-10 min-h-screen text-white
 }
 
 .skills {
-  @apply list-disc rounded-lg text-white gap-2 flex flex-col sm:text-lg w-full
+  @apply list-disc rounded-lg text-white gap-2 flex flex-col sm:text-lg w-full max-w-[48rem]
 }
 
 .skills li {

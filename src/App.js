@@ -1,9 +1,10 @@
+import { useEffect } from 'react'
 import Computers from './components/Computers'
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import me from "./assets/me.png"
 import react from './assets/react.svg'
 import node from './assets/node.svg'
 import github from './assets/github.svg'
+import linkedin from './assets/linkedin.png'
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import mongo from './assets/mongo.svg'
 import cybersecurity from './assets/cyber-security.png'
@@ -12,37 +13,51 @@ import weatherboy from "./assets/weatherboy.png"
 import cyclopedia from "./assets/cyclopedia.png"
 import { Tooltip } from "@mui/material"
 
-
 const App = () => {
   const scrollDown = () => {
     document.getElementById('content').scrollIntoView({behavior: 'smooth'})
   } 
 
-  const liveUrl = "https://mikematics22800.github.io/"
+  const ghUrl = "https://mikematics22800.github.io/"
+
+  useEffect(() => {
+    setTimeout(() => {
+      scrollDown()
+    }, 1500)
+  }, [])
 
   return (
     <div className='w-screen'>
       <div className='computers-container'>
         <Computers/>
       </div>
-      <div className="hero">
+      <div className="hero animate__fadeInDownBig animate__animated">
         <div>
-          <span className='text-[red]'>Mike</span>
-          <span className='text-[aqua]'>Matics</span>
+          <span className='text-[red] roboto'>Mike</span>
+          <span className='text-[aqua] roboto'>Matics</span>
         </div>
-        <ArrowCircleDownIcon className="arrow text-white !text-6xl sm:!text-7xl cursor-pointer" onClick={scrollDown}/>
       </div> 
       <div id='content' className='roboto'>
-        <div className='w-full flex xl:flex-row flex-col gap-20 items-center'>
-          <div className='flex flex-col items-center gap-2'>
-            <a className='cursor-pointer' href='https://github.com/mikematics22800' target='_blank'>
-              <div className="sm:w-96 sm:h-96 w-64 h-64 rounded-full bg-cover" style={{ backgroundImage: `url(${me})` }}/>
-            </a>
-            <h1 className='font-bold sm:text-4xl text-2xl text-white'>Hello world :)</h1>
+        <div className='w-full flex xl:flex-row flex-col gap-10 sm:justify-between '>
+          <div className='flex flex-col items-center gap-4'>
+            <img src={me} className="sm:w-96 w-64 h-auto rounded-3xl" style={{ backgroundImage: `url(${me})` }}/>
+            <h1 className='text-3xl font-bold'>Michael Medina</h1>
+            <div className='flex items-center gap-6'>
+              <Tooltip title='GitHub' placement='bottom' arrow> 
+                <a href={ghUrl} target='_blank'>
+                  <img src={github} className='w-12 h-12'/>
+                </a>
+              </Tooltip>
+              <Tooltip title='LinkedIn' placement='bottom' arrow> 
+                <a href='https://www.linkedin.com/in/michael-medina-928828207/' target='_blank'>
+                  <img src={linkedin} className='w-12 h-12'/>
+                </a>
+              </Tooltip>
+            </div>
           </div>
           <ul className='skills'>
             <div className='flex justify-center mb-4'>
-              <h1 className='sm:text-2xl font-bold'>Skills to pay the bills 💸 💸 💸</h1>
+              <h1 className='text-3xl font-bold'>Technical Skillset</h1>
             </div>
             <li>
               <img src={react}/>
@@ -70,9 +85,16 @@ const App = () => {
             </li>
           </ul>
         </div>
+        <p className='sm:text-lg text-center bg-blue-600 sm:p-10 p-5 rounded-lg sm:rounded-3xl'>
+          Greetings! I am a full stack engineer with extensive experience in both front-end and back-end development. 
+          I specialize in creating dynamic, responsive web applications using modern technologies. 
+          I am passionate about writing clean, efficient code and continuously learning new tools and techniques to improve my skills. 
+          I thrive in collaborative environments and enjoy working with cross-functional teams to deliver high-quality software solutions. 
+          In my spare time, I contribute to open-source projects and stay updated with the latest industry trends and best practices.
+        </p>
         <section id="works">
           <div className='flex justify-center mb-5 sm:mb-10'>
-            <h1 className='text-white font-bold sm:text-2xl text-lg'>Some cool stuff I've built</h1>
+            <h1 className='font-bold text-3xl'>Projects</h1>
           </div>
           <div className='links'>
             <Tooltip title="Cyclopedia" arrow>
@@ -81,12 +103,12 @@ const App = () => {
               </a>
             </Tooltip>
             <Tooltip title="Cryptomatics" arrow>
-              <a href={`${liveUrl}Cryptomatics`} target='_blank'>
+              <a href={`${ghUrl}Cryptomatics`} target='_blank'>
                 <img src={cryptomatics}/>
               </a>
             </Tooltip>
             <Tooltip title="Weatherboy" arrow>  
-              <a href={`${liveUrl}Weatherboy`} target='_blank'>
+              <a href={`${ghUrl}Weatherboy`} target='_blank'>
                 <img src={weatherboy}/>
               </a>
             </Tooltip>
