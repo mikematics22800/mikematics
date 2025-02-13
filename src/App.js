@@ -40,8 +40,8 @@ const App = () => {
       <div id='content' className='roboto'>
         <div className='w-full flex xl:flex-row flex-col gap-10 sm:justify-between '>
           <div className='flex flex-col items-center gap-4'>
-            <img src={me} className="sm:w-96 w-64 h-auto rounded-3xl" style={{ backgroundImage: `url(${me})` }}/>
             <h1 className='text-3xl font-bold'>Michael Medina</h1>
+            <img src={me} className="w-full max-w-96"/>
             <div className='flex items-center gap-6'>
               <Tooltip title='GitHub' placement='bottom' arrow> 
                 <a href={ghUrl} target='_blank'>
