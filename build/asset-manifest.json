@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "./static/css/main.02988910.css",
-    "main.js": "./static/js/main.d06cd3c0.js",
+    "main.js": "./static/js/main.e69b5161.js",
     "static/js/451.86ec87ad.chunk.js": "./static/js/451.86ec87ad.chunk.js",
     "static/media/me.png": "./static/media/me.eb4c49e157d4873398cd.png",
     "static/media/cyclopedia.png": "./static/media/cyclopedia.1faea6c40f2dc623be4b.png",
-    "static/media/cryptomatics.png": "./static/media/cryptomatics.a3a24b8331d85af5237b.png",
-    "static/media/weatherboy.png": "./static/media/weatherboy.4c7e9895fe5962670904.png",
+    "static/media/cryptomatics.png": "./static/media/cryptomatics.35c3ce8884d9e1e735fd.png",
+    "static/media/weatherboy.png": "./static/media/weatherboy.9fb136e761aa57533d39.png",
     "static/media/cyber-security.png": "./static/media/cyber-security.56a6c1b57c467a053cd9.png",
     "static/media/linkedin.png": "./static/media/linkedin.6892b3ae328c7a1e055f.png",
     "static/media/node.svg": "./static/media/node.a7647021075b20ebcf315dd54793112d.svg",
@@ -15,11 +15,11 @@
     "index.html": "./index.html",
     "static/media/react.svg": "./static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
     "main.02988910.css.map": "./static/css/main.02988910.css.map",
-    "main.d06cd3c0.js.map": "./static/js/main.d06cd3c0.js.map",
+    "main.e69b5161.js.map": "./static/js/main.e69b5161.js.map",
     "451.86ec87ad.chunk.js.map": "./static/js/451.86ec87ad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.02988910.css",
-    "static/js/main.d06cd3c0.js"
+    "static/js/main.e69b5161.js"
   ]
 }
