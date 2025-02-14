@@ -36,7 +36,7 @@
 }
 
 .skills {
-  @apply list-disc rounded-lg text-white gap-2 flex flex-col sm:text-lg w-full max-w-[48rem]
+  @apply list-disc rounded-lg text-white gap-2 flex flex-col text-xs sm:text-lg w-full max-w-[48rem]
 }
 
 .skills li {

@@ -40,11 +40,11 @@ const App = () => {
       <div id='content' className='roboto'>
         <div className='w-full flex xl:flex-row flex-col gap-10 sm:justify-between '>
           <div className='flex flex-col items-center gap-4'>
-            <h1 className='text-3xl font-bold'>Michael Medina</h1>
+            <h1 className='sm:text-3xl text-xl font-bold'>Michael Medina</h1>
             <img src={me} className="w-full max-w-96"/>
             <div className='flex items-center gap-6'>
               <Tooltip title='GitHub' placement='bottom' arrow> 
-                <a href={ghUrl} target='_blank'>
+                <a href="https://github.com/mikematics22800" target='_blank'>
                   <img src={github} className='w-12 h-12'/>
                 </a>
               </Tooltip>
@@ -57,7 +57,7 @@ const App = () => {
           </div>
           <ul className='skills'>
             <div className='flex justify-center mb-4'>
-              <h1 className='text-3xl font-bold'>Technical Skillset</h1>
+              <h1 className='sm:text-3xl text-xl font-bold'>Technical Skillset</h1>
             </div>
             <li>
               <img src={react}/>
@@ -85,7 +85,7 @@ const App = () => {
             </li>
           </ul>
         </div>
-        <p className='sm:text-lg text-center bg-blue-600 sm:p-10 p-5 rounded-lg sm:rounded-3xl'>
+        <p className='sm:text-lg text-center bg-blue-600 sm:p-10 p-5 rounded-lg sm:rounded-3xl text-xs'>
           Greetings! I am a full stack engineer with extensive experience in both front-end and back-end development. 
           I specialize in creating dynamic, responsive web applications using modern technologies. 
           I am passionate about writing clean, efficient code and continuously learning new tools and techniques to improve my skills. 
@@ -94,7 +94,7 @@ const App = () => {
         </p>
         <section id="works">
           <div className='flex justify-center mb-5 sm:mb-10'>
-            <h1 className='font-bold text-3xl'>Projects</h1>
+            <h1 className='font-bold sm:text-3xl text-xl'>Projects</h1>
           </div>
           <div className='links'>
             <Tooltip title="Cyclopedia" arrow>
