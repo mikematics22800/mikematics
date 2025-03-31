@@ -40,20 +40,8 @@ const App = () => {
       <div id='content' className='roboto'>
         <div className='w-full flex xl:flex-row flex-col gap-10 sm:justify-between '>
           <div className='flex flex-col items-center gap-4'>
-            <h1 className='sm:text-3xl text-xl font-bold'>Michael Medina</h1>
             <img src={me} className="w-full max-w-96"/>
-            <div className='flex items-center gap-6'>
-              <Tooltip title='GitHub' placement='bottom' arrow> 
-                <a href="https://github.com/mikematics22800" target='_blank'>
-                  <img src={github} className='w-12 h-12'/>
-                </a>
-              </Tooltip>
-              <Tooltip title='LinkedIn' placement='bottom' arrow> 
-                <a href='https://www.linkedin.com/in/michael-medina-928828207/' target='_blank'>
-                  <img src={linkedin} className='w-12 h-12'/>
-                </a>
-              </Tooltip>
-            </div>
+            <h1 className='sm:text-3xl text-xl font-bold'>Michael Medina</h1>
           </div>
           <ul className='skills'>
             <div className='flex justify-center mb-4'>
@@ -90,11 +78,11 @@ const App = () => {
           I specialize in creating dynamic, responsive web applications using modern technologies. 
           I am passionate about writing clean, efficient code and continuously learning new tools and techniques to improve my skills. 
           I thrive in collaborative environments and enjoy working with cross-functional teams to deliver high-quality software solutions. 
-          In my spare time, I contribute to open-source projects and stay updated with the latest industry trends and best practices.
+          I lead and contribute to open-source projects, staying updated with the latest industry trends and tools.
         </p>
         <section id="works">
           <div className='flex justify-center mb-5 sm:mb-10'>
-            <h1 className='font-bold sm:text-3xl text-xl'>Projects</h1>
+            <h1 className='font-bold sm:text-3xl text-xl'>Works</h1>
           </div>
           <div className='links'>
             <Tooltip title="Cyclopedia" arrow>
@@ -110,6 +98,20 @@ const App = () => {
             <Tooltip title="Weatherboy" arrow>  
               <a href={`${ghUrl}Weatherboy`} target='_blank'>
                 <img src={weatherboy}/>
+              </a>
+            </Tooltip>
+          </div>
+        </section>
+        <section className='w-full flex justify-center'>
+          <div className='flex items-center gap-6'>
+            <Tooltip title='GitHub' placement='bottom' arrow> 
+              <a href="https://github.com/mikematics22800" target='_blank'>
+                <img src={github} className='w-12 h-12'/>
+              </a>
+            </Tooltip>
+            <Tooltip title='LinkedIn' placement='bottom' arrow> 
+              <a href='https://www.linkedin.com/in/michael-medina-928828207/' target='_blank'>
+                <img src={linkedin} className='w-12 h-12'/>
               </a>
             </Tooltip>
           </div>
