@@ -6,7 +6,7 @@ import { Instances } from './ComputersMesh'
 
 const Computers = () => {
   return (
-    <div id='computers'>
+    <div className='computers'>
       <Canvas shadows dpr={[1, 1.5]} camera={{position: [0, 0, 3.5]}} eventSource={document.getElementById('root')} eventPrefix="client">
         {/* Lights */}
         <hemisphereLight intensity={0.15} groundColor="black" />

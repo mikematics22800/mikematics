@@ -10,13 +10,41 @@
   display: none;
 }
 
-
-.roboto {
+.source-code-pro {
   font-family: "Source Code Pro", serif;
 }
 
+nav {
+  @apply w-full h-20 bg-gray-800 sticky top-0 justify-end flex items-center px-20 
+}
+
+.nav-links {
+  @apply  flex gap-10 text-white font-bold text-2xl
+}
+
+.nav-links h1 {
+  @apply cursor-pointer hover:text-[aqua] duration-200
+}
+
 .hero {
-  @apply w-full h-screen flex flex-col items-center pt-20 gap-10
+  @apply w-full h-screen flex flex-col items-center pt-20 gap-5
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero h1 {
+  @apply text-xl text-white;
+  animation: blink 1s infinite;
 }
 
 .hero span {
@@ -27,12 +55,20 @@
   @apply w-full h-screen fixed top-0 flex justify-center items-center -z-50 bg-black
 }
 
-#computers {
+.computers {
   @apply w-full translate-y-20
 }
 
-#content {
-  @apply w-full flex flex-col p-[10%] xl:p-[5%] bg-blue-950 bg-opacity-50 gap-10 min-h-screen text-white
+.content {
+  @apply w-full flex flex-col p-20 xl:p-[5%] bg-blue-950 bg-opacity-50 gap-10 min-h-screen text-white
+}
+
+#about {
+  @apply  flex flex-col gap-10
+}
+
+#about p {
+  @apply sm:text-lg text-center text-xs
 }
 
 .skills {
@@ -40,7 +76,7 @@
 }
 
 .skills li {
-  @apply w-full bg-gray-600 rounded-lg p-5 flex items-center gap-5
+  @apply w-full bg-black bg-opacity-50 rounded-lg p-5 flex items-center gap-5
 }
 
 .skills li img {
