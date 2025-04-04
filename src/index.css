@@ -15,11 +15,11 @@
 }
 
 nav {
-  @apply w-full h-20 bg-gray-800 sticky top-0 justify-end flex items-center px-20 
+  @apply w-full h-20 bg-gray-800 sticky top-0 flex items-center px-20 justify-center
 }
 
 .nav-links {
-  @apply  flex gap-10 text-white font-bold text-2xl
+  @apply  flex sm:gap-20 gap-10 text-white font-bold text-2xl
 }
 
 .nav-links h1 {
@@ -60,7 +60,7 @@ nav {
 }
 
 .content {
-  @apply w-full flex flex-col p-20 xl:p-[5%] bg-blue-950 bg-opacity-50 gap-10 min-h-screen text-white
+  @apply w-full flex flex-col p-20 xl:p-[5%] bg-blue-950 bg-opacity-50 gap-40 min-h-screen text-white
 }
 
 #about {
@@ -83,10 +83,14 @@ nav {
   @apply h-8 w-8
 }
 
-#works .links {
-  @apply w-full flex flex-col items-center gap-12 xl:gap-0 xl:justify-between xl:flex-row
+#projects {
+  @apply flex flex-col items-center gap-20
 }
 
-#works .links a img {
-  @apply xl:w-96 w-full rounded-lg
+.project {
+  @apply flex xl:flex-row flex-col gap-20 max-w-full
+}
+
+#contact {
+  @apply w-full flex items-center justify-center gap-10 text-lg flex-wrap
 }

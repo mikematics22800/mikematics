@@ -149,8 +149,8 @@ export default function Computers(props) {
       <ScreenText color='lime' invert frame="Object_218" panel="Object_219" x={-5} position={[3.11, 2.15, -0.18]} rotation={[0, -0.79, 0]} scale={0.81} />
       <ScreenText color='aqua' frame="Object_221" panel="Object_222" y={5} position={[-3.42, 3.06, 1.3]} rotation={[0, 1.22, 0]} scale={0.9} />
       <ScreenText color='violet' invert frame="Object_224" panel="Object_225" position={[-3.9, 4.29, -2.64]} rotation={[0, 0.54, 0]} />
-      <ScreenText coolr='white' frame="Object_227" panel="Object_228" position={[0.96, 4.28, -4.2]} rotation={[0, -0.65, 0]} />
-      <ScreenText color='gold' frame="Object_230" panel="Object_231" position={[4.68, 4.29, -1.56]} rotation={[0, -Math.PI / 3, 0]} />
+      <ScreenText coolr='gold' frame="Object_227" panel="Object_228" position={[0.96, 4.28, -4.2]} rotation={[0, -0.65, 0]} />
+      <ScreenText color='pink' frame="Object_230" panel="Object_231" position={[4.68, 4.29, -1.56]} rotation={[0, -Math.PI / 3, 0]} />
       <Leds instances={instances} />
     </group>
   )
