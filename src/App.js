@@ -64,7 +64,7 @@ const App = () => {
             <span className='text-[red]'>Mike</span>
             <span className='text-[aqua]'>Matics</span>
           </div>
-          <h1>Click anywhere to begin</h1>
+          <h1>Click or tap anywhere to begin</h1>
         </div> 
         <nav id="nav">
           <div className='nav-links'>
@@ -77,7 +77,7 @@ const App = () => {
           <div id="about">
             <div className='w-full flex xl:flex-row flex-col gap-10 sm:justify-between'>
               <div className='flex flex-col items-center gap-4'>
-                <img src={me} className="w-full max-w-96"/>
+                <img src={me} className="sm:w-96 w-64"/>
                 <h1 className='sm:text-3xl text-xl font-bold'>Michael Medina</h1>
               </div>
               <ul className='skills'> 
@@ -123,18 +123,18 @@ const App = () => {
               <a className="w-[48rem] max-w-full" href='https://storm-cyclopedia.com' target='_blank'>
                 <img className='rounded-lg w-full' src={cyclopedia}/>
               </a>
-              <div className='flex flex-col gap-3 xl:w-96'>
-                <h1 className='text-2xl font-bold'>Cyclopedia</h1>
-                <p className='text-lg'>
+              <div className='desc'>
+                <h1>Cyclopedia</h1>
+                <p>
                   Interactive database for exploring historical hurricane track data with advanced filtering and visualization tools including dynamic charts powered by Chart.js. 
                   Built with React.js frontend for a seamless user experience, Express.js backend for efficient API handling, and Tailwind CSS for polished and responsive UI.                 
                 </p>              
               </div>
             </div>
-            <div className='project'>
-              <div className='flex flex-col gap-3 xl:w-96'>
-                <h1 className='text-2xl font-bold'>Cryptomatics</h1>
-                <p className='text-lg'>
+            <div className='project !flex-col-reverse sm:!flex-row'>
+              <div className='desc'>
+                <h1>Cryptomatics</h1>
+                <p>
                   Interactive database for exploring live cryptocurrency stats and market trends with advanced filtering and visualization tools including dynamic charts powered by Chart.js.
                   Built with React.js frontend for a seamless user experience, Axios for efficient API handling, and Tailwind CSS for polished and responsive UI.
                 </p>              
@@ -147,9 +147,9 @@ const App = () => {
               <a className="w-[48rem] max-w-full" href={`${ghUrl}/weatherboy`} target='_blank'>
                 <img className='rounded-lg w-full' src={weatherboy}/>
               </a>
-              <div className='flex flex-col gap-3 xl:w-96'>
-                <h1 className='text-2xl font-bold'>Weatherboy</h1>
-                <p className='text-lg'>
+              <div className='desc'>
+                <h1>Weatherboy</h1>
+                <p>
                   Weather application that provides real-time weather data and 5-day forecasts for any city worldwide, as well as an interactive map to view global atmospheric conditions.
                   Built with React.js frontend for a seamless user experience, Axios for efficient API handling, and Tailwind CSS for polished and responsive UI.
                 </p>              
