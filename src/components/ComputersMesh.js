@@ -188,7 +188,7 @@ function ScreenText({ invert, x = 0, y = 1, ...props }) {
       <color attach="background" args={['black']} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} />
-      <Text position={[x, y, 0]} ref={textRef} fontSize={1} color={props.color} font={`${process.env.PUBLIC_URL}/sixtyfour.ttf`}>MikeMatics</Text>
+      <Text position={[x, y, 0]} ref={textRef} fontSize={1} color={props.color} font={`${process.env.PUBLIC_URL}/sixtyfour.ttf`}>Mikematics</Text>
     </Screen>
   )
 }

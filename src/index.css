@@ -43,12 +43,12 @@ nav {
 }
 
 .hero h1 {
-  @apply sm:text-2xl text-lg text-white;
+  @apply sm:text-2xl text-white;
   animation: blink 1s infinite;
 }
 
 .hero span {
-  @apply text-5xl sm:text-6xl font-bold
+  @apply text-4xl sm:text-6xl font-bold
 }
 
 .computers-container {
@@ -60,27 +60,19 @@ nav {
 }
 
 .content {
-  @apply w-full flex flex-col p-[10%] sm:p-[5%] bg-blue-950 bg-opacity-50 sm:gap-40 gap-20 min-h-screen text-white
+  @apply w-full flex flex-col p-[10%] sm:p-[5%] bg-blue-950 bg-opacity-50 sm:gap-40 gap-20 min-h-screen text-white items-center
 }
 
 #about {
-  @apply  flex flex-col gap-10
-}
-
-p {
-  @apply sm:text-lg text-xs
-}
-
-#about p {
-  @apply text-center
+  @apply w-full flex flex-col gap-10 items-center xl:flex-row xl:gap-20 justify-center
 }
 
 .skills {
-  @apply list-disc rounded-lg text-white gap-2 flex flex-col text-xs sm:text-lg w-full max-w-[48rem]
+  @apply list-disc rounded-lg text-white gap-2 flex flex-col
 }
 
 .skills li {
-  @apply w-full bg-black bg-opacity-50 rounded-lg p-5 flex items-center gap-5
+  @apply bg-black bg-opacity-50 rounded-lg p-4 flex items-center gap-4
 }
 
 .skills li img {
@@ -88,15 +80,23 @@ p {
 }
 
 #projects {
-  @apply flex flex-col items-center sm:gap-20 gap-10
+  @apply flex flex-col items-center sm:gap-20 gap-10 w-full
 }
 
 .project {
-  @apply flex xl:flex-row flex-col sm:gap-20 gap-10 max-w-full
+  @apply flex xl:flex-row flex-col xl:gap-20 gap-5 max-w-full
 }
 
 .project h1 {
   @apply sm:text-3xl text-xl font-bold
+}
+
+.project a {
+  @apply max-w-full w-[36rem]
+}
+
+.project img {
+  @apply rounded-lg max-w-full
 }
 
 #contact {
@@ -104,5 +104,5 @@ p {
 }
 
 .desc {
-  @apply flex flex-col sm:gap-3 gap-1.5 xl:w-96
+  @apply flex flex-col sm:gap-3 gap-1.5 xl:w-96 max-w-full
 }

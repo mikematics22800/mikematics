@@ -62,7 +62,7 @@ const App = () => {
         <div className="hero">
           <div>
             <span className='text-[red]'>Mike</span>
-            <span className='text-[aqua]'>Matics</span>
+            <span className='text-[aqua]'>matics</span>
           </div>
           <h1>Click or tap anywhere to begin</h1>
         </div> 
@@ -75,53 +75,48 @@ const App = () => {
         </nav>
         <div className='content'>
           <div id="about">
-            <div className='w-full flex xl:flex-row flex-col gap-10 sm:justify-between'>
-              <div className='flex flex-col items-center gap-4'>
-                <img src={me} className="sm:w-96 w-64"/>
-                <h1 className='sm:text-3xl text-xl font-bold'>Michael Medina</h1>
-              </div>
-              <ul className='skills'> 
-                <div className='flex justify-center mb-4'>
-                  <h1 className='sm:text-3xl text-xl font-bold'>Technical Skillset</h1>
-                </div>
-                <li>
-                  <img src={react}/>
-                  <h1>Front-end development using HTML, CSS, JavaScript, and React</h1>
-                </li>
-                <li>
-                  <img src={node}/>
-                  <h1>Back-end development using Node.js and Express.js</h1>
-                </li>
-                <li>
-                  <img src={github}/>
-                  <h1>Version control and collaboration using Git and GitHub</h1>
-                </li>
-                <li>
-                  <DeveloperModeIcon className='!w-8 !h-8'/>
-                  <h1>Responsive web design and mobile-first development</h1>
-                </li>
-                <li>
-                  <img src={mongo}/>
-                  <h1>MongoDB management using AWS, Azure, and Google Cloud</h1>
-                </li>
-                <li>
-                  <img src={cybersecurity}/>
-                  <h1>Encrypted user authentication using JWT and OAuth</h1>
-                </li>
-              </ul>
+            <div className='flex flex-col items-center gap-4 w-96 max-w-full'>
+              <img src={me}/>
+              <h1 className='text-2xl font-bold'>Michael Medina</h1>
+              <p className='bg-blue-700 rounded-xl p-6'>
+                Greetings! I am a software engineer with extensive experience in both front-end and back-end development. 
+                I specialize in creating dynamic, responsive web applications using modern libraries and frameworks. 
+              </p>
             </div>
-            <p>
-              Greetings! I am a full stack engineer with extensive experience in both front-end and back-end development. 
-              I specialize in creating dynamic, responsive web applications using modern technologies. 
-              I am passionate about writing clean, efficient code and continuously learning new tools and techniques to improve my skills. 
-              I thrive in collaborative environments and enjoy working with cross-functional teams to deliver high-quality software solutions. 
-              I lead and contribute to open-source projects, staying updated with the latest industry trends and tools.
-            </p>
+            <ul className='skills'> 
+              <div className='flex justify-center mb-4'>
+                <h1 className='text-2xl font-bold'>Technical Skillset</h1>
+              </div>
+              <li>
+                <img src={react}/>
+                <h1>Front-end development using HTML, CSS, JavaScript, and React</h1>
+              </li>
+              <li>
+                <img src={node}/>
+                <h1>Back-end development using Node.js and Express.js</h1>
+              </li>
+              <li>
+                <img src={github}/>
+                <h1>Version control and collaboration using Git and GitHub</h1>
+              </li>
+              <li>
+                <DeveloperModeIcon className='!w-8 !h-8'/>
+                <h1>Responsive web design and mobile-first development</h1>
+              </li>
+              <li>
+                <img src={mongo}/>
+                <h1>MongoDB management using AWS, Azure, and Google Cloud</h1>
+              </li>
+              <li>
+                <img src={cybersecurity}/>
+                <h1>Encrypted user authentication using JWT and OAuth</h1>
+              </li>
+            </ul>
           </div>
           <section id="projects">
             <div className='project'>
-              <a className="w-[48rem] max-w-full" href='https://storm-cyclopedia.com' target='_blank'>
-                <img className='rounded-lg w-full' src={cyclopedia}/>
+              <a href='https://storm-cyclopedia.com' target='_blank'>
+                <img src={cyclopedia}/>
               </a>
               <div className='desc'>
                 <h1>Cyclopedia</h1>
@@ -131,21 +126,21 @@ const App = () => {
                 </p>              
               </div>
             </div>
-            <div className='project !flex-col-reverse sm:!flex-row'>
-              <div className='desc'>
+            <div className='project xl:!flex-row-reverse'>
+              <a href={`${ghUrl}/cryptomatics`} target='_blank'>
+                <img src={cryptomatics}/>
+              </a>
+              <div className='desc text-right'>
                 <h1>Cryptomatics</h1>
                 <p>
                   Interactive database for exploring live cryptocurrency stats and market trends with advanced filtering and visualization tools including dynamic charts powered by Chart.js.
                   Built with React.js frontend for a seamless user experience, Axios for efficient API handling, and Tailwind CSS for polished and responsive UI.
                 </p>              
               </div>
-              <a className="w-[48rem] max-w-full" href={`${ghUrl}/cryptomatics`} target='_blank'>
-                <img className='rounded-lg w-full' src={cryptomatics}/>
-              </a>
             </div>
             <div className='project'>
-              <a className="w-[48rem] max-w-full" href={`${ghUrl}/weatherboy`} target='_blank'>
-                <img className='rounded-lg w-full' src={weatherboy}/>
+              <a href={`${ghUrl}/weatherboy`} target='_blank'>
+                <img src={weatherboy}/>
               </a>
               <div className='desc'>
                 <h1>Weatherboy</h1>
@@ -168,7 +163,7 @@ const App = () => {
               </a>
             </Tooltip>
             <h1>mikematics22800@gmail.com</h1>
-            <h1>+1 561-715-9065</h1>
+            <h1>+1 (561)-715-9065</h1>
           </section>
         </div>
       </div>
