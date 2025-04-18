@@ -1,5 +1,5 @@
-import { useEffect, useState, createContext } from 'react'
 import Computers from './components/Computers'
+import ParticlesBG from './components/ParticlesBG'
 import me from "./assets/me.png"
 import react from './assets/react.svg'
 import node from './assets/node.svg'
@@ -12,55 +12,27 @@ import cyclopedia from "./assets/cyclopedia.png"
 import cryptomatics from "./assets/cryptomatics.png"
 import weatherboy from "./assets/weatherboy.png"
 import { Tooltip } from "@mui/material"
-
-export const AppContext = createContext()
+import hubble from "./assets/hubble.jpg"
 
 const App = () => {
   const scrollTo = (id) => {
     document.getElementById(id).scrollIntoView({behavior: 'smooth'})
   } 
 
-  const ghUrl = "https://mikematics22800.github.io/"
-
-  const [monitorColor, setMonitorColor] = useState('red')
+  const ghUrl = "https://mikematics22800.github.io"
 
   window.addEventListener('click', (e) => {
     scrollTo('nav')
   })
 
-  useEffect(() => {
-    setTimeout(() => {
-      switch (monitorColor) {
-        case 'red':
-          setMonitorColor('orange')
-          break
-        case 'orange':
-          setMonitorColor('yellow')
-          break
-        case 'yellow':
-          setMonitorColor('lime')
-          break
-        case 'lime':
-          setMonitorColor('aqua')
-          break
-        case 'aqua':
-          setMonitorColor('violet')
-          break
-        case 'violet':
-          setMonitorColor('red')
-          break
-      }
-    }, 1000)
-  }, [monitorColor])
-
   return (
-    <AppContext.Provider value={{ monitorColor, setMonitorColor }}>
       <div className='w-screen source-code-pro'>
-        <div className='computers-container'>
-          <Computers/>
-        </div>
+        <ParticlesBG/>
         <div className="hero">
-          <div>
+          <div className='computers-container'>
+            <Computers/>
+          </div>
+          <div className='z-10 pt-20'>
             <span className='text-[red]'>Mike</span>
             <span className='text-[aqua]'>matics</span>
           </div>
@@ -73,43 +45,43 @@ const App = () => {
             <h1 onClick={() => {scrollTo('contact')}}>Contact</h1>
           </div>
         </nav>
-        <div className='content'>
+        <div className='content' style={{backgroundImage: `url(${hubble})`}}>
           <div id="about">
-            <div className='flex flex-col items-center gap-4 w-96 max-w-full'>
-              <img src={me}/>
-              <h1 className='text-2xl font-bold'>Michael Medina</h1>
-              <p className='bg-blue-700 rounded-xl p-6'>
-                Greetings! I am a software engineer with extensive experience in both front-end and back-end development. 
-                I specialize in creating dynamic, responsive web applications using modern libraries and frameworks. 
+            <div className='flex flex-col items-center w-80 max-w-full'>
+              <img className='w-full max-w-[50vw]' src={me}/>
+              <h1 className='text-xl sm:text-2xl font-bold mt-2 mb-1'>Michael Medina</h1>
+              <p className='text-center text-sm'>
+                Greetings! I am a bootcamp certified full stack developer. 
+                I specialize in building functional and dynamic web applications with the latest libraries and frameworks. 
               </p>
             </div>
             <ul className='skills'> 
-              <div className='flex justify-center mb-4'>
-                <h1 className='text-2xl font-bold'>Technical Skillset</h1>
+              <div className='flex justify-center my-2'>
+                <h1 className='sm:text-2xl text-xl font-bold'>Developer Skillset</h1>
               </div>
               <li>
                 <img src={react}/>
-                <h1>Front-end development using HTML, CSS, JavaScript, and React</h1>
+                <h1>Front-end development with React.js, Next.js, and TypeScript</h1>
               </li>
               <li>
                 <img src={node}/>
-                <h1>Back-end development using Node.js and Express.js</h1>
+                <h1>Back-end development with Node.js, Express.js, and RESTful APIs</h1>
               </li>
               <li>
                 <img src={github}/>
-                <h1>Version control and collaboration using Git and GitHub</h1>
+                <h1>Version control, CI/CD pipelines, and collaboration with GitHub</h1>
               </li>
               <li>
                 <DeveloperModeIcon className='!w-8 !h-8'/>
-                <h1>Responsive web design and mobile-first development</h1>
+                <h1>Responsive web design with Tailwind CSS and Material-UI</h1>
               </li>
               <li>
                 <img src={mongo}/>
-                <h1>MongoDB management using AWS, Azure, and Google Cloud</h1>
+                <h1>Database management with MongoDB, PostgreSQL, and Firebase</h1>
               </li>
               <li>
                 <img src={cybersecurity}/>
-                <h1>Encrypted user authentication using JWT and OAuth</h1>
+                <h1>Secure user authentication and data encryption with JWT and OAuth</h1>
               </li>
             </ul>
           </div>
@@ -121,32 +93,32 @@ const App = () => {
               <div className='desc'>
                 <h1>Cyclopedia</h1>
                 <p>
-                  Interactive database for exploring historical hurricane track data with advanced filtering and visualization tools including dynamic charts powered by Chart.js. 
-                  Built with React.js frontend for a seamless user experience, Express.js backend for efficient API handling, and Tailwind CSS for polished and responsive UI.                 
+                  Interactive database for exploring historical hurricane track data with advanced visualization tools, including a tracking map and charts. 
+                  Incorporated technologies include React.js, Express.js, and Tailwind CSS.                 
                 </p>              
               </div>
             </div>
             <div className='project xl:!flex-row-reverse'>
-              <a href={`${ghUrl}/cryptomatics`} target='_blank'>
+              <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
                 <img src={cryptomatics}/>
               </a>
-              <div className='desc text-right'>
-                <h1>Cryptomatics</h1>
+              <div className='desc xl:!text-right'>
+                <h1 className='xl:!text-right'>Cryptomatics</h1>
                 <p>
-                  Interactive database for exploring live cryptocurrency stats and market trends with advanced filtering and visualization tools including dynamic charts powered by Chart.js.
-                  Built with React.js frontend for a seamless user experience, Axios for efficient API handling, and Tailwind CSS for polished and responsive UI.
+                  Live interactive database for viewing cryptocurrency market changes with advanced visualization tools, including dynamic time plots.
+                  Incorporated technologies include React.js, Coinranking API, and Tailwind CSS.
                 </p>              
               </div>
             </div>
             <div className='project'>
-              <a href={`${ghUrl}/weatherboy`} target='_blank'>
+              <a href={`${ghUrl}/Weatherboy`} target='_blank'>
                 <img src={weatherboy}/>
               </a>
               <div className='desc'>
                 <h1>Weatherboy</h1>
                 <p>
-                  Weather application that provides real-time weather data and 5-day forecasts for any city worldwide, as well as an interactive map to view global atmospheric conditions.
-                  Built with React.js frontend for a seamless user experience, Axios for efficient API handling, and Tailwind CSS for polished and responsive UI.
+                  Weather application providing real-time data and 5-day forecasts for any city worldwide, as well as an interactive map to view global atmospheric patterns.
+                  Incorporated technologies include React.js, OpenWeatherMap API, and Tailwind CSS.
                 </p>              
               </div>
             </div>
@@ -157,17 +129,16 @@ const App = () => {
                 <img src={github} className='w-12 h-12'/>
               </a>
             </Tooltip>
+            <h1>mikematics22800@gmail.com</h1>
+            <h1>+1 (561)-715-9065</h1>
             <Tooltip title='LinkedIn' placement='bottom' arrow> 
               <a href='https://www.linkedin.com/in/michael-medina-928828207/' target='_blank'>
                 <img src={linkedin} className='w-12 h-12'/>
               </a>
             </Tooltip>
-            <h1>mikematics22800@gmail.com</h1>
-            <h1>+1 (561)-715-9065</h1>
           </section>
         </div>
       </div>
-    </AppContext.Provider> 
   )
 }
 

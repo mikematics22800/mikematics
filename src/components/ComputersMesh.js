@@ -1,8 +1,7 @@
-import { useMemo, useContext, createContext, useRef} from 'react'
+import { useMemo, useContext, createContext, useRef, useEffect, useState} from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, Merged, RenderTexture, PerspectiveCamera, Text, Icosahedron } from '@react-three/drei'
-import { AppContext } from '../App'
 THREE.ColorManagement.legacyMode = false
 
 const Context = createContext()
@@ -145,11 +144,11 @@ export default function Computers(props) {
       <ScreenInteractive frame="Object_206" panel="Object_207" position={[0.27, 1.53, -2.61]} />
       <ScreenText color='red' frame="Object_209" panel="Object_210" y={5} position={[-1.43, 2.5, -1.8]} rotation={[0, 1, 0]} />
       <ScreenText color='orange' invert frame="Object_212" panel="Object_213" x={-5} y={5} position={[-2.73, 0.63, -0.52]} rotation={[0, 1.09, 0]} />
-      <ScreenText color='yellow' invert frame="Object_215" panel="Object_216" position={[1.84, 0.38, -1.77]} rotation={[0, -Math.PI / 9, 0]} />
+      <ScreenText color='yellow' frame="Object_215" panel="Object_216" position={[1.84, 0.38, -1.77]} rotation={[0, -Math.PI / 9, 0]} />
       <ScreenText color='lime' invert frame="Object_218" panel="Object_219" x={-5} position={[3.11, 2.15, -0.18]} rotation={[0, -0.79, 0]} scale={0.81} />
       <ScreenText color='aqua' frame="Object_221" panel="Object_222" y={5} position={[-3.42, 3.06, 1.3]} rotation={[0, 1.22, 0]} scale={0.9} />
       <ScreenText color='violet' invert frame="Object_224" panel="Object_225" position={[-3.9, 4.29, -2.64]} rotation={[0, 0.54, 0]} />
-      <ScreenText coolr='gold' frame="Object_227" panel="Object_228" position={[0.96, 4.28, -4.2]} rotation={[0, -0.65, 0]} />
+      <ScreenText coolr='gold' invert frame="Object_227" panel="Object_228" position={[0.96, 4.28, -4.2]} rotation={[0, -0.65, 0]} />
       <ScreenText color='pink' frame="Object_230" panel="Object_231" position={[4.68, 4.29, -1.56]} rotation={[0, -Math.PI / 3, 0]} />
       <Leds instances={instances} />
     </group>
@@ -173,8 +172,7 @@ function Screen({ frame, panel, children, ...props }) {
 }
 
 function ScreenText({ invert, x = 0, y = 1, ...props }) {
-  const textRef = useRef()
-  const {monitorColor} = useContext(AppContext)
+  const textRef = useRef()  
   useFrame((state) => {
     invert === true ? (
       textRef.current.position.x = x + Math.sin(state.clock.elapsedTime) * 8
@@ -200,7 +198,38 @@ function ScreenInteractive(props) {
     ref.current.rotation.y += delta;
   })
 
-  const { monitorColor } = useContext(AppContext)
+  const [monitorColor, setMonitorColor] = useState('red')
+
+  useEffect(() => {
+    setTimeout(() => {
+      switch (monitorColor) {
+        case 'red':
+          setMonitorColor('orange')
+          break
+        case 'orange':
+          setMonitorColor('yellow')
+          break
+        case 'yellow':
+          setMonitorColor('lime')
+          break
+        case 'lime':
+          setMonitorColor('aqua')
+          break
+        case 'aqua':
+          setMonitorColor('violet')
+          break
+        case 'violet':
+          setMonitorColor('pink')
+          break
+        case 'pink':
+          setMonitorColor('white')
+          break
+        case 'white':
+          setMonitorColor('red')
+          break
+      }
+    }, 1000)
+  }, [monitorColor])
 
   return (
     <Screen {...props}>
