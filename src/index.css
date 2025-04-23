@@ -64,19 +64,7 @@ nav {
 }
 
 #about {
-  @apply w-full flex flex-col gap-10 items-center xl:flex-row xl:gap-20 justify-center xl:items-start z-10
-}
-
-.skills {
-  @apply list-disc rounded-lg text-white gap-2 flex flex-col
-}
-
-.skills li {
-  @apply bg-black bg-opacity-50 rounded-lg p-4 flex items-center gap-4 text-xs sm:text-sm
-}
-
-.skills li img {
-  @apply h-8 w-8
+  @apply w-full flex flex-col gap-10 items-center xl:gap-40 justify-center z-10 xl:flex-row
 }
 
 #projects {
@@ -84,7 +72,7 @@ nav {
 }
 
 .project {
-  @apply flex xl:flex-row flex-col xl:gap-20 gap-5 w-[36rem] max-w-full xl:w-full justify-center
+  @apply flex xl:flex-row flex-col xl:gap-20 gap-2 w-[36rem] max-w-full xl:w-full justify-center
 }
 
 .project p {
@@ -103,6 +91,30 @@ nav {
   @apply w-full flex items-center justify-center sm:gap-10 gap-5 flex-wrap z-10
 }
 
+#contact img {
+  @apply w-10 h-10 hover:scale-[105%] duration-200
+}
+
 .desc {
   @apply flex flex-col gap-1 xl:w-96 text-center xl:text-start
 }
+
+.skills {
+  @apply flex flex-col sm:gap-16 gap-10 items-center
+}
+
+.skills img {
+  @apply sm:w-16 w-10 cursor-pointer hover:scale-[105%] duration-200
+}
+
+.skills .row {
+  @apply flex sm:gap-16 gap-10 justify-center
+}
+
+
+
+
+
+
+
+
