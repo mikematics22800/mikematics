@@ -48,6 +48,7 @@ const App = () => {
         </nav>
         <div className='content' style={{backgroundImage: `url(${hubble})`}}>
           <section id="about">
+            <div className='w-full sm:w-auto px-10 sm:p-0'>
             <div className="relative aspect-square w-96 max-w-full">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Tooltip title="GitHub" arrow placement="bottom">
@@ -119,6 +120,7 @@ const App = () => {
                   </a>
                 </Tooltip>
               </div>
+            </div>
             </div>
               <p>
                 Welcome to my gallery. I specialize in building polished, efficient, and dynamic web applications using the latest JavaScript libraries and frameworks.
