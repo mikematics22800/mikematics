@@ -127,11 +127,11 @@ const App = () => {
         <div className='content' style={{backgroundColor: 'black'}}>
           <section id="about">
             <div className='w-full sm:w-auto px-10 sm:p-0'>
-            <div ref={aboutImageRef} className="relative aspect-square w-96 max-w-full">
+            <div ref={aboutImageRef} className="relative aspect-square w-[30rem] max-w-full">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Tooltip title="GitHub" arrow placement="bottom">
                   <a href="https://github.com/mikematics22800" target='_blank'>
-                    <img src={coding} className='!w-24'/>      
+                    <img src={coding} className='!w-24 sm:!w-32'/>      
                   </a>
                 </Tooltip>
               </div>

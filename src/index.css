@@ -64,11 +64,11 @@ nav {
 }
 
 #about {
-  @apply flex flex-col lg:flex-row items-center justify-center gap-20 w-full
+  @apply flex flex-col items-center justify-center gap-16 w-full
 }
 
 #about p {
-  @apply w-[36rem] max-w-full text-center lg:text-start sm:text-lg text-sm
+  @apply w-[36rem] max-w-full text-center
 }
 
 #projects {
@@ -96,7 +96,7 @@ nav {
 }
 
 #about img {
-  @apply w-12 cursor-pointer hover:scale-[105%] duration-200
+  @apply w-12 sm:w-16 cursor-pointer hover:scale-[105%] duration-200
 }
 
 /* Remove our custom animation classes since we're using animate.css */
