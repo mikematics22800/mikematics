@@ -1,11 +1,13 @@
-import { Tooltip } from '@mui/material'
+import React, { useCallback } from 'react'
+import { Tooltip, TextField, Button, Box, Typography, Paper, Snackbar, Alert } from '@mui/material'
+import emailjs from '@emailjs/browser'
 import Computers from './components/Computers'
 import ParticlesBG from './components/ParticlesBG'
+import useIntersectionObserver from './hooks/useIntersectionObserver'
 import react from './assets/react.svg'
 import cyclopedia from "./assets/cyclopedia.png"
 import cryptomatics from "./assets/cryptomatics.png"
 import weatherboy from "./assets/weatherboy.png"
-import hubble from "./assets/hubble.jpg"
 import ts from "./assets/typescript.svg"
 import mongo from "./assets/mongo.svg"
 import tailwind from "./assets/tailwind.png"
@@ -22,6 +24,81 @@ const App = () => {
   } 
 
   const ghUrl = "https://mikematics22800.github.io"
+  
+  // Contact form state
+  const [contactForm, setContactForm] = React.useState({
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [snackbar, setSnackbar] = React.useState({
+    open: false,
+    message: '',
+    severity: 'success'
+  })
+  
+  const handleContactSubmit = useCallback(async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    try {
+      const result = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_email: contactForm.email,
+          subject: contactForm.subject,
+          message: contactForm.message,
+          to_email: 'mikematics22800@gmail.com'
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      
+      setSnackbar({
+        open: true,
+        message: 'Email sent successfully!',
+        severity: 'success'
+      })
+      
+      // Reset form
+      setContactForm({
+        email: '',
+        subject: '',
+        message: ''
+      })
+    } catch (error) {
+      console.error('Email send failed:', error)
+      setSnackbar({
+        open: true,
+        message: 'Failed to send email. Please try again.',
+        severity: 'error'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }, [contactForm.email, contactForm.subject, contactForm.message])
+  
+  const handleInputChange = useCallback((field) => (e) => {
+    setContactForm(prev => ({
+      ...prev,
+      [field]: e.target.value
+    }))
+  }, [])
+  
+  const handleCloseSnackbar = useCallback(() => {
+    setSnackbar(prev => ({ ...prev, open: false }))
+  }, [])
+  
+  // Create refs for elements that should animate
+  const aboutImageRef = useIntersectionObserver('animate__slideInLeft')
+  const aboutTextRef = useIntersectionObserver('animate__slideInRight')
+  const cyclopediaRef = useIntersectionObserver('animate__slideInLeft')
+  const cyclopediaDescRef = useIntersectionObserver('animate__slideInRight')
+  const cryptomaticsRef = useIntersectionObserver('animate__slideInRight')
+  const cryptomaticsDescRef = useIntersectionObserver('animate__slideInLeft')
+  const weatherboyRef = useIntersectionObserver('animate__slideInLeft')
+  const weatherboyDescRef = useIntersectionObserver('animate__slideInRight')
 
   window.addEventListener('click', (e) => {
     scrollTo('nav')
@@ -29,7 +106,7 @@ const App = () => {
 
   return (
       <div className='w-screen source-code-pro'>
-        <ParticlesBG/>
+        <ParticlesBG />
         <div className="hero">
           <div className='computers-container'>
             <Computers/>
@@ -44,12 +121,13 @@ const App = () => {
           <div className='nav-links'>
             <h1 onClick={() => {scrollTo('about')}}>About</h1>
             <h1 onClick={() => {scrollTo('projects')}}>Projects</h1>
+            <h1 onClick={() => {scrollTo('contact')}}>Contact</h1>
           </div>
         </nav>
-        <div className='content' style={{backgroundImage: `url(${hubble})`}}>
+        <div className='content' style={{backgroundColor: 'black'}}>
           <section id="about">
             <div className='w-full sm:w-auto px-10 sm:p-0'>
-            <div className="relative aspect-square w-96 max-w-full">
+            <div ref={aboutImageRef} className="relative aspect-square w-96 max-w-full">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Tooltip title="GitHub" arrow placement="bottom">
                   <a href="https://github.com/mikematics22800" target='_blank'>
@@ -122,21 +200,21 @@ const App = () => {
               </div>
             </div>
             </div>
-              <p>
+              <p ref={aboutTextRef}>
                 Welcome to my gallery. I specialize in building polished, efficient, and dynamic web applications using the latest JavaScript libraries and frameworks.
                 My expertise spans the full stack, from crafting responsive front-end interfaces with React, Next.js, and Material UI, to architecting robust back-end solutions with Node.js and MongoDB. I am passionate about leveraging modern tools like Vite, Webpack, and Tailwind CSS to deliver high-performance, maintainable code.
               </p>
           </section>        
           <section id="projects">
             <div className='project'>
-              <a href='https://storm-cyclopedia.com' target='_blank'>
+              <a ref={cyclopediaRef} href='https://storm-cyclopedia.com' target='_blank'>
                 <img src={cyclopedia} />
               </a>
-              <div className='desc'>
+              <div ref={cyclopediaDescRef} className='desc'>
                 <div className='flex-col gap-2'>
                   <h1 className='lg:!text-right'>Cyclopedia</h1>
                   <p className='lg:!text-right'>
-                    A data-driven platform for visualizing and analyzing historical hurricane tracks. Features an interactive map and dynamic charts that empower users to explore storm patterns, frequency, and intensity over time. Built for meteorology enthusiasts and researchers seeking actionable insights from complex datasets.
+                    A data-driven platform for visualizing historical and live hurricane tracks. Features an interactive map and dynamic charts that empower users to explore storm patterns, frequency, and intensity over time. Built for meteorology enthusiasts and researchers seeking actionable insights from complex datasets.
                   </p>
                 </div>
                 <div className='flex-col gap-2'>
@@ -146,10 +224,10 @@ const App = () => {
               </div>
             </div>
             <div className='project lg:!flex-row-reverse'>
-              <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
+              <a ref={cryptomaticsRef} href={`${ghUrl}/Cryptomatics`} target='_blank'>
                 <img src={cryptomatics} />
               </a>
-              <div className='desc'>
+              <div ref={cryptomaticsDescRef} className='desc'>
                 <div className='flex-col gap-2'>
                   <h1>Cryptomatics</h1>
                   <p>
@@ -163,10 +241,10 @@ const App = () => {
               </div>
             </div>
             <div className='project'>
-              <a href={`${ghUrl}/Weatherboy`} target='_blank'>
+              <a ref={weatherboyRef} href={`${ghUrl}/Weatherboy`} target='_blank'>
                 <img src={weatherboy} />
               </a>
-              <div className='desc'>
+              <div ref={weatherboyDescRef} className='desc'>
                 <div className='flex-col gap-2'>
                   <h1 className='lg:!text-right'>Weatherboy</h1>
                   <p className='lg:!text-right'>
@@ -180,7 +258,154 @@ const App = () => {
               </div>
             </div>
           </section>
+          <section id="contact">
+            <div className='contact'>
+              <Paper 
+                elevation={3} 
+                sx={{ 
+                  p: 4, 
+                  maxWidth: 600, 
+                  mx: 'auto', 
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                <Box component="form" onSubmit={handleContactSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  <TextField
+                    required={false}
+                    label="Email"
+                    type="email"
+                    value={contactForm.email}
+                    onChange={handleInputChange('email')}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'aqua',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        '&.Mui-focused': {
+                          color: 'aqua',
+                        },
+                      },
+                      '& .MuiInputBase-input': {
+                        color: 'white',
+                      },
+                    }}
+                  />
+                  <TextField
+                    required={false}
+                    label="Subject"
+                    value={contactForm.subject}
+                    onChange={handleInputChange('subject')}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'aqua',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        '&.Mui-focused': {
+                          color: 'aqua',
+                        },
+                      },
+                      '& .MuiInputBase-input': {
+                        color: 'white',
+                      },
+                    }}
+                  />
+                  <TextField
+                    required={false}
+                    label="Message"
+                    multiline
+                    rows={4}
+                    value={contactForm.message}
+                    onChange={handleInputChange('message')}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'aqua',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        '&.Mui-focused': {
+                          color: 'aqua',
+                        },
+                      },
+                      '& .MuiInputBase-input': {
+                        color: 'white',
+                      },
+                    }}
+                  />
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    disabled={isSubmitting}
+                    sx={{
+                      mt: 2,
+                      backgroundColor: 'rgba(0, 255, 255, 0.2)',
+                      border: '1px solid aqua',
+                      color: 'aqua',
+                      '&:hover': {
+                        backgroundColor: 'rgba(0, 255, 255, 0.3)',
+                        border: '1px solid aqua',
+                      },
+                      '&:disabled': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        color: 'rgba(255, 255, 255, 0.5)',
+                      },
+                    }}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Email'}
+                  </Button>
+                </Box>
+              </Paper>
+            </div>
+          </section>
         </div>
+        <Snackbar
+          open={snackbar.open}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+          <Alert 
+            onClose={handleCloseSnackbar} 
+            severity={snackbar.severity}
+            sx={{ 
+              backgroundColor: snackbar.severity === 'success' ? 'rgba(76, 175, 80, 0.9)' : 'rgba(244, 67, 54, 0.9)',
+              color: 'white',
+              '& .MuiAlert-icon': {
+                color: 'white'
+              }
+            }}
+          >
+            {snackbar.message}
+          </Alert>
+        </Snackbar>
       </div>
   )
 }

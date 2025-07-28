@@ -1,12 +1,11 @@
 {
   "files": {
-    "main.css": "./static/css/main.60305511.css",
-    "main.js": "./static/js/main.fd176157.js",
+    "main.css": "./static/css/main.8dd71cbd.css",
+    "main.js": "./static/js/main.1aa81735.js",
     "static/js/451.86ec87ad.chunk.js": "./static/js/451.86ec87ad.chunk.js",
-    "static/media/weatherboy.png": "./static/media/weatherboy.cf1f4ba300cfbe0a8e0b.png",
-    "static/media/cyclopedia.png": "./static/media/cyclopedia.3d15f86e9e96a9709d90.png",
+    "static/media/weatherboy.png": "./static/media/weatherboy.175ae2a0817f6169f760.png",
+    "static/media/cyclopedia.png": "./static/media/cyclopedia.c2f1f33aae27f87f86ce.png",
     "static/media/cryptomatics.png": "./static/media/cryptomatics.03e3a66cb60a4427eec7.png",
-    "static/media/hubble.jpg": "./static/media/hubble.995780b1b99b7ed4c19c.jpg",
     "static/media/tailwind.png": "./static/media/tailwind.479d7a8b4dc069959b65.png",
     "static/media/coding.png": "./static/media/coding.629a601f304fa93bc735.png",
     "static/media/redux.svg": "./static/media/redux.fc3e66ae9fcb5500f8c7f5745768c03c.svg",
@@ -18,12 +17,12 @@
     "static/media/webpack.svg": "./static/media/webpack.23fc1d3ac606d117e05a140e0de79806.svg",
     "static/media/material-ui.svg": "./static/media/material-ui.b45776fb29e80a04fe8a1f4e944e7ae8.svg",
     "static/media/react.svg": "./static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
-    "main.60305511.css.map": "./static/css/main.60305511.css.map",
-    "main.fd176157.js.map": "./static/js/main.fd176157.js.map",
+    "main.8dd71cbd.css.map": "./static/css/main.8dd71cbd.css.map",
+    "main.1aa81735.js.map": "./static/js/main.1aa81735.js.map",
     "451.86ec87ad.chunk.js.map": "./static/js/451.86ec87ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.60305511.css",
-    "static/js/main.fd176157.js"
+    "static/css/main.8dd71cbd.css",
+    "static/js/main.1aa81735.js"
   ]
 }

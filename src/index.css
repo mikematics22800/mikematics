@@ -68,7 +68,7 @@ nav {
 }
 
 #about p {
-  @apply w-[36rem] max-w-full text-center lg:text-start sm:text-sm text-xs
+  @apply w-[36rem] max-w-full text-center lg:text-start sm:text-lg text-sm
 }
 
 #projects {
@@ -97,6 +97,27 @@ nav {
 
 #about img {
   @apply w-12 cursor-pointer hover:scale-[105%] duration-200
+}
+
+/* Remove our custom animation classes since we're using animate.css */
+.animate__slideInLeft,
+.animate__slideInRight,
+.animate__animated {
+  /* Remove all custom styles to let animate.css handle it */
+}
+
+/* Pre-animation positioning */
+.pre-animation {
+  visibility: hidden;
+  position: relative;
+}
+
+.pre-animation[class*="slideInLeft"] {
+  left: -100vw;
+}
+
+.pre-animation[class*="slideInRight"] {
+  right: -100vw;
 }
 
 

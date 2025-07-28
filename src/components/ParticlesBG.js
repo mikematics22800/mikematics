@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 
@@ -530,4 +530,4 @@ const ParticlesBG = () => {
   }
 };
 
-export default ParticlesBG;
+export default React.memo(ParticlesBG);
