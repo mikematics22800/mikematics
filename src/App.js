@@ -3,7 +3,6 @@ import { Tooltip, TextField, Button, Box, Typography, Paper, Snackbar, Alert } f
 import emailjs from '@emailjs/browser'
 import Computers from './components/Computers'
 import ParticlesBG from './components/ParticlesBG'
-import useIntersectionObserver from './hooks/useIntersectionObserver'
 import react from './assets/react.svg'
 import cyclopedia from "./assets/cyclopedia.png"
 import cryptomatics from "./assets/cryptomatics.png"
@@ -90,23 +89,12 @@ const App = () => {
     setSnackbar(prev => ({ ...prev, open: false }))
   }, [])
   
-  // Create refs for elements that should animate
-  const aboutImageRef = useIntersectionObserver('animate__slideInLeft')
-  const aboutTextRef = useIntersectionObserver('animate__slideInRight')
-  const cyclopediaRef = useIntersectionObserver('animate__slideInLeft')
-  const cyclopediaDescRef = useIntersectionObserver('animate__slideInRight')
-  const cryptomaticsRef = useIntersectionObserver('animate__slideInRight')
-  const cryptomaticsDescRef = useIntersectionObserver('animate__slideInLeft')
-  const weatherboyRef = useIntersectionObserver('animate__slideInLeft')
-  const weatherboyDescRef = useIntersectionObserver('animate__slideInRight')
-
   window.addEventListener('click', (e) => {
     scrollTo('nav')
   })
 
   return (
       <div className='w-screen source-code-pro'>
-        <ParticlesBG />
         <div className="hero">
           <div className='computers-container'>
             <Computers/>
@@ -124,10 +112,13 @@ const App = () => {
             <h1 onClick={() => {scrollTo('contact')}}>Contact</h1>
           </div>
         </nav>
-        <div className='content' style={{backgroundColor: 'black'}}>
-          <section id="about">
+        <div className='content relative'>
+          <div className='absolute inset-0 z-0 bg-black bg-opacity-20 backdrop-blur-sm'>
+            <ParticlesBG />
+          </div>
+          <section id="about" className='relative z-20'>
             <div className='w-full sm:w-auto px-10 sm:p-0'>
-            <div ref={aboutImageRef} className="relative aspect-square w-[30rem] max-w-full">
+            <div className="relative aspect-square w-[30rem] max-w-full">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Tooltip title="GitHub" arrow placement="bottom">
                   <a href="https://github.com/mikematics22800" target='_blank'>
@@ -200,17 +191,17 @@ const App = () => {
               </div>
             </div>
             </div>
-              <p ref={aboutTextRef}>
+              <p>
                 Welcome to my gallery. I specialize in building polished, efficient, and dynamic web applications using the latest JavaScript libraries and frameworks.
                 My expertise spans the full stack, from crafting responsive front-end interfaces with React, Next.js, and Material UI, to architecting robust back-end solutions with Node.js and MongoDB. I am passionate about leveraging modern tools like Vite, Webpack, and Tailwind CSS to deliver high-performance, maintainable code.
               </p>
           </section>        
-          <section id="projects">
+          <section id="projects" className='relative z-20'>
             <div className='project'>
-              <a ref={cyclopediaRef} href='https://storm-cyclopedia.com' target='_blank'>
+              <a href='https://storm-cyclopedia.com' target='_blank'>
                 <img src={cyclopedia} />
               </a>
-              <div ref={cyclopediaDescRef} className='desc'>
+              <div className='desc'>
                 <div className='flex-col gap-2'>
                   <h1 className='lg:!text-right'>Cyclopedia</h1>
                   <p className='lg:!text-right'>
@@ -224,10 +215,10 @@ const App = () => {
               </div>
             </div>
             <div className='project lg:!flex-row-reverse'>
-              <a ref={cryptomaticsRef} href={`${ghUrl}/Cryptomatics`} target='_blank'>
+              <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
                 <img src={cryptomatics} />
               </a>
-              <div ref={cryptomaticsDescRef} className='desc'>
+              <div className='desc'>
                 <div className='flex-col gap-2'>
                   <h1>Cryptomatics</h1>
                   <p>
@@ -241,10 +232,10 @@ const App = () => {
               </div>
             </div>
             <div className='project'>
-              <a ref={weatherboyRef} href={`${ghUrl}/Weatherboy`} target='_blank'>
+              <a href={`${ghUrl}/Weatherboy`} target='_blank'>
                 <img src={weatherboy} />
               </a>
-              <div ref={weatherboyDescRef} className='desc'>
+              <div className='desc'>
                 <div className='flex-col gap-2'>
                   <h1 className='lg:!text-right'>Weatherboy</h1>
                   <p className='lg:!text-right'>
@@ -258,7 +249,7 @@ const App = () => {
               </div>
             </div>
           </section>
-          <section id="contact">
+          <section id="contact" className='relative z-20'>
             <div className='contact'>
               <Paper 
                 elevation={3} 
@@ -267,7 +258,6 @@ const App = () => {
                   maxWidth: 600, 
                   mx: 'auto', 
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(255, 255, 255, 0.2)'
                 }}
               >

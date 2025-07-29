@@ -52,7 +52,7 @@ nav {
 }
 
 .computers-container {
-  @apply w-screen h-full bg-black absolute overflow-hidden 
+  @apply w-screen h-full bg-black fixed  
 }
 
 .computers {

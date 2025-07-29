@@ -33,13 +33,12 @@ const ParticlesBG = () => {
       "clear": true,
       "defaultThemes": {},
       "delay": 0,
-      "fullScreen": {
-        "enable": true,
-        "zIndex": 0
-      },
       "detectRetina": true,
       "duration": 0,
       "fpsLimit": 120,
+      "fullScreen": {
+        "enable": false
+      },
       "interactivity": {
         "detectsOn": "window",
         "events": {
@@ -521,11 +520,13 @@ const ParticlesBG = () => {
 
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
+      <div style={{ width: '100%', height: '100%', position: 'absolute', backgroundColor: 'rgba(0, 0, 0, 0.25)' }}>
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+        />
+      </div>
     );
   }
 };
