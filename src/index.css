@@ -14,17 +14,7 @@
   font-family: "Source Code Pro", serif;
 }
 
-nav {
-  @apply w-full h-20 bg-gray-800 sticky top-0 flex items-center px-20 justify-center z-50
-}
 
-.nav-links {
-  @apply  flex sm:gap-20 gap-10 text-white font-bold sm:text-2xl text-lg
-}
-
-.nav-links h1 {
-  @apply cursor-pointer hover:text-[aqua] duration-200
-}
 
 .hero {
   @apply w-full h-screen flex flex-col items-center gap-2 sm:gap-4
@@ -71,59 +61,59 @@ nav {
   @apply w-[36rem] max-w-full text-center
 }
 
-#projects {
-  @apply flex flex-col lg:gap-20 w-full items-center z-10
-}
 
-.project {
-  @apply flex lg:flex-row flex-col lg:gap-10 gap-2 w-[36rem] max-w-full lg:w-full justify-center
-}
-
-.project p {
-  @apply sm:text-sm text-xs
-}
-
-.project h1 {
-  @apply lg:text-2xl text-xl font-bold text-center lg:text-left
-}
-
-.project img {
-  @apply rounded-lg lg:h-80 max-w-full hover:scale-[101%] duration-200 cursor-pointer
-}
-
-.desc {
-  @apply flex flex-col gap-2 lg:w-96 text-center lg:text-start h-80 lg:justify-between
-}
 
 #about img {
   @apply w-12 sm:w-16 cursor-pointer hover:scale-[105%] duration-200
 }
 
-/* Remove our custom animation classes since we're using animate.css */
-.animate__slideInLeft,
-.animate__slideInRight,
-.animate__animated {
-  /* Remove all custom styles to let animate.css handle it */
-}
-
-/* Pre-animation positioning */
-.pre-animation {
-  visibility: hidden;
-  position: relative;
-}
-
-.pre-animation[class*="slideInLeft"] {
-  left: -100vw;
-}
-
-.pre-animation[class*="slideInRight"] {
-  right: -100vw;
+.project {
+  @apply flex flex-col items-center justify-center gap-2
 }
 
 
 
+/* Responsive demos layout */
+.demos-container {
+  @apply flex gap-8 px-8 pb-8
+}
 
+.project img {
+  @apply w-full h-64 object-cover rounded-lg hover:scale-[102%] transition-transform duration-300 cursor-pointer
+}
 
+.project-title h1 {
+  @apply text-xl font-bold text-white
+}
+
+/* Responsive layout */
+@media (min-width: 1024px) {
+  .demos-container {
+    @apply flex-row justify-between
+  }
+  
+  .project {
+    @apply w-96 
+  }
+  
+  .project img {
+    @apply h-auto
+  }
+}
+
+@media (max-width: 1023px) {
+  .demos-container {
+    @apply flex-col items-center
+  }
+  
+  .project {
+    @apply w-full
+  }
+  
+  .project img {
+    @apply h-auto
+  }
+}
 
 
 

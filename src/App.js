@@ -89,10 +89,6 @@ const App = () => {
     setSnackbar(prev => ({ ...prev, open: false }))
   }, [])
   
-  window.addEventListener('click', (e) => {
-    scrollTo('nav')
-  })
-
   return (
       <div className='w-screen source-code-pro'>
         <div className="hero">
@@ -105,13 +101,7 @@ const App = () => {
           </div>
           <h1>Click or tap anywhere to start</h1>
         </div> 
-        <nav id="nav">
-          <div className='nav-links'>
-            <h1 onClick={() => {scrollTo('about')}}>About</h1>
-            <h1 onClick={() => {scrollTo('projects')}}>Projects</h1>
-            <h1 onClick={() => {scrollTo('contact')}}>Contact</h1>
-          </div>
-        </nav>
+
         <div className='content relative'>
           <div className='absolute inset-0 z-0 bg-black bg-opacity-20 backdrop-blur-sm'>
             <ParticlesBG />
@@ -195,61 +185,38 @@ const App = () => {
                 Welcome to my gallery. I specialize in building polished, efficient, and dynamic web applications using the latest JavaScript libraries and frameworks.
                 My expertise spans the full stack, from crafting responsive front-end interfaces with React, Next.js, and Material UI, to architecting robust back-end solutions with Node.js and MongoDB. I am passionate about leveraging modern tools like Vite, Webpack, and Tailwind CSS to deliver high-performance, maintainable code.
               </p>
-          </section>        
-          <section id="projects" className='relative z-20'>
-            <div className='project'>
-              <a href='https://storm-cyclopedia.com' target='_blank'>
-                <img src={cyclopedia} />
-              </a>
-              <div className='desc'>
-                <div className='flex-col gap-2'>
-                  <h1 className='lg:!text-right'>Cyclopedia</h1>
-                  <p className='lg:!text-right'>
-                    A data-driven platform for visualizing historical and live hurricane tracks. Features an interactive map and dynamic charts that empower users to explore storm patterns, frequency, and intensity over time. Built for meteorology enthusiasts and researchers seeking actionable insights from complex datasets.
-                  </p>
-                </div>
-                <div className='flex-col gap-2'>
-                  <h1 className='lg:!text-right'>Technologies</h1>
-                  <p className='lg:!text-right'>React, Vite, Express.js, Tailwind CSS, Material UI, Leaflet, Chart.js</p>
+          </section>   
+          <section id="demos" className='relative z-20'>
+            <h1 className='text-center text-4xl font-bold z-20 mb-10'>Demos</h1>    
+            <div className='demos-container'>
+              <div className='project'>
+                <a href='https://storm-cyclopedia.com' target='_blank'>
+                  <img src={cyclopedia} alt="Cyclopedia" />
+                </a>
+                <div className='project-title'>
+                  <h1>Cyclopedia</h1>
                 </div>
               </div>
-            </div>
-            <div className='project lg:!flex-row-reverse'>
-              <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
-                <img src={cryptomatics} />
-              </a>
-              <div className='desc'>
-                <div className='flex-col gap-2'>
+              <div className='project'>
+                <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
+                  <img src={cryptomatics} alt="Cryptomatics" />
+                </a>
+                <div className='project-title'>
                   <h1>Cryptomatics</h1>
-                  <p>
-                    A real-time cryptocurrency dashboard offering advanced visualization tools and interactive charts. Users can track live prices, analyze historical trends, and compare performance across multiple coins. Designed for traders and investors who value clarity and actionable data.
-                  </p>
-                </div>
-                <div className='flex-col gap-2'>
-                  <h1>Technologies</h1>
-                  <p>React, Vite, Tailwind CSS, Material UI, Chart.js, Coinranking API</p>
                 </div>
               </div>
-            </div>
-            <div className='project'>
-              <a href={`${ghUrl}/Weatherboy`} target='_blank'>
-                <img src={weatherboy} />
-              </a>
-              <div className='desc'>
-                <div className='flex-col gap-2'>
-                  <h1 className='lg:!text-right'>Weatherboy</h1>
-                  <p className='lg:!text-right'>
-                    A global weather application delivering real-time conditions, 5-day forecasts, and interactive maps of atmospheric patterns. Integrates multiple APIs to provide accurate, location-based weather data and engaging visualizations for users worldwide.
-                  </p>
-                </div>
-                <div className='flex-col gap-2'>
-                  <h1 className='lg:!text-right'>Technologies</h1>
-                  <p className='lg:!text-right'>React, Vite, Tailwind CSS, Material UI, Leaflet, Chart.js, OpenWeatherMap API, Google Maps Platform</p>
+              <div className='project'>
+                <a href={`${ghUrl}/Weatherboy`} target='_blank'>
+                  <img src={weatherboy} alt="Weatherboy" />
+                </a>
+                <div className='project-title'>
+                  <h1>Weatherboy</h1>
                 </div>
               </div>
             </div>
           </section>
           <section id="contact" className='relative z-20'>
+            <h1 className='text-center text-4xl font-bold z-20 mb-10'>Contact</h1>    
             <div className='contact'>
               <Paper 
                 elevation={3} 

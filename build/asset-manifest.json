@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.c09eb14c.css",
-    "main.js": "./static/js/main.7f7c2677.js",
+    "main.css": "./static/css/main.d206a66a.css",
+    "main.js": "./static/js/main.e8f345d7.js",
     "static/js/451.86ec87ad.chunk.js": "./static/js/451.86ec87ad.chunk.js",
     "static/media/weatherboy.png": "./static/media/weatherboy.175ae2a0817f6169f760.png",
     "static/media/cyclopedia.png": "./static/media/cyclopedia.c2f1f33aae27f87f86ce.png",
@@ -17,12 +17,12 @@
     "static/media/webpack.svg": "./static/media/webpack.23fc1d3ac606d117e05a140e0de79806.svg",
     "static/media/material-ui.svg": "./static/media/material-ui.b45776fb29e80a04fe8a1f4e944e7ae8.svg",
     "static/media/react.svg": "./static/media/react.928f956d9c8ebcffb98a8e917154a81a.svg",
-    "main.c09eb14c.css.map": "./static/css/main.c09eb14c.css.map",
-    "main.7f7c2677.js.map": "./static/js/main.7f7c2677.js.map",
+    "main.d206a66a.css.map": "./static/css/main.d206a66a.css.map",
+    "main.e8f345d7.js.map": "./static/js/main.e8f345d7.js.map",
     "451.86ec87ad.chunk.js.map": "./static/js/451.86ec87ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c09eb14c.css",
-    "static/js/main.7f7c2677.js"
+    "static/css/main.d206a66a.css",
+    "static/js/main.e8f345d7.js"
   ]
 }
