@@ -14,7 +14,7 @@ const ParticlesBG = () => {
   }, []);
 
   const particlesLoaded = (container) => {
-    console.log(container);
+    // Particles loaded successfully
   };
 
   const options = useMemo(
@@ -35,7 +35,7 @@ const ParticlesBG = () => {
       "delay": 0,
       "detectRetina": true,
       "duration": 0,
-      "fpsLimit": 120,
+      "fpsLimit": 60,
       "fullScreen": {
         "enable": false
       },
@@ -302,7 +302,7 @@ const ParticlesBG = () => {
             "mode": "delete",
             "value": 0
           },
-          "value": 100
+          "value": 60
         },
         "opacity": {
           "value": {
@@ -471,10 +471,10 @@ const ParticlesBG = () => {
             "value": "#ffffff"
           },
           "consent": false,
-          "distance": 150,
+          "distance": 120,
           "enable": true,
           "frequency": 1,
-          "opacity": 0.4,
+          "opacity": 0.3,
           "shadow": {
             "blur": 5,
             "color": {

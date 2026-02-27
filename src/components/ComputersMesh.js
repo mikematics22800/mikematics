@@ -162,7 +162,7 @@ function Screen({ frame, panel, children, ...props }) {
       <mesh castShadow receiveShadow geometry={nodes[frame].geometry} material={materials.Texture} />
       <mesh geometry={nodes[panel].geometry}>
         <meshBasicMaterial toneMapped={false}>
-          <RenderTexture width={512} height={512} attach="map" anisotropy={16}>
+          <RenderTexture width={256} height={256} attach="map" anisotropy={8}>
             {children}
           </RenderTexture>
         </meshBasicMaterial>
@@ -174,11 +174,13 @@ function Screen({ frame, panel, children, ...props }) {
 function ScreenText({ invert, x = 0, y = 1, ...props }) {
   const textRef = useRef()  
   useFrame((state) => {
-    invert === true ? (
-      textRef.current.position.x = x + Math.sin(state.clock.elapsedTime) * 8
-    ) : (
-      textRef.current.position.x = x - Math.sin(state.clock.elapsedTime) * 8
-    )
+    if (textRef.current) {
+      invert === true ? (
+        textRef.current.position.x = x + Math.sin(state.clock.elapsedTime) * 8
+      ) : (
+        textRef.current.position.x = x - Math.sin(state.clock.elapsedTime) * 8
+      )
+    }
   })
   return (
     <Screen {...props}>
@@ -193,43 +195,22 @@ function ScreenText({ invert, x = 0, y = 1, ...props }) {
 
 function ScreenInteractive(props) {
   const ref = useRef()
-  useFrame((state, delta) => {
-    ref.current.rotation.x += delta; 
-    ref.current.rotation.y += delta;
-  })
-
   const [monitorColor, setMonitorColor] = useState('red')
-
-  useEffect(() => {
-    setTimeout(() => {
-      switch (monitorColor) {
-        case 'red':
-          setMonitorColor('orange')
-          break
-        case 'orange':
-          setMonitorColor('yellow')
-          break
-        case 'yellow':
-          setMonitorColor('lime')
-          break
-        case 'lime':
-          setMonitorColor('aqua')
-          break
-        case 'aqua':
-          setMonitorColor('violet')
-          break
-        case 'violet':
-          setMonitorColor('pink')
-          break
-        case 'pink':
-          setMonitorColor('white')
-          break
-        case 'white':
-          setMonitorColor('red')
-          break
+  const colorIndex = useRef(0)
+  const colors = useMemo(() => ['red', 'orange', 'yellow', 'lime', 'aqua', 'violet', 'pink', 'white'], [])
+  
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x += delta
+      ref.current.rotation.y += delta
+      
+      // Change color every ~1 second (60 frames = 1 second at 60fps)
+      if (Math.floor(state.clock.elapsedTime) !== Math.floor(state.clock.elapsedTime - delta)) {
+        colorIndex.current = (colorIndex.current + 1) % colors.length
+        setMonitorColor(colors[colorIndex.current])
       }
-    }, 1000)
-  }, [monitorColor])
+    }
+  })
 
   return (
     <Screen {...props}>
@@ -238,7 +219,7 @@ function ScreenInteractive(props) {
       <ambientLight intensity={Math.PI / 2} />
       <pointLight decay={0} position={[10, 10, 10]} intensity={Math.PI} />
       <pointLight decay={0} position={[-10, -10, -10]} />
-      <Icosahedron ref={ref}  position={[-3.15, 0.75, 0]} scale={.5}>
+      <Icosahedron ref={ref} position={[-3.15, 0.75, 0]} scale={.5}>
         <meshStandardMaterial wireframe color={monitorColor}/>
       </Icosahedron>
     </Screen>
@@ -251,13 +232,15 @@ function Leds({ instances }) {
   useMemo(() => {
     nodes.Sphere.material = new THREE.MeshBasicMaterial()
     nodes.Sphere.material.toneMapped = false
-  }, [])
+  }, [nodes])
   useFrame((state) => {
-    ref.current.children.forEach((instance) => {
-      const rand = Math.abs(2 + instance.position.x)
-      const t = Math.round((1 + Math.sin(rand * 10000 + state.clock.elapsedTime * rand)) / 2)
-      instance.color.setRGB(0, t * 1.1, t)
-    })
+    if (ref.current && ref.current.children) {
+      ref.current.children.forEach((instance) => {
+        const rand = Math.abs(2 + instance.position.x)
+        const t = Math.round((1 + Math.sin(rand * 10000 + state.clock.elapsedTime * rand)) / 2)
+        instance.color.setRGB(0, t * 1.1, t)
+      })
+    }
   })
   return (
     <group ref={ref}>

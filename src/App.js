@@ -91,7 +91,7 @@ const App = () => {
   
   return (
       <div className='w-screen source-code-pro'>
-        <div className="hero">
+        <div className="hero" onClick={() => scrollTo('about')}>
           <div className='computers-container'>
             <Computers/>
           </div>
@@ -181,16 +181,12 @@ const App = () => {
               </div>
             </div>
             </div>
-              <p>
-                Welcome to my gallery. I specialize in building polished, efficient, and dynamic web applications using the latest JavaScript libraries and frameworks.
-                My expertise spans the full stack, from crafting responsive front-end interfaces with React, Next.js, and Material UI, to architecting robust back-end solutions with Node.js and MongoDB. I am passionate about leveraging modern tools like Vite, Webpack, and Tailwind CSS to deliver high-performance, maintainable code.
-              </p>
           </section>   
           <section id="demos" className='relative z-20'>
-            <h1 className='text-center text-4xl font-bold z-20 mb-10'>Demos</h1>    
+            <h1 className='text-center text-3xl font-bold z-20 mb-10'>Live Demos</h1>    
             <div className='demos-container'>
               <div className='project'>
-                <a href='https://storm-cyclopedia.com' target='_blank'>
+                <a href='https://tropical-cyclopedia.com' target='_blank'>
                   <img src={cyclopedia} alt="Cyclopedia" />
                 </a>
                 <div className='project-title'>
@@ -216,7 +212,7 @@ const App = () => {
             </div>
           </section>
           <section id="contact" className='relative z-20'>
-            <h1 className='text-center text-4xl font-bold z-20 mb-10'>Contact</h1>    
+            <h1 className='text-center text-3xl font-bold z-20 mb-10'>Contact</h1>    
             <div className='contact'>
               <Paper 
                 elevation={3} 
