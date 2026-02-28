@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react'
-import { Tooltip, TextField, Button, Box, Typography, Paper, Snackbar, Alert } from '@mui/material'
+import React, { useCallback, useState, useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { TextField, Button, Box, Paper, Snackbar, Alert, Tooltip } from '@mui/material'
 import emailjs from '@emailjs/browser'
 import Computers from './components/Computers'
 import ParticlesBG from './components/ParticlesBG'
@@ -7,15 +8,19 @@ import react from './assets/react.svg'
 import cyclopedia from "./assets/cyclopedia.png"
 import cryptomatics from "./assets/cryptomatics.png"
 import weatherboy from "./assets/weatherboy.png"
-import ts from "./assets/typescript.svg"
-import mongo from "./assets/mongo.svg"
-import tailwind from "./assets/tailwind.png"
-import next from "./assets/next.svg"
-import mui from "./assets/material-ui.svg"
-import webpack from "./assets/webpack.svg"
-import redux from "./assets/redux.svg"
-import vite from "./assets/vite.svg"
+import ts from "./assets/ts.svg"  
 import coding from './assets/coding.png'
+import js from './assets/js.svg'
+import python from './assets/python.svg'
+import c from './assets/c++.png'
+import cs from './assets/c#.png'
+import sql from './assets/sql.png'
+import tailwind from './assets/tailwind.png'
+import mongo from './assets/mongo.svg'
+import vue from './assets/vue.svg'
+import angular from './assets/angular.svg'
+import expo from './assets/expo.svg'
+import resume from './assets/Resume.pdf'
 
 const App = () => {
   const scrollTo = (id) => {
@@ -24,14 +29,13 @@ const App = () => {
 
   const ghUrl = "https://mikematics22800.github.io"
   
-  // Contact form state
-  const [contactForm, setContactForm] = React.useState({
+  const [contactForm, setContactForm] = useState({
     email: '',
     subject: '',
     message: ''
   })
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [snackbar, setSnackbar] = React.useState({
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [snackbar, setSnackbar] = useState({
     open: false,
     message: '',
     severity: 'success'
@@ -88,10 +92,55 @@ const App = () => {
   const handleCloseSnackbar = useCallback(() => {
     setSnackbar(prev => ({ ...prev, open: false }))
   }, [])
+
+  const orbitRef = useRef(null)
+
+  const orbitRadiusVmin = 35
   
+  // Languages → data → front-end frameworks → styling → mobile
+  const icons = [
+    { src: js },
+    { src: ts },
+    { src: python },
+    { src: c },
+    { src: cs },
+    { src: sql },
+    { src: mongo },
+    { src: react },
+    { src: vue },
+    { src: angular },
+    { src: tailwind },
+    { src: expo },
+  ]
+
+  useEffect(() => {
+    if (!orbitRef.current) return
+    const wrappers = orbitRef.current.querySelectorAll('.orbit-icon-wrapper')
+    const radiusVmin = 35
+    const duration = 24
+    const count = wrappers.length
+    const tween = gsap.to({ angle: 0 }, {
+      angle: -360,
+      repeat: -1,
+      duration,
+      ease: 'none',
+      onUpdate() {
+        const baseAngle = (this.targets()[0].angle * Math.PI) / 180
+        wrappers.forEach((el, i) => {
+          const angle = baseAngle + (i * (360 / count) * Math.PI) / 180
+          const xVmin = radiusVmin * Math.cos(angle)
+          const yVmin = -radiusVmin * Math.sin(angle)
+          el.style.transform = `translate(-50%, -50%) translate(${xVmin}vmin, ${yVmin}vmin)`
+        })
+      },
+    })
+    return () => tween.kill()
+  }, [])
+
+
   return (
       <div className='w-screen source-code-pro'>
-        <div className="hero" onClick={() => scrollTo('about')}>
+        <div className="hero">
           <div className='computers-container'>
             <Computers/>
           </div>
@@ -99,126 +148,71 @@ const App = () => {
             <span className='text-[red]'>Mike</span>
             <span className='text-[aqua]'>matics</span>
           </div>
-          <h1>Click or tap anywhere to start</h1>
+          <h1>Scroll down to view content.</h1>
         </div> 
-
         <div className='content relative'>
           <div className='absolute inset-0 z-0 bg-black bg-opacity-20 backdrop-blur-sm'>
             <ParticlesBG />
           </div>
           <section id="about" className='relative z-20'>
-            <div className='w-full sm:w-auto px-10 sm:p-0'>
-            <div className="relative aspect-square w-[30rem] max-w-full">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Tooltip title="GitHub" arrow placement="bottom">
-                  <a href="https://github.com/mikematics22800" target='_blank'>
-                    <img src={coding} className='!w-24 sm:!w-32'/>      
-                  </a>
-                </Tooltip>
+            <div className='xl:my-80 sm:my-40 my-20'>
+              <div className="relative aspect-square w-[30rem] max-w-full overflow-visible">
+                <div className="absolute inset-0 z-10 flex items-center justify-center">
+                  <Tooltip
+                    title="Hi! Click me to view resume."
+                    placement="bottom"
+                    arrow
+                    open
+                  >
+                    <a href={resume} target='_blank' rel="noreferrer">
+                      <img src={coding} className='w-[20vw] max-w-40 hover:scale-[105%] transition-transform duration-200' alt="Resume" />
+                    </a>
+                  </Tooltip>
+                </div>
+                <div ref={orbitRef} className="absolute inset-0 overflow-visible">
+                  {icons.map(({ src, title }, i) => {
+                    const angleDeg = i * 45
+                    const rad = (angleDeg * Math.PI) / 180
+                    const xVmin = orbitRadiusVmin * Math.cos(rad)
+                    const yVmin = -orbitRadiusVmin * Math.sin(rad)
+                    return (
+                      <div
+                        key={title}
+                        className="orbit-icon-wrapper absolute left-1/2 top-1/2 flex items-center justify-center"
+                        style={{
+                          transform: `translate(-50%, -50%) translate(${xVmin}vmin, ${yVmin}vmin)`,
+                        }}
+                      >
+                        <img src={src} alt={title} className="w-[10vw] max-w-20" />
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <Tooltip title="Mongoose" arrow placement="bottom">
-                  <a href="https://www.mongodb.com/" target='_blank'>
-                    <img src={mongo} alt="MongoDB" />
-                  </a>
-                </Tooltip>
-              </div>
-              <div className="absolute top-[15%] left-[85%] transform -translate-x-1/2 -translate-y-1/2">
-                <Tooltip title="Redux" arrow placement="bottom">
-                  <a href="https://redux.js.org/" target='_blank'>
-                    <img src={redux} alt="Redux" />
-                  </a>
-                </Tooltip>              
-              </div>
-              <div className="absolute top-1/2 left-full transform -translate-x-1/2 -translate-y-1/2">
-                <Tooltip title="TypeScript" arrow placement="bottom">
-                  <a href="https://www.typescriptlang.org/" target='_blank'>
-                    <img src={ts} alt="TypeScript" />
-                  </a>
-                </Tooltip>              
-              </div>
-              <div className="absolute bottom-[15%] left-[85%] transform -translate-x-1/2 translate-y-1/2">
-                <Tooltip title="Tailwind CSS" arrow placement="bottom">
-                  <a href="https://tailwindcss.com/" target='_blank'>
-                    <img src={tailwind} alt="Tailwind CSS" />
-                  </a>
-                </Tooltip>              
-              </div>
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-                <Tooltip title="Vite" arrow placement="bottom">
-                  <a href="https://vite.dev/" target='_blank'>
-                    <img src={vite} alt="Vite" />
-                  </a>
-                </Tooltip>              
-              </div>
-              <div className="absolute bottom-[15%] left-[15%] transform -translate-x-1/2 translate-y-1/2">
-                <Tooltip title="Material UI" arrow placement="bottom">
-                  <a href="https://mui.com/" target='_blank'>
-                    <img src={mui} alt="Material UI" />
-                  </a>
-                </Tooltip>              
-              </div>
-              <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2">
-                <Tooltip title="Webpack" arrow placement="bottom">
-                  <a href="https://webpack.js.org/" target='_blank'>
-                    <img src={webpack} alt="Webpack" />
-                  </a>
-                </Tooltip>              
-              </div>
-              <div className="absolute top-[15%] left-[15%] transform -translate-x-1/2 -translate-y-1/2">
-                <Tooltip title="Next.js" arrow placement="bottom">
-                  <a href="https://nextjs.org/" target='_blank'>
-                    <img src={next} alt="Next.js" />
-                  </a>
-                </Tooltip>             
-              </div>
-              <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                <Tooltip title="React/React Native" arrow placement="bottom">
-                  <a href="https://react.dev/" target='_blank'>
-                    <img src={react} alt="React" />
-                  </a>
-                </Tooltip>
-              </div>
-            </div>
             </div>
           </section>   
-          <section id="demos" className='relative z-20'>
-            <h1 className='text-center text-3xl font-bold z-20 mb-10'>Live Demos</h1>    
-            <div className='demos-container'>
-              <div className='project'>
-                <a href='https://tropical-cyclopedia.com' target='_blank'>
-                  <img src={cyclopedia} alt="Cyclopedia" />
-                </a>
-                <div className='project-title'>
-                  <h1>Cyclopedia</h1>
-                </div>
-              </div>
-              <div className='project'>
-                <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
-                  <img src={cryptomatics} alt="Cryptomatics" />
-                </a>
-                <div className='project-title'>
-                  <h1>Cryptomatics</h1>
-                </div>
-              </div>
-              <div className='project'>
-                <a href={`${ghUrl}/Weatherboy`} target='_blank'>
-                  <img src={weatherboy} alt="Weatherboy" />
-                </a>
-                <div className='project-title'>
-                  <h1>Weatherboy</h1>
-                </div>
-              </div>
+          <section className='relative z-20'>
+            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 sm:mb-10 mb-5'>Live Demos</h1>    
+            <div className='demos'>
+              <a href='https://tropical-cyclopedia.com' target='_blank'>
+                <img src={cyclopedia} alt="Cyclopedia" />
+              </a>
+              <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
+                <img src={cryptomatics} alt="Cryptomatics" />
+              </a>
+              <a href={`${ghUrl}/Weatherboy`} target='_blank'>
+                <img src={weatherboy} alt="Weatherboy" />
+              </a>
             </div>
           </section>
-          <section id="contact" className='relative z-20'>
-            <h1 className='text-center text-3xl font-bold z-20 mb-10'>Contact</h1>    
+          <section id="contact" className='relative z-20 my-20'>
+            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 sm:mb-10 mb-5'>Contact</h1>    
             <div className='contact'>
               <Paper 
                 elevation={3} 
                 sx={{ 
                   p: 4, 
-                  maxWidth: 600, 
+                  maxWidth: '800', 
                   mx: 'auto', 
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   border: '1px solid rgba(255, 255, 255, 0.2)'
