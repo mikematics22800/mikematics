@@ -155,7 +155,7 @@ const App = () => {
             <ParticlesBG />
           </div>
           <section id="about" className='relative z-20'>
-            <div className='xl:my-80 sm:my-40 my-20'>
+            <div className='lg:my-80 md:my-60 sm:my-40 my-20'>
               <div className="relative aspect-square w-[30rem] max-w-full overflow-visible">
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
                   <Tooltip
@@ -192,7 +192,7 @@ const App = () => {
             </div>
           </section>   
           <section className='relative z-20'>
-            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 sm:mb-10 mb-5'>Live Demos</h1>    
+            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 mb-5'>Live Demos</h1>    
             <div className='demos'>
               <a href='https://tropical-cyclopedia.com' target='_blank'>
                 <img src={cyclopedia} alt="Cyclopedia" />
@@ -206,13 +206,13 @@ const App = () => {
             </div>
           </section>
           <section id="contact" className='relative z-20 my-20'>
-            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 sm:mb-10 mb-5'>Contact</h1>    
+            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 mb-5'>Contact</h1>    
             <div className='contact'>
               <Paper 
                 elevation={3} 
                 sx={{ 
                   p: 4, 
-                  maxWidth: '800', 
+                  maxWidth: '1000', 
                   mx: 'auto', 
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   border: '1px solid rgba(255, 255, 255, 0.2)'
