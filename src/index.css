@@ -17,24 +17,12 @@
 
 
 .hero {
-  @apply w-full h-screen flex flex-col items-center gap-2 sm:gap-4
+  @apply w-full h-screen flex flex-col items-center gap-2 sm:gap-4 px-5
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 .hero h1 {
-  @apply sm:text-2xl text-white;
-  animation: blink 1s infinite;
+  @apply sm:text-2xl text-white z-10 text-center
 }
 
 .hero span {
@@ -58,7 +46,7 @@
 }
 
 .demos {
-  @apply flex flex-wrap w-full justify-center sm:gap-20 gap-10 
+  @apply flex flex-wrap w-full justify-center gap-10 
 }
 
 .demos img {

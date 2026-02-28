@@ -148,7 +148,7 @@ const App = () => {
             <span className='text-[red]'>Mike</span>
             <span className='text-[aqua]'>matics</span>
           </div>
-          <h1>Scroll down to view content.</h1>
+          <h1>Welcome! Scroll down to view main content.</h1>
         </div> 
         <div className='content relative'>
           <div className='absolute inset-0 z-0 bg-black bg-opacity-20 backdrop-blur-sm'>
