@@ -44,7 +44,7 @@
 }
 
 .about-text {
-  @apply w-full max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-8 lg:px-10
+  @apply w-full max-w-5xl mx-auto px-2 sm:px-4
 }
 
 .demos {
