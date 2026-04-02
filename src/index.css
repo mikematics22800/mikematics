@@ -14,8 +14,6 @@
   font-family: "Source Code Pro", serif;
 }
 
-
-
 .hero {
   @apply w-full h-screen flex flex-col items-center gap-2 sm:gap-4 px-5
 }
@@ -43,6 +41,10 @@
 
 #about {
   @apply flex flex-col items-center justify-center w-full
+}
+
+.about-text {
+  @apply w-full max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-8 lg:px-10
 }
 
 .demos {

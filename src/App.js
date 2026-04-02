@@ -29,35 +29,21 @@ const portfolioProjects = [
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
-    blurb:
-      'Tropical cyclone tracking and visualization: historical Atlantic and Pacific storm archives, live NHC data, interactive Leaflet maps, and Chart.js analytics—including intensity curves, ACE/TIKE metrics, and forecast cones. Ships as an installable PWA with offline support.',
-    details: [
-      'Explore basin/year/storm flows, storm imagery, and live weather layers on the map.',
-      'Sole developer; built with Next.js (App Router), TypeScript, Tailwind CSS, React Leaflet, and Material UI.',
-    ],
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Leaflet', 'Chart.js', 'Material UI', 'PWA'],
+    desc: 'Cyclopedia is a tropical cyclone tracking and visualization application. It combines historical Atlantic and Pacific storm archives with live National Hurricane Center data on interactive Leaflet maps, and it uses Chart.js for analytics such as intensity curves, ACE and TIKE metrics, and forecast cones. The site ships as an installable progressive web app. You can explore by basin, year, and storm; view imagery; and overlay live weather layers on the map.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Leaflet', 'Chart.js', 'Material UI'],
   },
   {
     title: 'Cryptomatics',
     href: `${GH_PAGES_ROOT}/Cryptomatics`,
     image: cryptomatics,
-    blurb:
-      'Single-page app for cryptocurrency market exploration: Coin Ranking–powered spot data and charts, Supabase-backed authentication, optional paper-wallet–style balances, and user-to-user transfers with transaction history.',
-    details: [
-      'Dashboard, top-100 browse, and per-coin detail with Chart.js history and USD/EUR display (Frankfurter for fiat conversion).',
-      'Vite and React Router; optional Express admin API for trusted Supabase operations. Unit tests with Vitest.',
-    ],
-    stack: ['React', 'Vite', 'Supabase', 'Material UI', 'Tailwind CSS', 'Chart.js', 'Axios', 'Vitest'],
+    desc: 'Cryptomatics is a single-page application for exploring cryptocurrency markets. Spot data and charts are powered by Coin Ranking; Supabase provides authentication. Optional paper-wallet-style balances and peer-to-peer transfers include a full transaction history. The dashboard includes a top-100 browse view and per-coin detail pages with Chart.js price history and USD and EUR pricing via the Frankfurter API for fiat conversion. The front end is built with Vite, React, and React Router.',
+    stack: ['React', 'Vite', 'Supabase', 'Material UI', 'Tailwind CSS', 'Chart.js', 'Axios'],
   },
   {
     title: 'Weatherboy',
     href: `${GH_PAGES_ROOT}/Weatherboy`,
     image: weatherboy,
-    blurb:
-      'Weather client for current conditions and forecasts: geolocated weather, worldwide city search with autocomplete, and an interactive map with satellite-derived weather layers (OpenWeather + Google Maps Platform APIs).',
-    details: [
-      'Built with React, React Router, and Vite; UI uses Tailwind CSS, Material UI, Chart.js, and Leaflet.',
-    ],
+    desc: 'Weatherboy is a weather client for current conditions and forecasts. It supports geolocated weather, worldwide city search with autocomplete, and an interactive map with satellite-derived weather layers from the OpenWeather and Google Maps Platform APIs. The app is built with React, Vite, and React Router; the interface uses Tailwind CSS, Material UI, Chart.js, and Leaflet.',
     stack: ['React', 'Vite', 'React Router', 'Tailwind CSS', 'Material UI', 'Chart.js', 'Leaflet'],
   },
 ]
@@ -230,19 +216,9 @@ const App = () => {
               <span className='text-[red]'>Mike</span>
               <span className='text-[aqua]'>matics</span>
             </p>
-            <p className="text-white/85 text-center text-sm sm:text-base tracking-wide">
-              Michael Medina · Full-stack software engineer
-            </p>
             <h1 className="!text-lg sm:!text-2xl !font-normal !text-white/95 !max-w-2xl !leading-snug">
-              Full-stack engineer focused on React, .NET, and cloud-backed systems—clear architecture, tested features, and polished UX.
+              Scroll down to view main content!
             </h1>
-            <button
-              type="button"
-              onClick={() => scrollTo('demos')}
-              className="mt-1 text-aqua/90 hover:text-aqua text-sm underline underline-offset-4 decoration-aqua/50 bg-transparent border-0 cursor-pointer font-inherit"
-            >
-              View selected projects
-            </button>
           </div>
         </div> 
         <div className='content relative'>
@@ -250,42 +226,7 @@ const App = () => {
             <ParticlesBG />
           </div>
           <section id="about" className='relative z-20'>
-            <div className='max-w-3xl mx-auto px-4 pt-16 sm:pt-24 pb-8 text-left'>
-              <h2 className='text-center sm:text-3xl text-2xl font-bold mb-6'>About</h2>
-              <Typography component="div" sx={{ color: 'rgba(255,255,255,0.88)', mb: 2, lineHeight: 1.7 }}>
-                Full-stack engineer with a B.S. in Computer Science from Florida Atlantic University. I emphasize maintainable code, performance-conscious UIs,
-                and reliable integration with APIs and data stores.
-              </Typography>
-              <Typography component="div" sx={{ color: 'rgba(255,255,255,0.88)', mb: 3, lineHeight: 1.7 }}>
-                This portfolio uses React, Three.js, and tsParticles. The orbit highlights core skills; the center icon opens a PDF resume. Selected projects and contact details follow.
-              </Typography>
-              <Box sx={{ mb: 4 }}>
-                {skillGroups.map(({ label, items }) => (
-                  <Box key={label} sx={{ mb: 2 }}>
-                    <Typography variant="overline" sx={{ color: 'aqua', letterSpacing: '0.08em', display: 'block', mb: 1 }}>
-                      {label}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
-                      {items.map((name) => (
-                        <Chip
-                          key={name}
-                          label={name}
-                          size="small"
-                          variant="outlined"
-                          sx={{
-                            borderColor: 'rgba(0, 255, 255, 0.35)',
-                            color: 'rgba(255,255,255,0.9)',
-                            fontFamily: '"Source Code Pro", monospace',
-                            fontSize: '0.7rem',
-                          }}
-                        />
-                      ))}
-                    </Box>
-                  </Box>
-                ))}
-              </Box>
-            </div>
-            <div className='lg:my-24 md:my-20 sm:my-16 my-12'>
+            <div className='lg:my-96 sm:my-48'>
               <div className="relative aspect-square w-[30rem] max-w-full mx-auto overflow-visible">
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
                   <Tooltip
@@ -320,6 +261,72 @@ const App = () => {
                 </div>
               </div>
             </div>
+            <div className="about-text pt-16 sm:pt-24 pb-10 sm:pb-12 text-left">
+              <h2 className="text-center font-bold mb-6 sm:mb-8 text-3xl sm:text-4xl lg:text-[2.35rem] tracking-tight">
+                About Me
+              </h2>
+              <Typography
+                component="div"
+                sx={{
+                  color: 'rgba(255,255,255,0.9)',
+                  mb: 2.5,
+                  lineHeight: 1.75,
+                  fontSize: { xs: '1.0625rem', sm: '1.125rem', md: '1.2rem' },
+                  textAlign: 'justify',
+                  '& p': { margin: 0, marginBottom: 1.75 },
+                  '& p:last-of-type': { marginBottom: 0 },
+                }}
+              >
+                <p>
+                  Greetings! I&apos;m Michael, a full-stack engineer who enjoys shipping web apps and mobile experiences that feel
+                  fast, clear, and dependable. I work across the modern JavaScript and TypeScript ecosystem—especially React and
+                  Next.js—and pair polished interfaces with APIs, authentication, and data stores that belong in production.
+                  On the backend I&apos;m at home with SQL and document databases, Supabase and Firebase-style workflows, and
+                  frameworks from Express to .NET when the problem calls for it. I also build cross-platform mobile apps with React
+                  Native and Expo. When the story is in the data, I reach for maps, charts, and animation (Leaflet, Chart.js, GSAP)
+                  so users can explore complexity without getting lost in it.
+                  I care about maintainable code, accessible UX, and honest communication with teammates and stakeholders. Browse
+                  the projects below for concrete examples, or open the resume link above if you&apos;d like the full rundown. 😎
+                </p>
+              </Typography>
+              <Box sx={{ mb: 2 }}>
+                {skillGroups.map(({ label, items }) => (
+                  <Box key={label} sx={{ mb: 2.5 }}>
+                    <Typography
+                      sx={{
+                        color: 'aqua',
+                        letterSpacing: '0.1em',
+                        display: 'block',
+                        mb: 1.25,
+                        fontFamily: '"Source Code Pro", monospace',
+                        fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {label}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1, sm: 1.25 } }}>
+                      {items.map((name) => (
+                        <Chip
+                          key={name}
+                          label={name}
+                          variant="outlined"
+                          sx={{
+                            borderColor: 'rgba(0, 255, 255, 0.4)',
+                            color: 'rgba(255,255,255,0.92)',
+                            fontFamily: '"Source Code Pro", monospace',
+                            fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                            height: { xs: 32, sm: 36 },
+                            '& .MuiChip-label': { px: 1.5 },
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </div>
           </section>
 
           <section id="demos" className='relative z-20 py-6 sm:py-10 lg:mt-60 md:mt-40 sm:mt-20'>
@@ -328,7 +335,7 @@ const App = () => {
               {portfolioProjects.map((project) => (
                 <article
                   key={project.title}
-                  className="demos-project-card rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-6 backdrop-blur-sm"
+                  className="demos-project-card"
                 >
                   <a
                     className="demos-project-card__media"
@@ -347,21 +354,20 @@ const App = () => {
                         color: 'rgba(255,255,255,0.88)',
                         lineHeight: 1.7,
                         fontSize: 'inherit',
+                        textAlign: 'justify',
                       }}
                     >
-                      {[project.blurb, ...project.details].join(' ')}
+                      {project.desc}
                     </Typography>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 1 }}>
                       {project.stack.map((tag) => (
                         <Chip
                           key={tag}
                           label={tag}
-                          size="small"
                           sx={{
                             backgroundColor: 'rgba(0, 255, 255, 0.12)',
                             color: 'rgba(255,255,255,0.92)',
                             fontFamily: '"Source Code Pro", monospace',
-                            fontSize: '0.68rem',
                           }}
                         />
                       ))}
