@@ -46,11 +46,21 @@
 }
 
 .demos {
-  @apply flex flex-wrap w-full justify-center gap-10 
+  @apply flex flex-col w-full max-w-5xl mx-auto gap-12 sm:gap-16 px-2 sm:px-4 pb-8 pt-2
 }
 
-.demos img {
-  @apply object-cover rounded-lg hover:scale-[105%] transition-transform duration-200 cursor-pointer w-[500px] max-w-full
+.demos-project-card {
+  @apply flex flex-col gap-6 
+}
+
+/* Fixed aspect frame; spans full width of project card */
+.demos-project-card__media {
+  @apply relative block w-full max-w-full shrink-0 overflow-hidden rounded-2xl;
+  aspect-ratio: 16 / 10;
+}
+
+.demos-project-card__body {
+  @apply flex flex-col flex-1 min-w-0 gap-3 text-left pt-0 lg:pt-1
 }
 
  

@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { TextField, Button, Box, Paper, Snackbar, Alert, Tooltip } from '@mui/material'
+import { TextField, Button, Box, Paper, Snackbar, Alert, Tooltip, CircularProgress, Typography, Chip, Link } from '@mui/material'
 import emailjs from '@emailjs/browser'
 import Computers from './components/Computers'
 import ParticlesBG from './components/ParticlesBG'
@@ -22,13 +22,51 @@ import angular from './assets/angular.svg'
 import expo from './assets/expo.svg'
 import resume from './assets/Resume.pdf'
 
+const GH_PAGES_ROOT = 'https://mikematics22800.github.io'
+
+const portfolioProjects = [
+  {
+    title: 'Cyclopedia',
+    href: 'https://tropical-cyclopedia.com',
+    image: cyclopedia,
+    blurb:
+      'Tropical cyclone tracking and visualization: historical Atlantic and Pacific storm archives, live NHC data, interactive Leaflet maps, and Chart.js analytics—including intensity curves, ACE/TIKE metrics, and forecast cones. Ships as an installable PWA with offline support.',
+    details: [
+      'Explore basin/year/storm flows, storm imagery, and live weather layers on the map.',
+      'Sole developer; built with Next.js (App Router), TypeScript, Tailwind CSS, React Leaflet, and Material UI.',
+    ],
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Leaflet', 'Chart.js', 'Material UI', 'PWA'],
+  },
+  {
+    title: 'Cryptomatics',
+    href: `${GH_PAGES_ROOT}/Cryptomatics`,
+    image: cryptomatics,
+    blurb:
+      'Single-page app for cryptocurrency market exploration: Coin Ranking–powered spot data and charts, Supabase-backed authentication, optional paper-wallet–style balances, and user-to-user transfers with transaction history.',
+    details: [
+      'Dashboard, top-100 browse, and per-coin detail with Chart.js history and USD/EUR display (Frankfurter for fiat conversion).',
+      'Vite and React Router; optional Express admin API for trusted Supabase operations. Unit tests with Vitest.',
+    ],
+    stack: ['React', 'Vite', 'Supabase', 'Material UI', 'Tailwind CSS', 'Chart.js', 'Axios', 'Vitest'],
+  },
+  {
+    title: 'Weatherboy',
+    href: `${GH_PAGES_ROOT}/Weatherboy`,
+    image: weatherboy,
+    blurb:
+      'Weather client for current conditions and forecasts: geolocated weather, worldwide city search with autocomplete, and an interactive map with satellite-derived weather layers (OpenWeather + Google Maps Platform APIs).',
+    details: [
+      'Built with React, React Router, and Vite; UI uses Tailwind CSS, Material UI, Chart.js, and Leaflet.',
+    ],
+    stack: ['React', 'Vite', 'React Router', 'Tailwind CSS', 'Material UI', 'Chart.js', 'Leaflet'],
+  },
+]
+
 const App = () => {
   const scrollTo = (id) => {
     document.getElementById(id).scrollIntoView({behavior: 'smooth'})
   } 
 
-  const ghUrl = "https://mikematics22800.github.io"
-  
   const [contactForm, setContactForm] = useState({
     email: '',
     subject: '',
@@ -93,24 +131,37 @@ const App = () => {
     setSnackbar(prev => ({ ...prev, open: false }))
   }, [])
 
+  const [computersSceneReady, setComputersSceneReady] = useState(false)
+  const handleComputersSceneReady = useCallback(() => {
+    setComputersSceneReady(true)
+  }, [])
+
   const orbitRef = useRef(null)
 
   const orbitRadiusVmin = 35
   
   // Languages → data → front-end frameworks → styling → mobile
   const icons = [
-    { src: js },
-    { src: ts },
-    { src: python },
-    { src: c },
-    { src: cs },
-    { src: sql },
-    { src: mongo },
-    { src: react },
-    { src: vue },
-    { src: angular },
-    { src: tailwind },
-    { src: expo },
+    { src: js, title: 'JavaScript' },
+    { src: ts, title: 'TypeScript' },
+    { src: python, title: 'Python' },
+    { src: c, title: 'C++' },
+    { src: cs, title: 'C#' },
+    { src: sql, title: 'SQL' },
+    { src: mongo, title: 'MongoDB' },
+    { src: react, title: 'React' },
+    { src: vue, title: 'Vue' },
+    { src: angular, title: 'Angular' },
+    { src: tailwind, title: 'Tailwind CSS' },
+    { src: expo, title: 'Expo' },
+  ]
+
+  const skillGroups = [
+    { label: 'Languages', items: ['JavaScript', 'TypeScript', 'SQL', 'Python', 'C#', 'Java', 'C++', 'PHP'] },
+    { label: 'Core frameworks', items: ['React', 'Next.js', 'React Native', 'Expo', '.NET', 'ASP.NET', 'Vue.js', 'Angular', 'Express.js'] },
+    { label: 'Data', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'Supabase'] },
+    { label: 'UI & visualization', items: ['Tailwind CSS', 'Material UI', 'Chart.js', 'Leaflet', 'Three.js', 'tsParticles', 'GSAP'] },
+    { label: 'Tools', items: ['Visual Studio', 'VS Code', 'Git', 'GitHub', 'Cursor'] },
   ]
 
   useEffect(() => {
@@ -142,24 +193,103 @@ const App = () => {
       <div className='w-screen source-code-pro'>
         <div className="hero">
           <div className='computers-container'>
-            <Computers/>
+            <Computers onSceneReady={handleComputersSceneReady} />
+            {!computersSceneReady && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 3,
+                  zIndex: 20,
+                  backgroundColor: 'rgba(0, 0, 0, 0.35)',
+                  pointerEvents: 'none',
+                }}
+                role="status"
+                aria-live="polite"
+              >
+                <CircularProgress size={72} thickness={4} sx={{ color: 'aqua' }} aria-hidden />
+                <Typography
+                  sx={{
+                    color: 'rgba(255, 255, 255, 0.92)',
+                    fontFamily: '"Source Code Pro", monospace',
+                    fontSize: { xs: '0.95rem', sm: '1.1rem' },
+                    letterSpacing: '0.02em',
+                  }}
+                >
+                  Initializing 3D Engine...
+                </Typography>
+              </Box>
+            )}
           </div>
-          <div className='z-10 pt-20'>
-            <span className='text-[red]'>Mike</span>
-            <span className='text-[aqua]'>matics</span>
+          <div className='z-10 pt-20 flex flex-col items-center gap-2 sm:gap-3 max-w-3xl px-4'>
+            <p className="text-4xl sm:text-6xl font-bold">
+              <span className='text-[red]'>Mike</span>
+              <span className='text-[aqua]'>matics</span>
+            </p>
+            <p className="text-white/85 text-center text-sm sm:text-base tracking-wide">
+              Michael Medina · Full-stack software engineer
+            </p>
+            <h1 className="!text-lg sm:!text-2xl !font-normal !text-white/95 !max-w-2xl !leading-snug">
+              Full-stack engineer focused on React, .NET, and cloud-backed systems—clear architecture, tested features, and polished UX.
+            </h1>
+            <button
+              type="button"
+              onClick={() => scrollTo('demos')}
+              className="mt-1 text-aqua/90 hover:text-aqua text-sm underline underline-offset-4 decoration-aqua/50 bg-transparent border-0 cursor-pointer font-inherit"
+            >
+              View selected projects
+            </button>
           </div>
-          <h1>Welcome! Scroll down to view main content.</h1>
         </div> 
         <div className='content relative'>
           <div className='absolute inset-0 z-0 bg-black bg-opacity-20 backdrop-blur-sm'>
             <ParticlesBG />
           </div>
           <section id="about" className='relative z-20'>
-            <div className='lg:my-80 md:my-60 sm:my-40 my-20'>
-              <div className="relative aspect-square w-[30rem] max-w-full overflow-visible">
+            <div className='max-w-3xl mx-auto px-4 pt-16 sm:pt-24 pb-8 text-left'>
+              <h2 className='text-center sm:text-3xl text-2xl font-bold mb-6'>About</h2>
+              <Typography component="div" sx={{ color: 'rgba(255,255,255,0.88)', mb: 2, lineHeight: 1.7 }}>
+                Full-stack engineer with a B.S. in Computer Science from Florida Atlantic University. I emphasize maintainable code, performance-conscious UIs,
+                and reliable integration with APIs and data stores.
+              </Typography>
+              <Typography component="div" sx={{ color: 'rgba(255,255,255,0.88)', mb: 3, lineHeight: 1.7 }}>
+                This portfolio uses React, Three.js, and tsParticles. The orbit highlights core skills; the center icon opens a PDF resume. Selected projects and contact details follow.
+              </Typography>
+              <Box sx={{ mb: 4 }}>
+                {skillGroups.map(({ label, items }) => (
+                  <Box key={label} sx={{ mb: 2 }}>
+                    <Typography variant="overline" sx={{ color: 'aqua', letterSpacing: '0.08em', display: 'block', mb: 1 }}>
+                      {label}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
+                      {items.map((name) => (
+                        <Chip
+                          key={name}
+                          label={name}
+                          size="small"
+                          variant="outlined"
+                          sx={{
+                            borderColor: 'rgba(0, 255, 255, 0.35)',
+                            color: 'rgba(255,255,255,0.9)',
+                            fontFamily: '"Source Code Pro", monospace',
+                            fontSize: '0.7rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </div>
+            <div className='lg:my-24 md:my-20 sm:my-16 my-12'>
+              <div className="relative aspect-square w-[30rem] max-w-full mx-auto overflow-visible">
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
                   <Tooltip
-                    title="Hi! Click me to view resume."
+                    title="Hi! Click me to view my resume."
                     placement="bottom"
                     arrow
                     open
@@ -171,7 +301,7 @@ const App = () => {
                 </div>
                 <div ref={orbitRef} className="absolute inset-0 overflow-visible">
                   {icons.map(({ src, title }, i) => {
-                    const angleDeg = i * 45
+                    const angleDeg = i * 30
                     const rad = (angleDeg * Math.PI) / 180
                     const xVmin = orbitRadiusVmin * Math.cos(rad)
                     const yVmin = -orbitRadiusVmin * Math.sin(rad)
@@ -190,19 +320,55 @@ const App = () => {
                 </div>
               </div>
             </div>
-          </section>   
-          <section className='relative z-20'>
-            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 mb-5'>Live Demos</h1>    
+          </section>
+
+          <section id="demos" className='relative z-20 py-6 sm:py-10 lg:mt-60 md:mt-40 sm:mt-20'>
+            <h2 className='text-center sm:text-3xl text-2xl font-bold z-20 mb-8'>Personal Projects</h2>
             <div className='demos'>
-              <a href='https://tropical-cyclopedia.com' target='_blank'>
-                <img src={cyclopedia} alt="Cyclopedia" />
-              </a>
-              <a href={`${ghUrl}/Cryptomatics`} target='_blank'>
-                <img src={cryptomatics} alt="Cryptomatics" />
-              </a>
-              <a href={`${ghUrl}/Weatherboy`} target='_blank'>
-                <img src={weatherboy} alt="Weatherboy" />
-              </a>
+              {portfolioProjects.map((project) => (
+                <article
+                  key={project.title}
+                  className="demos-project-card rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-6 backdrop-blur-sm"
+                >
+                  <a
+                    className="demos-project-card__media"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" decoding="async" />
+                  </a>
+                  <div className="demos-project-card__body">
+                    <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: 'white' }}>
+                      {project.title}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: 'rgba(255,255,255,0.88)',
+                        lineHeight: 1.7,
+                        fontSize: 'inherit',
+                      }}
+                    >
+                      {[project.blurb, ...project.details].join(' ')}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 1 }}>
+                      {project.stack.map((tag) => (
+                        <Chip
+                          key={tag}
+                          label={tag}
+                          size="small"
+                          sx={{
+                            backgroundColor: 'rgba(0, 255, 255, 0.12)',
+                            color: 'rgba(255,255,255,0.92)',
+                            fontFamily: '"Source Code Pro", monospace',
+                            fontSize: '0.68rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
           <section id="contact" className='relative z-20 my-20'>
