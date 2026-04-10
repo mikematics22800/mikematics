@@ -24,27 +24,27 @@ import resume from './assets/Resume.pdf'
 
 const GH_PAGES_ROOT = 'https://mikematics22800.github.io'
 
-const portfolioProjects = [
+const liveDemos = [
   {
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
     desc: 'Data visualization tool for exploring National Hurricane Center datasets via custom API services. Leverages dynamic maps and charts for tracking and analytics including intensity curves. Explore seasonal datasets by selecting a year, then select a storm for more specific data. View tracker to see live data including forecast cones with atmospheric overlays.',
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Leaflet', 'Chart.js', 'Material UI'],
+    stack: ['Chart.js', 'Material UI', 'Next.js', 'Tailwind CSS', 'TypeScript'],
   },
   {
     title: 'Cryptomatics',
     href: `${GH_PAGES_ROOT}/Cryptomatics`,
     image: cryptomatics,
     desc: 'User platform for exploring crypto datasets via Coinranking API and simulating trading. Leverages dynamic charts for price histories ranging from 3 days to 5 years. Simulates transactions and conversions between USD, EUR, and BTC. User authentication, database, and CRUD operations implemented via Supabase JS client library.' ,
-    stack: ['React', 'Vite', 'Supabase', 'Material UI', 'Tailwind CSS', 'Chart.js', 'Axios'],
+    stack: ['Chart.js', 'Material UI', 'React', 'Supabase', 'Tailwind CSS', 'Vite'],
   },
   {
     title: 'Weatherboy',
     href: `${GH_PAGES_ROOT}/Weatherboy`,
     image: weatherboy,
     desc: 'Web client for querying weather datasets from cities worldwide via OpenWeather API. Queries from current location by default, with smart input that suggests valid cities. These suggestions are shown and reverse geocoded via Google Places API. View current weather and hourly 5 day forecasts along with general outlooks and dew point charts.',
-    stack: ['React', 'Vite', 'React Router', 'Tailwind CSS', 'Material UI', 'Chart.js', 'Leaflet'],
+    stack: ['Chart.js', 'Leaflet', 'Material UI', 'React', 'Tailwind CSS', 'Vite'],
   },
 ]
 
@@ -139,12 +139,63 @@ const App = () => {
   ]
 
   const skillGroups = [
-    { label: 'Languages', items: ['JavaScript', 'TypeScript', 'SQL', 'Python', 'C#', 'Java', 'C++', 'PHP'] },
-    { label: 'Core frameworks', items: ['React', 'Next.js', 'React Native', 'Expo', '.NET', 'ASP.NET', 'Vue.js', 'Angular', 'Express.js'] },
-    { label: 'Data', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'Supabase'] },
-    { label: 'UI & visualization', items: ['Tailwind CSS', 'Material UI', 'Chart.js', 'Leaflet', 'Three.js', 'tsParticles', 'GSAP'] },
-    { label: 'Tools', items: ['Visual Studio', 'VS Code', 'Git', 'GitHub', 'Cursor'] },
-  ]
+    {
+      label: 'Cloud & DevOps',
+      items: [
+        'AWS', 'Azure', 'Cloudflare', 'Docker', 'Google Cloud',
+        'Jenkins', 'Kubernetes', 'NGINX', 'Terraform', 'Vercel'
+      ]
+    },
+    {
+      label: 'Databases & Backend',
+      items: [
+        'AWS DynamoDB', 'Firebase', 'GraphQL', 'MongoDB', 'MySQL',
+        'PostgreSQL', 'Prisma', 'Redis', 'Supabase', 'tRPC'
+      ]
+    },
+    {
+      label: 'Development Tools',
+      items: [
+        'Cursor', 'Docker', 'ESLint', 'Git', 'GitHub',
+        'GitHub Actions', 'npm', 'Prettier', 'VS Code', 'Visual Studio'
+      ]
+    },
+    {
+      label: 'Frameworks & Libraries',
+      items: [
+        'ASP.NET', 'Express.js', 'NestJS', 'Next.js', 'Node.js',
+        'React', 'React Native', 'Redux', 'Three.js', 'Vite'
+      ]
+    },
+    {
+      label: 'Mobile Development',
+      items: [
+        'Android SDK', 'Expo', 'Firebase Auth', 'Flutter', 'Kotlin',
+        'React Native', 'Swift', 'SwiftUI', 'UIKit', 'Xcode'
+      ]
+    },
+    {
+      label: 'Programming Languages',
+      items: [
+        'Bash', 'C#', 'C++', 'Go', 'Java',
+        'JavaScript', 'Python', 'Rust', 'SQL', 'TypeScript'
+      ]
+    },
+    {
+      label: 'Testing & QA Tools',
+      items: [
+        'Chai', 'Cypress', 'JUnit', 'Jest', 'Mocha',
+        'Playwright', 'Postman', 'Selenium', 'Supertest', 'Vitest'
+      ]
+    },
+    {
+      label: 'UI/UX & Visualization',
+      items: [
+        'Chart.js', 'D3.js', 'Figma', 'Framer Motion', 'GSAP',
+        'Leaflet', 'Material UI', 'Shadcn UI', 'Tailwind CSS', 'Three.js'
+      ]
+    }
+  ];
 
   useEffect(() => {
     if (!orbitRef.current) return
@@ -261,60 +312,69 @@ const App = () => {
               <h2 className="text-center font-bold mb-6 sm:mb-8 text-3xl sm:text-4xl tracking-tight">
                 About Me
               </h2>
-              <p className='mb-4'>
-                Greetings. I am Michael, a full-stack engineer focused on shipping web and mobile products that are performant, intuitive,
-                and reliable. I work primarily in JavaScript and TypeScript, with a focus on React and Next.js. I pair refined
-                interfaces with production-ready APIs, authentication, and persistence. On the backend I use relational
-                and document databases, BaaS workflows (Supabase, Firebase), and frameworks from Express through .NET as requirements
-                dictate. I also deliver cross-platform mobile applications with React Native and Expo. For data-intensive
-                experiences, I employ mapping, charting, and motion to make complex information easier to interpret. I emphasize
-                maintainable code, accessible user experiences, and clear communication with teammates and stakeholders. The
-                projects below highlight representative work. 
-              </p>
-              <Box sx={{ mb: 2 }}>
-                {skillGroups.map(({ label, items }) => (
-                  <Box key={label} sx={{ mb: 2.5 }}>
-                    <Typography
-                      sx={{
-                        color: 'aqua',
-                        letterSpacing: '0.1em',
-                        display: 'block',
-                        mb: 1.25,
-                        fontFamily: '"Source Code Pro", monospace',
-                        fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                        fontWeight: 600,
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      {label}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1, sm: 1.25 } }}>
-                      {items.map((name) => (
-                        <Chip
-                          key={name}
-                          label={name}
-                          variant="outlined"
+              <div className="w-full flex justify-center px-3 sm:px-5">
+                <div className="w-full max-w-3xl border-l-2 border-[rgba(0,255,255,0.28)] pl-5 sm:pl-10">
+                <p className='mb-4'>
+                  Greetings! I'm a full-stack engineer passionate about building scalable, secure, and user-friendly software. I specialize in creating systems that perform reliably under load and grow seamlessly with teams and users. From web and mobile apps to APIs and databases, I ensure smooth delivery of features from start to finish. I work closely with product and design teams to turn ideas into solid, maintainable code that aligns with business goals.
+                </p>
+
+                <p className='mb-4'>
+                  My primary tech stack includes JavaScript, TypeScript, React, and Next.js, and I’m well-versed in back-end development with SQL, NoSQL, and BaaS solutions like Firebase and Supabase. I’m also experienced in building cross-platform mobile applications using React Native and Expo. My goal is to deliver polished, intuitive user experiences, whether on the web or mobile devices. I’m always focused on writing clean, scalable code that can evolve as the product grows.
+                </p>
+
+                <p className='mb-4'>
+                  I’m particularly interested in data-heavy applications where data visualization plays a key role. I enjoy transforming complex data into clear, engaging charts, maps, and animations that are easy to understand. Effective data visualization helps users make informed decisions and simplifies complex information. I love the challenge of making data both accessible and visually compelling, creating interfaces that tell a clear story.
+                </p>
+
+                <p className='mb-4'>
+                  AI is at the heart of my work, whether I’m designing intelligent features with Large Language Models (LLMs) or using AI tools to optimize engineering processes. I integrate AI in ways that balance speed, privacy, and product quality. Staying current with the latest AI trends is a priority, and I’m always exploring new models, APIs, and tools. I’m committed to leveraging AI to improve both development workflows and the end-user experience.
+                </p>
+                  <Box sx={{ mb: 2, mt: 1 }}>
+                    {skillGroups.map(({ label, items }) => (
+                      <Box key={label} sx={{ mb: 2.5 }}>
+                        <Typography
                           sx={{
-                            borderColor: 'rgba(0, 255, 255, 0.4)',
-                            color: 'rgba(255,255,255,0.92)',
+                            color: 'aqua',
+                            letterSpacing: '0.1em',
+                            display: 'block',
+                            mb: 1.25,
                             fontFamily: '"Source Code Pro", monospace',
                             fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                            height: { xs: 32, sm: 36 },
-                            '& .MuiChip-label': { px: 1.5 },
+                            fontWeight: 600,
+                            textTransform: 'uppercase',
                           }}
-                        />
-                      ))}
-                    </Box>
+                        >
+                          {label}
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1, sm: 1.25 } }}>
+                          {items.map((name) => (
+                            <Chip
+                              key={name}
+                              label={name}
+                              variant="outlined"
+                              sx={{
+                                borderColor: 'rgba(0, 255, 255, 0.4)',
+                                color: 'rgba(255,255,255,0.92)',
+                                fontFamily: '"Source Code Pro", monospace',
+                                fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                                height: { xs: 32, sm: 36 },
+                                '& .MuiChip-label': { px: 1.5 },
+                              }}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    ))}
                   </Box>
-                ))}
-              </Box>
+                </div>
+              </div>
             </div>
           </section>
 
           <section id="demos" className='relative z-20 py-6 sm:py-10 lg:mt-60 md:mt-40 sm:mt-20'>
-            <h2 className='text-center text-3xl sm:text-4xl font-bold z-20 mb-8'>Projects</h2>
+            <h2 className='text-center text-3xl sm:text-4xl font-bold z-20 mb-8'>Live Demos</h2>
             <div className='demos'>
-              {portfolioProjects.map((project) => (
+              {liveDemos.map((project) => (
                 <article
                   key={project.title}
                   className="demos-project-card"
