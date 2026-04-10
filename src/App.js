@@ -29,30 +29,26 @@ const portfolioProjects = [
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
-    desc: 'Cyclopedia is a tropical cyclone tracking and visualization application. It combines historical Atlantic and Pacific storm archives with live National Hurricane Center data on interactive Leaflet maps, and it uses Chart.js for analytics such as intensity curves, ACE and TIKE metrics, and forecast cones. The site ships as an installable progressive web app. You can explore by basin, year, and storm; view imagery; and overlay live weather layers on the map.',
+    desc: 'Data visualization tool for exploring National Hurricane Center datasets via custom API services. Leverages dynamic maps and charts for tracking and analytics including intensity curves. Explore seasonal datasets by selecting a year, then select a storm for more specific data. View tracker to see live data including forecast cones with atmospheric overlays.',
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React Leaflet', 'Chart.js', 'Material UI'],
   },
   {
     title: 'Cryptomatics',
     href: `${GH_PAGES_ROOT}/Cryptomatics`,
     image: cryptomatics,
-    desc: 'Cryptomatics is a single-page application for exploring cryptocurrency markets. Spot data and charts are powered by Coin Ranking; Supabase provides authentication. Optional paper-wallet-style balances and peer-to-peer transfers include a full transaction history. The dashboard includes a top-100 browse view and per-coin detail pages with Chart.js price history and USD and EUR pricing via the Frankfurter API for fiat conversion. The front end is built with Vite, React, and React Router.',
+    desc: 'User platform for exploring crypto datasets via Coinranking API and simulating trading. Leverages dynamic charts for price histories ranging from 3 days to 5 years. Simulates transactions and conversions between USD, EUR, and BTC. User authentication, database, and CRUD operations implemented via Supabase JS client library.' ,
     stack: ['React', 'Vite', 'Supabase', 'Material UI', 'Tailwind CSS', 'Chart.js', 'Axios'],
   },
   {
     title: 'Weatherboy',
     href: `${GH_PAGES_ROOT}/Weatherboy`,
     image: weatherboy,
-    desc: 'Weatherboy is a weather client for current conditions and forecasts. It supports geolocated weather, worldwide city search with autocomplete, and an interactive map with satellite-derived weather layers from the OpenWeather and Google Maps Platform APIs. The app is built with React, Vite, and React Router; the interface uses Tailwind CSS, Material UI, Chart.js, and Leaflet.',
+    desc: 'Web client for querying weather datasets from cities worldwide via OpenWeather API. Queries from current location by default, with smart input that suggests valid cities. These suggestions are shown and reverse geocoded via Google Places API. View current weather and hourly 5 day forecasts along with general outlooks and dew point charts.',
     stack: ['React', 'Vite', 'React Router', 'Tailwind CSS', 'Material UI', 'Chart.js', 'Leaflet'],
   },
 ]
 
 const App = () => {
-  const scrollTo = (id) => {
-    document.getElementById(id).scrollIntoView({behavior: 'smooth'})
-  } 
-
   const [contactForm, setContactForm] = useState({
     email: '',
     subject: '',
@@ -230,7 +226,7 @@ const App = () => {
               <div className="relative aspect-square w-[30rem] max-w-full mx-auto overflow-visible">
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
                   <Tooltip
-                    title="Hi! Click me to view my resume."
+                    title="Click me to view resume!"
                     placement="bottom"
                     arrow
                     open
@@ -262,33 +258,19 @@ const App = () => {
               </div>
             </div>
             <div className="about-text pt-16 sm:pt-24 pb-10 sm:pb-12 text-left">
-              <h2 className="text-center font-bold mb-6 sm:mb-8 text-3xl sm:text-4xl lg:text-[2.35rem] tracking-tight">
+              <h2 className="text-center font-bold mb-6 sm:mb-8 text-3xl sm:text-4xl tracking-tight">
                 About Me
               </h2>
-              <Typography
-                component="div"
-                sx={{
-                  color: 'rgba(255,255,255,0.9)',
-                  mb: 2.5,
-                  lineHeight: 1.75,
-                  fontSize: { xs: '1.0625rem', sm: '1.125rem', md: '1.2rem' },
-                  textAlign: 'justify',
-                  '& p': { margin: 0, marginBottom: 1.75 },
-                  '& p:last-of-type': { marginBottom: 0 },
-                }}
-              >
-                <p>
-                  Greetings! I&apos;m Michael, a full-stack engineer who enjoys shipping web apps and mobile experiences that feel
-                  fast, clear, and dependable. I work across the modern JavaScript and TypeScript ecosystem—especially React and
-                  Next.js—and pair polished interfaces with APIs, authentication, and data stores that belong in production.
-                  On the backend I&apos;m at home with SQL and document databases, Supabase and Firebase-style workflows, and
-                  frameworks from Express to .NET when the problem calls for it. I also build cross-platform mobile apps with React
-                  Native and Expo. When the story is in the data, I reach for maps, charts, and animation (Leaflet, Chart.js, GSAP)
-                  so users can explore complexity without getting lost in it.
-                  I care about maintainable code, accessible UX, and honest communication with teammates and stakeholders. Browse
-                  the projects below for concrete examples, or open the resume link above if you&apos;d like the full rundown. 😎
-                </p>
-              </Typography>
+              <p className='mb-4'>
+                Greetings. I am Michael, a full-stack engineer focused on shipping web and mobile products that are performant, intuitive,
+                and reliable. I work primarily in JavaScript and TypeScript, with a focus on React and Next.js. I pair refined
+                interfaces with production-ready APIs, authentication, and persistence. On the backend I use relational
+                and document databases, BaaS workflows (Supabase, Firebase), and frameworks from Express through .NET as requirements
+                dictate. I also deliver cross-platform mobile applications with React Native and Expo. For data-intensive
+                experiences, I employ mapping, charting, and motion to make complex information easier to interpret. I emphasize
+                maintainable code, accessible user experiences, and clear communication with teammates and stakeholders. The
+                projects below highlight representative work. 
+              </p>
               <Box sx={{ mb: 2 }}>
                 {skillGroups.map(({ label, items }) => (
                   <Box key={label} sx={{ mb: 2.5 }}>
@@ -330,7 +312,7 @@ const App = () => {
           </section>
 
           <section id="demos" className='relative z-20 py-6 sm:py-10 lg:mt-60 md:mt-40 sm:mt-20'>
-            <h2 className='text-center sm:text-3xl text-2xl font-bold z-20 mb-8'>Personal Projects</h2>
+            <h2 className='text-center text-3xl sm:text-4xl font-bold z-20 mb-8'>Projects</h2>
             <div className='demos'>
               {portfolioProjects.map((project) => (
                 <article
@@ -346,19 +328,12 @@ const App = () => {
                     <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" decoding="async" />
                   </a>
                   <div className="demos-project-card__body">
-                    <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: 'white' }}>
+                    <h1 className='text-2xl font-bold'>
                       {project.title}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        color: 'rgba(255,255,255,0.88)',
-                        lineHeight: 1.7,
-                        fontSize: 'inherit',
-                        textAlign: 'justify',
-                      }}
-                    >
+                    </h1>
+                    <p>
                       {project.desc}
-                    </Typography>
+                    </p>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 1 }}>
                       {project.stack.map((tag) => (
                         <Chip
@@ -378,7 +353,7 @@ const App = () => {
             </div>
           </section>
           <section id="contact" className='relative z-20 my-20'>
-            <h1 className='text-center sm:text-3xl text-2xl font-bold z-20 mb-5'>Contact</h1>    
+            <h1 className='text-center sm:text-3xl text-2xl font-bold znpm s-20 mb-5'>Contact</h1>    
             <div className='contact'>
               <Paper 
                 elevation={3} 
