@@ -29,7 +29,7 @@ const liveDemos = [
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
-    desc: 'Data visualization tool for exploring National Hurricane Center datasets via custom API services. Leverages dynamic maps and charts for tracking and analytics including intensity curves. Explore seasonal datasets by selecting a year, then select a storm for more specific data. View tracker to see live data including forecast cones with atmospheric overlays.',
+    desc: 'Data visualization tool built on Next.js for exploring National Hurricane Center datasets via custom API services. Leverages dynamic maps and charts for tracking and analytics including intensity curves. Live tracker includes forecast cones with atmospheric overlays. Installable on iOS and Android as progressive web app with distinct mobile interface.',
     stack: ['Chart.js', 'Material UI', 'Next.js', 'Tailwind CSS', 'TypeScript'],
   },
   {
@@ -149,7 +149,7 @@ const App = () => {
     {
       label: 'Databases & Backend',
       items: [
-        'AWS DynamoDB', 'Firebase', 'GraphQL', 'MongoDB', 'MySQL',
+        'DynamoDB', 'Firebase', 'GraphQL', 'MongoDB', 'MySQL',
         'PostgreSQL', 'Prisma', 'Redis', 'Supabase', 'tRPC'
       ]
     },
@@ -157,21 +157,21 @@ const App = () => {
       label: 'Development Tools',
       items: [
         'Cursor', 'Docker', 'ESLint', 'Git', 'GitHub',
-        'GitHub Actions', 'npm', 'Prettier', 'VS Code', 'Visual Studio'
+        'GitHub Desktop', 'Node.js', 'Prettier', 'Visual Studio', 'Visual Studio Code'
       ]
     },
     {
       label: 'Frameworks & Libraries',
       items: [
-        'ASP.NET', 'Express.js', 'NestJS', 'Next.js', 'Node.js',
-        'React', 'React Native', 'Redux', 'Three.js', 'Vite'
+        'Angular','ASP.NET', 'Express.js', 'Next.js', 'Node.js',
+        'React', 'React Native', 'Redux', 'Vue.js', 'Vite', 
       ]
     },
     {
       label: 'Mobile Development',
       items: [
-        'Android SDK', 'Expo', 'Firebase Auth', 'Flutter', 'Kotlin',
-        'React Native', 'Swift', 'SwiftUI', 'UIKit', 'Xcode'
+        'Android SDK', 'Expo', 'Flutter', 'Kotlin', '.NET MAUI',
+        'React Native', 'Swift', 'UIKit', 'Xcode'
       ]
     },
     {
