@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "./static/css/main.32b2c1d3.css",
-    "main.js": "./static/js/main.d922f078.js",
+    "main.js": "./static/js/main.930e02b1.js",
     "static/js/451.86ec87ad.chunk.js": "./static/js/451.86ec87ad.chunk.js",
     "static/media/weatherboy.png": "./static/media/weatherboy.aa02469602ec18225c7c.png",
-    "static/media/cyclopedia.png": "./static/media/cyclopedia.5e2683a539a1004df051.png",
+    "static/media/cyclopedia.png": "./static/media/cyclopedia.209e9b1688786f79edef.png",
     "static/media/cryptomatics.png": "./static/media/cryptomatics.f6a2a707a7b84d9fb0cb.png",
-    "static/media/Resume.pdf": "./static/media/Resume.974ea2e7eef2cdb4eea2.pdf",
+    "static/media/Resume.pdf": "./static/media/Resume.943ea2457da410e0ec57.pdf",
     "static/media/tailwind.png": "./static/media/tailwind.479d7a8b4dc069959b65.png",
     "static/media/c++.png": "./static/media/c++.c582b882f94d05d6a689.png",
     "static/media/coding.png": "./static/media/coding.629a601f304fa93bc735.png",
@@ -20,11 +20,11 @@
     "static/media/vue.svg": "./static/media/vue.0c97e313d781a6b074e5fdb359cc83f6.svg",
     "static/media/react.svg": "./static/media/react.3a03708e42481565259f85329d20b695.svg",
     "main.32b2c1d3.css.map": "./static/css/main.32b2c1d3.css.map",
-    "main.d922f078.js.map": "./static/js/main.d922f078.js.map",
+    "main.930e02b1.js.map": "./static/js/main.930e02b1.js.map",
     "451.86ec87ad.chunk.js.map": "./static/js/451.86ec87ad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.32b2c1d3.css",
-    "static/js/main.d922f078.js"
+    "static/js/main.930e02b1.js"
   ]
 }

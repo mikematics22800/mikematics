@@ -312,8 +312,8 @@ const App = () => {
               <h2 className="text-center font-bold mb-6 sm:mb-8 text-3xl sm:text-4xl tracking-tight">
                 About Me
               </h2>
-              <div className="w-full flex justify-center px-3 sm:px-5">
-                <div className="w-full max-w-3xl border-l-2 border-[rgba(0,255,255,0.28)] pl-5 sm:pl-10">
+              <div className="w-full flex justify-center">
+                <div className="w-full border-l-2 border-[rgba(0,255,255,0.28)] pl-5 sm:pl-10">
                 <p className='mb-4'>
                   Greetings! I'm a full-stack engineer passionate about building scalable, secure, and user-friendly software. I specialize in creating systems that perform reliably under load and grow seamlessly with teams and users. From web and mobile apps to APIs and databases, I ensure smooth delivery of features from start to finish. I work closely with product and design teams to turn ideas into solid, maintainable code that aligns with business goals.
                 </p>
@@ -346,7 +346,7 @@ const App = () => {
                         >
                           {label}
                         </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1, sm: 1.25 } }}>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 0.75, sm: 1 } }}>
                           {items.map((name) => (
                             <Chip
                               key={name}
@@ -356,9 +356,9 @@ const App = () => {
                                 borderColor: 'rgba(0, 255, 255, 0.4)',
                                 color: 'rgba(255,255,255,0.92)',
                                 fontFamily: '"Source Code Pro", monospace',
-                                fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                                height: { xs: 32, sm: 36 },
-                                '& .MuiChip-label': { px: 1.5 },
+                                fontSize: { xs: '0.72rem', sm: '0.8rem' },
+                                height: { xs: 26, sm: 30 },
+                                '& .MuiChip-label': { px: 1.125 },
                               }}
                             />
                           ))}
