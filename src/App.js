@@ -29,22 +29,22 @@ const liveDemos = [
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
-    desc: 'Data visualization tool built on Next.js for exploring National Hurricane Center datasets via custom API services. Leverages dynamic maps and charts for tracking and analytics including intensity curves. Live tracker includes forecast cones with atmospheric overlays. Installable on iOS and Android as progressive web app with distinct mobile interface.',
-    stack: ['Chart.js', 'Material UI', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    desc: 'Data visualization tool built on Next.js for exploring National Hurricane Center datasets via custom API services. Leverages dynamic maps and charts for tracking and analytics including intensity curves. Installable on iOS and Android as progressive web app with distinct mobile interface.',
+    stack: ['Chart.js', 'GSAP', 'Leaflet', 'Material UI', 'Next.js', 'Tailwind CSS', 'TypeScript'],
   },
   {
     title: 'Cryptomatics',
     href: `${GH_PAGES_ROOT}/Cryptomatics`,
     image: cryptomatics,
     desc: 'User platform for exploring crypto datasets via Coinranking API and simulating trading. Leverages dynamic charts for price histories ranging from 3 days to 5 years. Simulates transactions and conversions between USD, EUR, and BTC. User authentication, database, and CRUD operations implemented via Supabase JS client library.' ,
-    stack: ['Chart.js', 'Material UI', 'React', 'Supabase', 'Tailwind CSS', 'Vite'],
+    stack: ['Chart.js', 'GSAP', 'Material UI', 'React', 'Supabase', 'Tailwind CSS', 'Vite'],
   },
   {
     title: 'Weatherboy',
     href: `${GH_PAGES_ROOT}/Weatherboy`,
     image: weatherboy,
-    desc: 'Web client for querying weather datasets from cities worldwide via OpenWeather API. Queries from current location by default, with smart input that suggests valid cities. These suggestions are shown and reverse geocoded via Google Places API. View current weather and hourly 5 day forecasts along with general outlooks and dew point charts.',
-    stack: ['Chart.js', 'Leaflet', 'Material UI', 'React', 'Tailwind CSS', 'Vite'],
+    desc: 'Web client for querying weather data from cities worldwide via OpenWeather and Google Maps API. Queries from current location by default, with smart input that suggests valid cities. Includes dynamic map with city markers and atmospheric overlays, along with charted 5 day forecast metrics.',
+    stack: ['Chart.js', 'Google Cloud', 'GSAP', 'Leaflet', 'Material UI', 'React', 'Tailwind CSS', 'Vite'],
   },
 ]
 
