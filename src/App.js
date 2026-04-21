@@ -29,7 +29,7 @@ const liveDemos = [
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
-    desc: 'Data visualization tool built on Next.js for exploring National Hurricane Center datasets via custom API services. Leverages dynamic maps and charts for tracking and analytics including intensity curves. Installable on iOS and Android as progressive web app with distinct mobile interface.',
+    desc: 'Data visualization tool built on Next.js for exploring National Hurricane Center datasets. Leverages dynamic maps and charts for tracking and analytics including wind fields and intensity curves. Installable on iOS and Android as progressive web app with distinct mobile interface.',
     stack: ['Chart.js', 'GSAP', 'Leaflet', 'Material UI', 'Next.js', 'Tailwind CSS', 'TypeScript'],
   },
   {
@@ -308,45 +308,33 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className="about-text pt-16 sm:pt-24 pb-10 sm:pb-12 text-left">
+            <div className="about-text pt-10 sm:pt-24 pb-6 sm:pb-12 text-left">
               <h2 className="text-center font-bold mb-6 sm:mb-8 text-3xl sm:text-4xl tracking-tight">
                 About Me
               </h2>
               <div className="w-full flex justify-center">
                 <div className="w-full border-l-2 border-[rgba(0,255,255,0.28)] pl-5 sm:pl-10">
-                <p className='mb-4'>
-                  Greetings! I'm a full-stack engineer passionate about building scalable, secure, and user-friendly software. I specialize in creating systems that perform reliably under load and grow seamlessly with teams and users. From web and mobile apps to APIs and databases, I ensure smooth delivery of features from start to finish. I work closely with product and design teams to turn ideas into solid, maintainable code that aligns with business goals.
+                <p className='mb-6 sm:mb-10'>
+                  Greetings! I'm a full-stack engineer passionate about building scalable, secure, and user-friendly software. I specialize in creating systems that perform reliably under load and grow seamlessly with teams and users. From web and mobile apps to APIs and databases, I ensure smooth delivery of features from start to finish. I work closely with product and design teams to turn ideas into solid, maintainable code that aligns with business goals. My primary tech stack includes JavaScript, TypeScript, React, and Next.js, and I’m well-versed in back-end development with SQL, NoSQL, and BaaS solutions like Firebase and Supabase. I’m also experienced in building cross-platform mobile applications using React Native and Expo. My goal is to deliver polished, intuitive user experiences, whether on the web or mobile devices. I’m always focused on writing clean, scalable code that can evolve as the product grows. I’m particularly interested in data-heavy applications where data visualization plays a key role. I enjoy transforming complex data into clear, engaging charts, maps, and animations that are easy to understand. Effective data visualization helps users make informed decisions and simplifies complex information. I love the challenge of making data both accessible and visually compelling, creating interfaces that tell a clear story. AI is at the heart of my work, whether I’m designing intelligent features with Large Language Models (LLMs) or using AI tools to optimize engineering processes. I integrate AI in ways that balance speed, privacy, and product quality. Staying current with the latest AI trends is a priority, and I’m always exploring new models, APIs, and tools. I’m committed to leveraging AI to improve both development workflows and the end-user experience.
                 </p>
-
-                <p className='mb-4'>
-                  My primary tech stack includes JavaScript, TypeScript, React, and Next.js, and I’m well-versed in back-end development with SQL, NoSQL, and BaaS solutions like Firebase and Supabase. I’m also experienced in building cross-platform mobile applications using React Native and Expo. My goal is to deliver polished, intuitive user experiences, whether on the web or mobile devices. I’m always focused on writing clean, scalable code that can evolve as the product grows.
-                </p>
-
-                <p className='mb-4'>
-                  I’m particularly interested in data-heavy applications where data visualization plays a key role. I enjoy transforming complex data into clear, engaging charts, maps, and animations that are easy to understand. Effective data visualization helps users make informed decisions and simplifies complex information. I love the challenge of making data both accessible and visually compelling, creating interfaces that tell a clear story.
-                </p>
-
-                <p className='mb-4'>
-                  AI is at the heart of my work, whether I’m designing intelligent features with Large Language Models (LLMs) or using AI tools to optimize engineering processes. I integrate AI in ways that balance speed, privacy, and product quality. Staying current with the latest AI trends is a priority, and I’m always exploring new models, APIs, and tools. I’m committed to leveraging AI to improve both development workflows and the end-user experience.
-                </p>
-                  <Box sx={{ mb: 2, mt: 1 }}>
+                  <Box sx={{ mb: { xs: 1, sm: 2 }, mt: { xs: 0.75, sm: 1 } }}>
                     {skillGroups.map(({ label, items }) => (
-                      <Box key={label} sx={{ mb: 2.5 }}>
+                      <Box key={label} sx={{ mb: { xs: 1.5, sm: 2.5 } }}>
                         <Typography
                           sx={{
                             color: 'aqua',
                             letterSpacing: '0.1em',
                             display: 'block',
-                            mb: 1.25,
+                            mb: { xs: 0.75, sm: 1.25 },
                             fontFamily: '"Source Code Pro", monospace',
-                            fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                            fontSize: { xs: '0.72rem', sm: '0.875rem' },
                             fontWeight: 600,
                             textTransform: 'uppercase',
                           }}
                         >
                           {label}
                         </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 0.75, sm: 1 } }}>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 0.5, sm: 1 } }}>
                           {items.map((name) => (
                             <Chip
                               key={name}
@@ -356,9 +344,9 @@ const App = () => {
                                 borderColor: 'rgba(0, 255, 255, 0.4)',
                                 color: 'rgba(255,255,255,0.92)',
                                 fontFamily: '"Source Code Pro", monospace',
-                                fontSize: { xs: '0.72rem', sm: '0.8rem' },
-                                height: { xs: 26, sm: 30 },
-                                '& .MuiChip-label': { px: 1.125 },
+                                fontSize: { xs: '0.66rem', sm: '0.8rem' },
+                                height: { xs: 22, sm: 30 },
+                                '& .MuiChip-label': { px: { xs: 0.8, sm: 1.125 } },
                               }}
                             />
                           ))}
@@ -371,8 +359,9 @@ const App = () => {
             </div>
           </section>
 
-          <section id="demos" className='relative z-20 py-6 sm:py-10 lg:mt-60 md:mt-40 sm:mt-20'>
-            <h2 className='text-center text-3xl sm:text-4xl font-bold z-20 mb-8'>Live Demos</h2>
+          <section id="demos" className='relative z-20 py-4 sm:py-10 lg:mt-60 md:mt-40 sm:mt-20'>
+            <h2 className='text-center text-2xl sm:text-4xl font-bold z-20 mb-6 sm:mb-8'>Live Demos</h2>
+            <div className="bg-aqua w-full h-1 mx-auto max-w-5xl"></div>
             <div className='demos'>
               {liveDemos.map((project) => (
                 <article
@@ -388,10 +377,10 @@ const App = () => {
                     <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" decoding="async" />
                   </a>
                   <div className="demos-project-card__body">
-                    <h1 className='text-2xl font-bold'>
+                    <h1 className='text-xl sm:text-2xl font-bold'>
                       {project.title}
                     </h1>
-                    <p>
+                    <p className='text-xs sm:text-base leading-relaxed'>
                       {project.desc}
                     </p>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 1 }}>
@@ -403,6 +392,9 @@ const App = () => {
                             backgroundColor: 'rgba(0, 255, 255, 0.12)',
                             color: 'rgba(255,255,255,0.92)',
                             fontFamily: '"Source Code Pro", monospace',
+                                fontSize: { xs: '0.64rem', sm: '0.78rem' },
+                                height: { xs: 20, sm: 28 },
+                                '& .MuiChip-label': { px: { xs: 0.7, sm: 1 } },
                           }}
                         />
                       ))}
@@ -418,15 +410,16 @@ const App = () => {
               <Paper 
                 elevation={3} 
                 sx={{ 
-                  p: 4, 
+                  p: { xs: 2, sm: 4 }, 
                   maxWidth: '1000', 
                   mx: 'auto', 
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   border: '1px solid rgba(255, 255, 255, 0.2)'
                 }}
               >
-                <Box component="form" onSubmit={handleContactSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <Box component="form" onSubmit={handleContactSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 2, sm: 3 } }}>
                   <TextField
+                    size="small"
                     required={false}
                     label="Email"
                     type="email"
@@ -446,16 +439,19 @@ const App = () => {
                       },
                       '& .MuiInputLabel-root': {
                         color: 'rgba(255, 255, 255, 0.7)',
+                        fontSize: { xs: '0.85rem', sm: '1rem' },
                         '&.Mui-focused': {
                           color: 'aqua',
                         },
                       },
                       '& .MuiInputBase-input': {
                         color: 'white',
+                        fontSize: { xs: '0.85rem', sm: '1rem' },
                       },
                     }}
                   />
                   <TextField
+                    size="small"
                     required={false}
                     label="Subject"
                     value={contactForm.subject}
@@ -474,20 +470,23 @@ const App = () => {
                       },
                       '& .MuiInputLabel-root': {
                         color: 'rgba(255, 255, 255, 0.7)',
+                        fontSize: { xs: '0.85rem', sm: '1rem' },
                         '&.Mui-focused': {
                           color: 'aqua',
                         },
                       },
                       '& .MuiInputBase-input': {
                         color: 'white',
+                        fontSize: { xs: '0.85rem', sm: '1rem' },
                       },
                     }}
                   />
                   <TextField
+                    size="small"
                     required={false}
                     label="Message"
                     multiline
-                    rows={4}
+                    rows={3}
                     value={contactForm.message}
                     onChange={handleInputChange('message')}
                     sx={{
@@ -504,12 +503,14 @@ const App = () => {
                       },
                       '& .MuiInputLabel-root': {
                         color: 'rgba(255, 255, 255, 0.7)',
+                        fontSize: { xs: '0.85rem', sm: '1rem' },
                         '&.Mui-focused': {
                           color: 'aqua',
                         },
                       },
                       '& .MuiInputBase-input': {
                         color: 'white',
+                        fontSize: { xs: '0.85rem', sm: '1rem' },
                       },
                     }}
                   />
