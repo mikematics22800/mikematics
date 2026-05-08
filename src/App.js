@@ -29,22 +29,22 @@ const liveDemos = [
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
-    desc: 'Data visualization tool built on Next.js for exploring National Hurricane Center datasets. Leverages dynamic maps and charts for tracking and analytics including wind fields and intensity curves. Installable on iOS and Android as progressive web app with distinct mobile interface.',
-    stack: ['Chart.js', 'GSAP', 'Leaflet', 'Material UI', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    desc: 'Data visualization tool for exploring National Hurricane Center datasets directly from Next.js server. Leverages dynamic maps and charts for tracking and analytics including wind fields and intensity curves. Installable on iOS and Android as progressive web app with distinct mobile interface.',
+    stack: ['AWS', 'Chart.js', 'GSAP', 'Leaflet', 'Material UI', 'Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
   },
   {
     title: 'Cryptomatics',
     href: `${GH_PAGES_ROOT}/Cryptomatics`,
     image: cryptomatics,
-    desc: 'User platform for exploring crypto datasets via Coinranking API and simulating trading. Leverages dynamic charts for price histories ranging from 3 days to 5 years. Simulates transactions and conversions between USD, EUR, and BTC. User authentication, database, and CRUD operations implemented via Supabase JS client library.' ,
-    stack: ['Chart.js', 'GSAP', 'Material UI', 'React', 'Supabase', 'Tailwind CSS', 'Vite'],
+    desc: 'User platform for exploring crypto exchange via Coinranking API and simulating trading. Leverages dynamic charts for price histories ranging from 3 days to 5 years. Simulates transactions and conversions between USD, EUR, and BTC. User authentication, database, and CRUD operations implemented via Supabase JS client library.' ,
+    stack: ['Chart.js', 'GSAP', 'JavaScript', 'Material UI', 'React', 'Supabase', 'Tailwind CSS', 'Vite'],
   },
   {
     title: 'Weatherboy',
     href: `${GH_PAGES_ROOT}/Weatherboy`,
     image: weatherboy,
     desc: 'Web client for querying weather data from cities worldwide via OpenWeather and Google Maps API. Queries from current location by default, with smart input that suggests valid cities. Includes dynamic map with city markers and atmospheric overlays, along with charted 5 day forecast metrics.',
-    stack: ['Chart.js', 'Google Cloud', 'GSAP', 'Leaflet', 'Material UI', 'React', 'Tailwind CSS', 'Vite'],
+    stack: ['Chart.js', 'Google Cloud', 'GSAP', 'JavaScript', 'Leaflet', 'Material UI', 'React', 'Tailwind CSS', 'Vite'],
   },
 ]
 
@@ -142,35 +142,35 @@ const App = () => {
     {
       label: 'Cloud & DevOps',
       items: [
-        'AWS', 'Azure', 'Cloudflare', 'Docker', 'Google Cloud',
-        'Jenkins', 'Kubernetes', 'NGINX', 'Terraform', 'Vercel'
+        'AWS', 'Azure', 'Cloudflare', 'GitHub Actions', 'Google Cloud',
+        'Heroku', 'Kubernetes', 'Oracle Cloud', 'Terraform', 'Vercel'
       ]
     },
     {
       label: 'Databases & Backend',
       items: [
         'DynamoDB', 'Firebase', 'GraphQL', 'MongoDB', 'MySQL',
-        'PostgreSQL', 'Prisma', 'Redis', 'Supabase', 'tRPC'
+        'PostgreSQL', 'Prisma', 'RDS', 'Redis', 'Supabase'
       ]
     },
     {
       label: 'Development Tools',
       items: [
-        'Cursor', 'Docker', 'ESLint', 'Git', 'GitHub',
-        'GitHub Desktop', 'Node.js', 'Prettier', 'Visual Studio', 'Visual Studio Code'
+        'Cursor', 'Docker', 'ESLint', 'Git', 'GitHub Desktop',
+        'NPM', 'NuGet', 'SSMS', 'Visual Studio', 'VS Code'
       ]
     },
     {
       label: 'Frameworks & Libraries',
       items: [
-        'Angular','ASP.NET', 'Express.js', 'Next.js', 'Node.js',
-        'React', 'React Native', 'Redux', 'Vue.js', 'Vite', 
+        'Angular', 'ASP.NET', 'Django', 'Express.js', 'Next.js',
+        'Node.js', 'React', 'Redux', 'Vue.js', 'Vite',
       ]
     },
     {
       label: 'Mobile Development',
       items: [
-        'Android SDK', 'Expo', 'Flutter', 'Kotlin', '.NET MAUI',
+        'Android SDK', 'CocoaPods', 'Expo', 'Flutter', 'Kotlin', '.NET MAUI',
         'React Native', 'Swift', 'UIKit', 'Xcode'
       ]
     },
@@ -178,7 +178,7 @@ const App = () => {
       label: 'Programming Languages',
       items: [
         'Bash', 'C#', 'C++', 'Go', 'Java',
-        'JavaScript', 'Python', 'Rust', 'SQL', 'TypeScript'
+        'JavaScript', 'Python', 'TypeScript', 'Rust', 'SQL'
       ]
     },
     {
@@ -191,8 +191,8 @@ const App = () => {
     {
       label: 'UI/UX & Visualization',
       items: [
-        'Chart.js', 'D3.js', 'Figma', 'Framer Motion', 'GSAP',
-        'Leaflet', 'Material UI', 'Shadcn UI', 'Tailwind CSS', 'Three.js'
+        'Chart.js', 'D3.js', 'Framer Motion', 'GSAP', 'Leaflet',
+        'Material UI', 'Shadcn UI', 'Tailwind CSS', 'Three.js', 'tsParticles'
       ]
     }
   ];
@@ -277,10 +277,9 @@ const App = () => {
               <div className="relative aspect-square w-[30rem] max-w-full mx-auto overflow-visible">
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
                   <Tooltip
-                    title="Click me to view resume!"
+                    title="Resume"
                     placement="bottom"
                     arrow
-                    open
                   >
                     <a href={resume} target='_blank' rel="noreferrer">
                       <img src={coding} className='w-[20vw] max-w-40 hover:scale-[105%] transition-transform duration-200' alt="Resume" />
