@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { TextField, Button, Box, Paper, Snackbar, Alert, Tooltip, CircularProgress, Typography, Chip, Link } from '@mui/material'
+import { TextField, Button, Box, Paper, Snackbar, Alert, CircularProgress, Typography, Chip, Link } from '@mui/material'
 import emailjs from '@emailjs/browser'
 import Computers from './components/Computers'
 import ParticlesBG from './components/ParticlesBG'
@@ -20,7 +20,6 @@ import mongo from './assets/mongo.svg'
 import vue from './assets/vue.svg'
 import angular from './assets/angular.svg'
 import expo from './assets/expo.svg'
-import resume from './assets/Resume.pdf'
 
 const GH_PAGES_ROOT = 'https://mikematics22800.github.io'
 
@@ -29,8 +28,15 @@ const liveDemos = [
     title: 'Cyclopedia',
     href: 'https://tropical-cyclopedia.com',
     image: cyclopedia,
-    desc: 'Data visualization tool for exploring National Hurricane Center datasets directly from Next.js server. Leverages dynamic maps and charts for tracking and analytics including wind fields and intensity curves. Installable on iOS and Android as progressive web app with distinct mobile interface.',
-    stack: ['AWS', 'Chart.js', 'GSAP', 'Leaflet', 'Material UI', 'Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
+    desc: 'Data visualization tool with dedicated domain for exploring National Hurricane Center datasets by year and basin starting from 1851. Leverages dynamic charts, map, and globe for tracking and metrics including wind fields and intensity curves. Installable as PWA on iOS and Android with distinct mobile interface.',
+    stack: ['AWS', 'Cesium', 'Chart.js', 'GSAP', 'Leaflet', 'Material UI', 'Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
+  },
+  {
+    title: 'Weatherboy',
+    href: `${GH_PAGES_ROOT}/Weatherboy`,
+    image: weatherboy,
+    desc: 'Web client for querying weather data from cities worldwide via OpenWeather and Google Maps API. Queries from current location by default, with smart input that suggests valid cities. Includes dynamic map and globe with city markers and atmospheric overlays, along with charted 5 day forecast metrics.',
+    stack: ['Cesium', 'Chart.js', 'Google Cloud', 'GSAP', 'JavaScript', 'Leaflet', 'Material UI', 'React', 'Tailwind CSS', 'Vite'],
   },
   {
     title: 'Cryptomatics',
@@ -38,13 +44,6 @@ const liveDemos = [
     image: cryptomatics,
     desc: 'User platform for exploring crypto exchange via Coinranking API and simulating trading. Leverages dynamic charts for price histories ranging from 3 days to 5 years. Simulates transactions and conversions between USD, EUR, and BTC. User authentication, database, and CRUD operations implemented via Supabase JS client library.' ,
     stack: ['Chart.js', 'GSAP', 'JavaScript', 'Material UI', 'React', 'Supabase', 'Tailwind CSS', 'Vite'],
-  },
-  {
-    title: 'Weatherboy',
-    href: `${GH_PAGES_ROOT}/Weatherboy`,
-    image: weatherboy,
-    desc: 'Web client for querying weather data from cities worldwide via OpenWeather and Google Maps API. Queries from current location by default, with smart input that suggests valid cities. Includes dynamic map with city markers and atmospheric overlays, along with charted 5 day forecast metrics.',
-    stack: ['Chart.js', 'Google Cloud', 'GSAP', 'JavaScript', 'Leaflet', 'Material UI', 'React', 'Tailwind CSS', 'Vite'],
   },
 ]
 
@@ -191,7 +190,7 @@ const App = () => {
     {
       label: 'UI/UX & Visualization',
       items: [
-        'Chart.js', 'D3.js', 'Framer Motion', 'GSAP', 'Leaflet',
+        'Cesium', 'Chart.js', 'D3.js', 'GSAP', 'Leaflet',
         'Material UI', 'Shadcn UI', 'Tailwind CSS', 'Three.js', 'tsParticles'
       ]
     }
@@ -276,15 +275,7 @@ const App = () => {
             <div className='lg:my-96 sm:my-48'>
               <div className="relative aspect-square w-[30rem] max-w-full mx-auto overflow-visible">
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
-                  <Tooltip
-                    title="Resume"
-                    placement="bottom"
-                    arrow
-                  >
-                    <a href={resume} target='_blank' rel="noreferrer">
-                      <img src={coding} className='w-[20vw] max-w-40 hover:scale-[105%] transition-transform duration-200' alt="Resume" />
-                    </a>
-                  </Tooltip>
+                  <img src={coding} className='w-[20vw] max-w-40' alt="Coding" />
                 </div>
                 <div ref={orbitRef} className="absolute inset-0 overflow-visible">
                   {icons.map(({ src, title }, i) => {
